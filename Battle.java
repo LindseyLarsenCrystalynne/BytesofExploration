@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public class Battle
 {
 	public void start()
@@ -10,7 +9,7 @@ public class Battle
 		Scanner scan = new Scanner(System.in);
 		while (fight) 
 		{
-			System.out.println("Would you like to : Fight -- Defend -- Skill -- Item -- Run");
+			System.out.println("\nWould you like to : Fight -- Defend -- Skill -- Item -- Run");
 			switch (scan.nextLine())
 			{
 			case "Fight":
@@ -22,7 +21,7 @@ public class Battle
 					break;
 
 				case "Magic":
-					// playerMAttack();
+					System.out.println(playerMAttack());
 					break;
 				}
 				break;
@@ -38,10 +37,43 @@ public class Battle
 	public String playerAttack()
 	{
 		Player p = new Player();
-		//need to set which enemy here
+		Enemies e = new Enemies();
 
 		int newHP = e.getCurHealth() - p.getAttack();
 		e.setCurHealth(newHP);
 		return "\nYou attacked the enemy for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
 	}
+	
+	public String enemyAttack()
+	{
+		Player p = new Player();
+		Enemies e = new Enemies();
+
+		int newHP = p.getCurHealth() - e.getAttack();
+		p.setCurHealth(newHP);
+		return "\nThe enemy attacked you for " + e.getAttack() + " damage! You now have " + newHP + " health.";
+	}
+	
+	public String playerMAttack()
+	{
+		Player p = new Player();
+		Enemies e = new Enemies();
+
+		int newHP = e.getCurHealth() - p.getMagic();
+		e.setCurHealth(newHP);
+		return "\nYou attacked the enemy for " + p.getMagic() + " damage! The enemy now has " + newHP + " health.";
+	}
+
+	public String enemyMAttack()
+	{
+		Player p = new Player();
+		Enemies e = new Enemies();
+
+		int newHP = p.getCurHealth() - e.getMagic();
+		p.setCurHealth(newHP);
+		return "\nThe enemy attacked you for " + e.getMagic() + " damage! You now have " + newHP + " health.";
+	}
+
+
 }
+

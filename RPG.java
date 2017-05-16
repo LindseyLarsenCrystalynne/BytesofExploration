@@ -84,12 +84,37 @@ public class RPG
     
     switch (selection)
     {
-    	case 1:
+	  case 1:
       {
-      	Save s = new Save();
-        s.changeName();
+        Save save = new Save();
+        save.setName(Name());
         break;
-      
+      }
+      case 2:
+      {
+      	Save save = new Save();
+        System.out.print("Are you sure you want to format the save data? Type yes to format. "");
+        String delete = s.nextLine();
+        if (delete.equalsIgnoreCase("yes"))
+        {
+        	Files.delete("bytes.sav");
+        }
+        break;
+      }
+      case 3:
+      {
+      	mainMenu();
+        break;
+      }
+      default:
+      {
+      	System.out.println("Invalid selection.");
+        TimeUnit.SECONDS.sleep(3);
+        Runtime.getRuntime().exec("cls");
+        mainMenu();
+        break;
+      }
+    }
   }
   
   public void mainMenu()
@@ -107,7 +132,7 @@ public class RPG
     
     switch (selection)
     {
-    	case 1:
+      case 1:
       {
       	Battle b = new Battle();
         b.start();
@@ -139,7 +164,7 @@ public class RPG
         mainMenu();
         break;
       }
-  		break;
+  	  break;
     }
   }
   

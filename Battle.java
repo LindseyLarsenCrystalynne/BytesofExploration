@@ -12,24 +12,28 @@ public class Battle
 			System.out.println("\nWould you like to : Fight -- Defend -- Skill -- Item -- Run");
 			switch (scan.nextLine())
 			{
-			case "Fight":
-				System.out.println("\nWhich type of attack: Physical -- Magic");
-				switch (scan.nextLine())
-				{
-				case "Physical":
-					System.out.println(playerAttack());
-					break;
+				case "Fight":
+			 	{
+			 		System.out.println("\nWhich type of attack: Physical -- Magic");
+			 		switch (scan.nextLine())
+			 		{
+			 			case "Physical":
+			 				System.out.println(playerAttack());
+			 				break;
 
-				case "Magic":
-					System.out.println(playerMAttack());
-					break;
+			 			case "Magic":
+			 				System.out.println(playerMAttack());
+			 				break;
+			 		}
+			 		break;
+			 	}
+
+			 	case "Defend":
+			 	{
+			 		System.out.println("You're defending!");
+			 		// playerDefend();
+			 		break;
 				}
-				break;
-
-			case "Defend":
-				System.out.println("You're defending!");
-				// playerDefend();
-
 			}
 		}
 	}

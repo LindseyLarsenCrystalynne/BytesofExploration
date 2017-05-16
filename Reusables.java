@@ -1,4 +1,4 @@
-public class Reusable extends Items
+public class Reusables extends Items
 {
   public void heal()
   {

@@ -43,7 +43,7 @@ public class Battle
 		e.setCurHealth(newHP);
 		return "\nYou attacked the enemy for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
 	}
-	
+
 	public String enemyAttack()
 	{
 		Player p = new Player();
@@ -53,7 +53,7 @@ public class Battle
 		p.setCurHealth(newHP);
 		return "\nThe enemy attacked you for " + e.getAttack() + " damage! You now have " + newHP + " health.";
 	}
-	
+
 	public String playerMAttack()
 	{
 		Player p = new Player();

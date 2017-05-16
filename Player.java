@@ -168,7 +168,7 @@ public class Player
 	{
 		Player.money = money;
 	}
-	
+
 	public void addItem(Items i)
 	{
 		inv.add(i);

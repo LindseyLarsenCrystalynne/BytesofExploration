@@ -12,7 +12,7 @@ public class Battle
 			System.out.println("\nWould you like to : ");
 			System.out.println("[Fight] [Defend]");
 			System.out.println("[Skill] [Item]");
-			System.out.println("[Run]");
+			System.out.println("     [Run]");
 			
 			switch (scan.nextLine())
 			{

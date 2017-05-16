@@ -73,7 +73,7 @@ public class RPG
 	{
 		Scanner s = new Scanner(System.in);;
 
-		System.out.println("Options Menu\n");
+		System.out.println("=====Options Menu=====\n");
 		System.out.println("1. Change Name");
 		System.out.println("2. Format Save Data");
 		System.out.println("3. Return to Main Menu");
@@ -125,7 +125,7 @@ public class RPG
 	{
 		Scanner s = new Scanner(System.in);
 
-		System.out.println("Main Menu\n");
+		System.out.println("=====Main Menu=====\n");
 		System.out.println("1. Start Game");
 		System.out.println("2: Stats");
 		System.out.println("3: Options Menu");

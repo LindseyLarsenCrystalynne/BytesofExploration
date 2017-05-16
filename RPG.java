@@ -32,9 +32,9 @@ public class RPG
 
     String[] arr = lines.toArray(new String[0]);
       
-    int rnd = new Random().nextLint(arr.-length);
+    int rnd = new Random().nextInt(arr.length-1);
       
-    str = arr[rnd];
+    String str = arr[rnd];
     
     return str;
   }
@@ -42,7 +42,7 @@ public class RPG
 	public String Name()
 	{
 		Scanner n = new Scanner(System.in);
- 		System.out.println("What's your name? Type "random" for a random name: ");
+ 		System.out.println("What's your name? Type 'random' for a random name: ");
 		String name = n.nextLine();
     
     String username = "";
@@ -55,16 +55,17 @@ public class RPG
     	{
       	username = RandomString("Names.txt");
         
-        System.out.print("This name has been chosen for you: " + username " - do you want to keep it? (y/n) ");
+        System.out.print("This name has been chosen for you: " + username + " - do you want to keep it? (y/n) ");
   		
       	likeName = n.nextLine();
-      }
+      	}
+	}
       
       else
     	{
       	username = name;
-      }
-    }
+     	}
+    
     
     return username;
   }
@@ -76,7 +77,7 @@ public class RPG
     System.out.println("Options Menu\n");
     System.out.println("1. Change Name");
     System.out.println("2. Format Save Data");
-    System.out.println("3. Return to Main Menu";
+    System.out.println("3. Return to Main Menu");
     System.out.print("Choose Your Selection: ");
     
     int selection = s.nextInt();

@@ -1,100 +1,100 @@
-Altair
-Andross
-Armos
-Armos Knight
-Beamos
-Bokoblin
-Boo
-Bowser
-Bowser Jr.
-Bronto Burt
-Buttonbee
-Buttonbug
-Buttonfly
-Catwoman
-Charles Muntz
-Chilly
-ChuChu
-Cruella de Vil
-Dandan
-Dry Bones
-Eyegore
-Galactus
-Ganondorf
-Gargamel
-Goomba
-Gordo
-Graviton
-Hammer Bros.
-Helmasaur
-Helmasaurus
-Ice Bubble
-Iggy Koopa
-Kamek
-Keese
-King Dedede
-Koopa Troopa
-Lakitu
-Larry Koopa
-Leever
-Lemmy Koopa
-Lizalfos
-Ludwig von Koopa
-Maestro
-Magneto
-Maximus
-Meteor
-Mini Freezard
-Moblin
-Monty Mole
-Morton Koopa Jr.
-Mystique
-Octopea
-Octorok
-Omega Red
-Paragoomba
-Phantom
-Phantom Eye
-Piranha Plant
-Pontan
-Predator
-Puppet
-Rabid Dog
-Red Bubble
-Red Ghost
-Red Skull
-Ridley
-Robbie Rotten
-Roy Koopa
-Sandworm
-Sawgill
-Scarfy
-Shadow Beast
-Shadow Insect
-Shadow Kargaroc
-Shotzo
-Shy Guy
-Skeleton Archer
-Skeleton Warrior 
-Slime 2 0 0 0 1 0 1 1 2
+Altair - Starts fight by dealing damage to the player.
+Andross - Villain of Star Fox games.
+Armos - Enemy from Zelda games. They’re statues that come to life.
+Armos Knight - Enemy from Zelda games. It’s stronger and larger than Armos.
+Beamos - Enemy from Zelda games.
+Blinky - Ghost from Pac-Man. He’s red.
+Bokoblin - Enemy from Zelda games. They can be defeated with weapons.
+Boo - You can only attack after you block (or look away if we’re having a more indepth action system)
+Bowser - Main villain of Mario games.
+Bowser Jr. - Bowser’s son.
+Bronto Burt - Enemy from Zelda games. They have wings.
+Burt the Bashful - Enemy from Yoshi games. They have big trousers.
+Buttonbee - Enemy from Kirby’s Epic Yarn. They can be thrown to make yarn balls.
+Buttonbug - Enemy from Kirby’s Epic Yarn. They’re more aggressive than Buttonflies and Buttonbees.
+Buttonfly - Enemy from Kirby’s Epic Yarn. They don’t attack you - drops a yarn ball (throwable for damage)
+Buzzy Beetle - Blue turtles with have a hard shell.
+Catwoman - Enemy in Batman.
+Cave Spider - Enemy from Minecraft games. It can be poisonous.
+Charles Muntz - Villain of the movie Up.
+Chilly - Enemy from Kirby games. It’s a snowman who tries to freeze stuff.
+ChuChu - Enemy from Zelda games. It’s made out of slime or jelly.
+Clyde - Ghost from Pac-Man games. He’s orange.
+Creeper - Enemy from Minecraft. He’s green.
+Cruella de Vil - Enemy from 101 Dalmatians.
+Dandan - Enemy from Kirby’s Epic Yarn. They are yellow.
+Dr. Eggman - Main villain of Sonic games.
+Dry Bones - Similar to Koopa Troopas, but can get back up once they’re defeated.
+Ender Dragon - Enemy from Minecraft games. They appear at the end of the game.
+Eyegore - Enemy from Zelda games. They have tough defense.
+Galactus - Enemy that first appeared in Fantastic Four.
+Ganondorf - Villain of Zelda games.
+Gargamel - Villain from the Smurfs. He’s a wizard.
+Goomba - If you stomp one of these, they will die.
+Gordo - Enemy from Kirby games. They have spikes.
+Graviton - Enemy from comic books. He appeared first in Avengers.
+Hammer Bros. - Mario enemies that throw hammers at you.
+Helmasaur - Enemy from Zelda games. They are small beasts with shells.
+Helmasaurus - Enemy from The Legend of Zelda: Twilight Princess. They charge at the player.
+Ice Bubble - Enemy from Zelda games.
+Iggy Koopa - One of the Koopalings from Mario games. Has a yellow magic wand.
+Inky - Ghost from Pac-Man. He’s blue.
+Kamek - Villian of Mario games. He often spews magic.
+Keese - Enemy from Zelda games. They are bat-like.
+King Dedede - Main villain of Kirby games.
+Knuckle Joe - Enemy of Kirby games. He punches and kicks a lot.
+Koopa Troopa - Enemy of Mario games. They’re easily defeated by stomping on their shell.
+Kracko - Enemy from Kirby games. It’s a cloud with some spikes and an eye.
+Lakitu - He floats around in a cloud throwing Spinies at you. If you kill him, you can float in his cloud.
+Larry Koopa - One of the Koopalings from Mario games. Has a wand.
+Leever - Enemy from Zelda games. They are found in areas with sand.
+Lemmy Koopa - One of the Koopalings from Mario games. Carries bombs and rolls around on a ball.
+Lizalfos - Enemy from Zelda games. They are lizard-like.
+Ludwig von Koopa - One of the Koopalings from Mario games. Has a blue magic wand.
+Maestro - Enemy from Hulk.
+Magneto - Enemy from comic books. He first appeared in X-Men.
+Maximus - Enemy from comic books.
+Mini Freezard - Enemy from Zelda games. It’s an ice rock.
+Moblin - Enemy from Zelda games. They use spears as a weapon.
+Monty Mole - Enemy from Mario games. They throw rocks at the player.
+Morton Koopa Jr. - One of the Koopalings from Mario games. Has a ruby magic wand.
+Mystique - Enemy from X-Men.
+Octopea - Enemy from Kirby’s Epic Yarn. They are octopi.
+Octorok - Small enemy from Zelda games.
+Omega Red - Enemy from X-Men.
+Paragoomba - Goomba with wings.
+Phantom - Enemy from Zelda games. They are guardians.
+Phantom Eye - Enemy from Zelda games.
+Pinky - Ghost from Pac-Man. He’s pink.
+Piranha Plant - Enemy of Mario games. They are like venus flytraps.
+Pontan - Enemy from Bomberman games. They spin like a coin.Puppet
+Rabid Dog - Enemy from Bloodborne. They move fast.
+Red Bubble - Enemies from Zelda games. They’re flying skulls with fire.
+Red Skull - Villain of Captain America.
+Ridley - Villain of Metroid games.
+Robbie Rotten - Main villain of the kids’ TV show LazyTown.
+Rocky Wrench - Enemy from Mario games. They pop out of manholes and throw a wrench.
+Roy Koopa - One of the Koopalings from Mario games. Has a cannon.
+Sawgill - Enemy from Kirby games. It’s a long blue fish.
+Scarfy - Enemy from Kirby games. He’s orange.
+Shadow Beast - Enemy from The Legend of Zelda: Twilight Princess.
+Shadow Insect - Enemy from The Legend of Zelda: Twilight Princess.
+Shadow Kargaroc - Enemy from The Legend of Zelda: Twilight Princess.
+Shotzo - Enemy from Kirby games. It’s basically a cannon.
+Shy Guy - Enemy with a mask.
+Skeleton - Enemy from Minecraft. They have a bow and arrow.
+Slime 2 0 0 0 1 0 1 1 2- drops slime which you can eat for health but also a poison effect or sell.
+Snifberg the Unfeeling - Enemy from Yoshi’s Woolly World. It’s an Ice Snifit.
+Snifit - Enemy from Mario games. They are Shy Guys which have an extended nozzle.
 Spider 4 0 1 0 2 0 2 2 3
-Spike
-Spike Top
-Spiked Beetle
-Spiny Beetle
-Stag Beetle
-Stalfos
-Takkuri
-Tektite
-Terrax
-Tiel Worm
-Tiger Shark
-Trolley
-Twiggy Woods
-Venomous Spider
-Venus Flytrap
-Waddle Dee
-Waddle Doo
-Wendy O. Koopa
-Wizzrobe
-Zyroth
+Spike - throws spike balls at you 
+Spike Top - A red Buzzy Beetle with a spike on the top.
+Spiked Beetle - Enemy from Zelda games. They have spikes and they are turtle-like.
+Spiny Beetle - Enemy from Zelda games.
+Trolley - Enemy from Bomberman games. They are in a cart.
+Waddle Dee - Enemy of Kirby games. They easily can be defeated.
+Waddle Doo - Stronger version of Waddle Dee.
+Wendy O. Koopa - One of the Koopalings from Mario games. Has rings
+Whispy Woods - Boss from Kirby games. It’s an apple tree and attacks by making the apples in his tree fall.
+Wizzrobe - Enemy from Zelda games. They are wizards.
+Zombie - Enemy from Minecraft.

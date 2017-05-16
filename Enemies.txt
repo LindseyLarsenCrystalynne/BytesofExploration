@@ -83,11 +83,11 @@ Shadow Kargaroc - Enemy from The Legend of Zelda: Twilight Princess.
 Shotzo - Enemy from Kirby games. It’s basically a cannon.
 Shy Guy - Enemy with a mask.
 Skeleton - Enemy from Minecraft. They have a bow and arrow.
-Slime 2 0 0 0 1 0 1 1 2- drops slime which you can eat for health but also a poison effect or sell.
+Slime 2 0 0 0 1 0 1 1 2- Enemy from Minecraft. It drops slime which you can eat for health but also a poison effect or sell.
 Snifberg the Unfeeling - Enemy from Yoshi’s Woolly World. It’s an Ice Snifit.
 Snifit - Enemy from Mario games. They are Shy Guys which have an extended nozzle.
-Spider 4 0 1 0 2 0 2 2 3
-Spike - throws spike balls at you 
+Spider 4 0 1 0 2 0 2 2 3 - Enemy from Minecraft.
+Spike - Throws spike balls at you.
 Spike Top - A red Buzzy Beetle with a spike on the top.
 Spiked Beetle - Enemy from Zelda games. They have spikes and they are turtle-like.
 Spiny Beetle - Enemy from Zelda games.

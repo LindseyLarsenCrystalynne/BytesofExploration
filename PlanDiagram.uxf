@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>234</x>
+      <y>720</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>RPG</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>747</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;TheRPGGame&gt;&gt;
+Package:: java.util.*;
+--
+
+--
+
+--
+Responsibilities
+-- runs the program</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>1008</y>
+      <w>189</w>
+      <h>378</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;RPG&gt;&gt;
+Package:: java.util.*;
+ArrayList
+--
+-maxHealth: Int
+-curHealth: Int
+-maxMana: Int
+-curMana: Int
+-defense: Int
+-magicResistence: Int
+-attack: Int
+-magic: Int
+-dexterity: Int
+-exp: Int
+-name: String
+
+--
+RandomString()
+Name()
+Gender()
+Class()
+BattleStart()
+_+main(args: String[])_
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>1008</y>
+      <w>189</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Battle&gt;&gt;
+Package::java.util.*;
+--
+
+--
+playerAttack()
+enemyAttack()
+playerDefend()
+enemyDefend()
+playerMAttack()
+enemyMAttack()
+playerSkills()
+itemDrops()
+itemUse()
+battleEnd()
+--
+Responsibilities
+Changing variables accordingly</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>0</x>
+      <y>747</y>
+      <w>144</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>BaseStats
+--
+-maxHealth: Int
+-curHealth: Int
+-maxMana: Int
+-curMana: Int
+-defense: Int
+-magicResistence: Int
+-attack: Int
+-magic: Int
+-dexterity: Int
+-exp: Int
+-name: String
+-lvl: Int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>63</y>
+      <w>189</w>
+      <h>846</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Player&gt;&gt;
+Package:: java.util.*; 
+--
+-maxHealth: Int
+-curHealth: Int
+-maxMana: Int
+-curMana: Int
+-defense: Int
+-magicResistence: Int
+-attack: Int
+-magic: Int
+-dexterity: Int
+-levelUpExp: Int
+-exp: Int
+-name: String
+-lvl: Int
+-status: Int
+-money: Int
+--
+getCurHP(): Int
+setCurHP(cHp: Int)
+getMaxHP(): Int
+setMaxHP(mHp: Int)
+getCurMana(): Int
+setCurMana(cHp: Int)
+getMaxMana(): Int
+setMaxMana(mMana: Int)
+getDefense(): Int
+setDefense(def : Int)
+getMagicResistence(): Int
+setMagicResistence(mR : Int)
+getAttack(): Int
+setAttack(atk : Int)
+getMagic(): Int
+setMagic(magic : Int)
+getDexterity(): Int
+setDexterity(dex : Int)
+getLevelUpExp(): Int
+setLevelUpExp(lvlUpExp : Int)
+getExp(): Int
+setExp(xp : Int)
+getName(): String
+setName(name: String)
+getLvl(): Int
+setLvl(lvl : Int)
+getStatus(): Int
+setStatus(status : Int)
+getMoney(): Int
+setMoney(mon : Int)
+--
+Responsibilities
+Holds all the variables 
+a player would need</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1377</x>
+      <y>891</y>
+      <w>189</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Beserker&gt;&gt;
+Package:: java.util.*; 
+--
+
+--
+powerSlam()
+charge()
+rage()
+bloodLust()
+--
+Responsibilities
+Attack based class</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>702</x>
+      <y>891</y>
+      <w>189</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Knight&gt;&gt;
+Package:: java.util.*; 
+--
+
+--
+heavySlam()
+callHorse()
+bulkUp()
+--
+Responsibilities
+Tankier class</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1602</x>
+      <y>891</y>
+      <w>189</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Warrior&gt;&gt;
+Package:: java.util.*; 
+--
+
+--
+strike()
+strength()
+--
+Responsibilities
+In between tankier and attack based</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>927</x>
+      <y>891</y>
+      <w>189</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Archer&gt;&gt;
+Package:: java.util.*; 
+--
+
+--
+shatterArrow()
+sprint()
+fireArrow()
+arrowStorm()
+iceArrow()
+--
+Responsibilities
+Dexterity based class</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1152</x>
+      <y>891</y>
+      <w>189</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Mage&gt;&gt;
+Package:: java.util.*; 
+--
+
+--
+fireball()
+hail()
+lightning()
+tsunami()
+boulder()
+--
+Responsibilities
+Magic based class</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>135</x>
+      <y>900</y>
+      <w>405</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;80.0;430.0;80.0;430.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>837</y>
+      <w>495</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;150.0;130.0;150.0;130.0;10.0;530.0;10.0;530.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>837</y>
+      <w>270</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;150.0;130.0;150.0;130.0;10.0;280.0;10.0;280.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>837</y>
+      <w>720</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;150.0;130.0;150.0;130.0;10.0;780.0;10.0;780.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>837</y>
+      <w>954</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;150.0;130.0;150.0;130.0;10.0;1040.0;10.0;1040.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>837</y>
+      <w>1179</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;150.0;130.0;150.0;130.0;10.0;1290.0;10.0;1290.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>63</x>
+      <y>0</y>
+      <w>747</w>
+      <h>765</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;830.0;20.0;10.0;810.0;10.0;810.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>702</x>
+      <y>63</y>
+      <w>189</w>
+      <h>747</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enemies&gt;&gt;
+Package:: java.util.*;
+--
+-maxHealth: Int
+-curHealth: Int
+-maxMana: Int
+-curMana: Int
+-defense: Int
+-magicResistence: Int
+-attack: Int
+-magic: Int
+-dexterity: Int
+-exp: Int
+-name: String
+-lvl: Int
+-money: Int
+--
+getCurHP(): Int
+setCurHP(cHp: Int)
+getMaxHP(): Int
+setMaxHP(mHp: Int)
+getCurMana(): Int
+setCurMana(cHp: Int)
+getMaxMana(): Int
+setMaxMana(mMana: Int)
+getDefense(): Int
+setDefense(def : Int)
+getMagicResistence(): Int
+setMagicResistence(mR : Int)
+getAttack(): Int
+setAttack(atk : Int)
+getMagic(): Int
+setMagic(magic : Int)
+getDexterity(): Int
+setDexterity(dex : Int)
+getExp(): Int
+setExp(xp : Int)
+getName(): String
+setName(name: String)
+getLvl(): Int
+setLvl(lvl : Int)
+getStatus(): Int
+setStatus(status : Int)
+getMoney(): Int
+setMoney(mon : Int)
+--
+Responsibilities
+Has enemy's stats</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1053</x>
+      <y>81</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Items&gt;&gt;
+Package:: java.util.*;
+--
+-list : ArrayList
+-price : Int
+--
+getPrice(): Int
+setPrice(pri: Int)
+--
+Responsibilities
+All the items</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1161</x>
+      <y>306</y>
+      <w>189</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Consumables&gt;&gt;
+Package::FatClass
+{Some Properties}
+--
+
+--
+useRemove()
+heal()
+damage()
+mana()
+status()
+--
+Responsibilities
+consumable items</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>936</x>
+      <y>306</y>
+      <w>189</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Reusable&gt;&gt;
+Package::FatClass
+{Some Properties}
+--
+
+--
+use()
+heal()
+damage()
+mana()
+status()
+--
+Responsibilities
+reusable items</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>243</y>
+      <w>144</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0;140.0;30.0;140.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1017</x>
+      <y>243</y>
+      <w>144</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;30.0;10.0;30.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1422</x>
+      <y>81</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Shop&gt;&gt;
+Package:: java.util.*;
+--
+-page : Int
+-stock: ArrayList
+--
+buyItem()
+sellItem()
+leaveShop()
+--
+Responsibilities
+Shops</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1422</x>
+      <y>306</y>
+      <w>189</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Save&gt;&gt;
+Package:: java.util.*;
+--
+-maxHealth: Int
+-curHealth: Int
+-maxMana: Int
+-curMana: Int
+-defense: Int
+-magicResistence: Int
+-attack: Int
+-magic: Int
+-dexterity: Int
+-levelUpExp: Int
+-exp: Int
+-name: String
+-lvl: Int
+-money: Int
+--
+save()
+--
+Responsibilities
+Saving the game</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -93,11 +93,12 @@ public class RPG
       case 2:
       {
       	Save save = new Save();
-        System.out.print("Are you sure you want to format the save data? Type yes to format. "");
+        System.out.print("Are you sure you want to format the save data? Type yes to format. ");
         String delete = s.nextLine();
         if (delete.equalsIgnoreCase("yes"))
         {
-        	Files.delete("bytes.sav");
+        	File f = new File("bytes.sav");
+        	f.delete();
         }
         break;
       }

@@ -9,21 +9,30 @@ public class Battle
 		Scanner scan = new Scanner(System.in);
 		while (fight) 
 		{
-			System.out.println("\nWould you like to : Fight -- Defend -- Skill -- Item -- Run");
+			System.out.println("\nWould you like to : ");
+			System.out.println("[Fight] [Defend]");
+			System.out.println("[Skill] [Item]");
+			System.out.println("[Run]");
+			
 			switch (scan.nextLine())
 			{
 				case "Fight":
 			 	{
-			 		System.out.println("\nWhich type of attack: Physical -- Magic");
+			 		System.out.println("\nWhich type of attack: ");;
+			 		System.out.println("[Physical] [Magic]");
 			 		switch (scan.nextLine())
 			 		{
 			 			case "Physical":
+			 			{
 			 				System.out.println(playerAttack());
 			 				break;
+			 			}
 
 			 			case "Magic":
+			 			{
 			 				System.out.println(playerMAttack());
 			 				break;
+			 			}
 			 		}
 			 		break;
 			 	}

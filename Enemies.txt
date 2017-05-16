@@ -1,0 +1,100 @@
+Altair
+Andross
+Armos
+Armos Knight
+Beamos
+Bokoblin
+Boo
+Bowser
+Bowser Jr.
+Bronto Burt
+Buttonbee
+Buttonbug
+Buttonfly
+Catwoman
+Charles Muntz
+Chilly
+ChuChu
+Cruella de Vil
+Dandan
+Dry Bones
+Eyegore
+Galactus
+Ganondorf
+Gargamel
+Goomba
+Gordo
+Graviton
+Hammer Bros.
+Helmasaur
+Helmasaurus
+Ice Bubble
+Iggy Koopa
+Kamek
+Keese
+King Dedede
+Koopa Troopa
+Lakitu
+Larry Koopa
+Leever
+Lemmy Koopa
+Lizalfos
+Ludwig von Koopa
+Maestro
+Magneto
+Maximus
+Meteor
+Mini Freezard
+Moblin
+Monty Mole
+Morton Koopa Jr.
+Mystique
+Octopea
+Octorok
+Omega Red
+Paragoomba
+Phantom
+Phantom Eye
+Piranha Plant
+Pontan
+Predator
+Puppet
+Rabid Dog
+Red Bubble
+Red Ghost
+Red Skull
+Ridley
+Robbie Rotten
+Roy Koopa
+Sandworm
+Sawgill
+Scarfy
+Shadow Beast
+Shadow Insect
+Shadow Kargaroc
+Shotzo
+Shy Guy
+Skeleton Archer
+Skeleton Warrior 
+Slime 2 0 0 0 1 0 1 1 2
+Spider 4 0 1 0 2 0 2 2 3
+Spike
+Spike Top
+Spiked Beetle
+Spiny Beetle
+Stag Beetle
+Stalfos
+Takkuri
+Tektite
+Terrax
+Tiel Worm
+Tiger Shark
+Trolley
+Twiggy Woods
+Venomous Spider
+Venus Flytrap
+Waddle Dee
+Waddle Doo
+Wendy O. Koopa
+Wizzrobe
+Zyroth

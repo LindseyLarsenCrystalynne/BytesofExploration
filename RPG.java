@@ -39,16 +39,16 @@ public class RPG
     return str;
   }
 
-	public String Name()
-	{
-		Scanner n = new Scanner(System.in);
- 		System.out.println("What's your name? Type 'random' for a random name: ");
-		String name = n.nextLine();
+  public String Name()
+  {
+	 Scanner n = new Scanner(System.in);
+ 	 System.out.println("What's your name? Type 'random' for a random name: ");
+	 String name = n.nextLine();
     
-    String username = "";
+     String username = "";
     
-  	if (name.equalsIgnoreCase("random") || name.equals(""))
-  	{
+  	 if (name.equalsIgnoreCase("random") || name.equals(""))
+  	 {
     	String likeName = "";
     
     	while (!likeName.equals("y"))
@@ -59,15 +59,14 @@ public class RPG
   		
       	likeName = n.nextLine();
       	}
-	}
+	 }
       
-      else
-    	{
-      	username = name;
-     	}
+     else
+     {
+       username = name;
+     }
     
-    
-    return username;
+     return username;
   }
   
   public void optionsMenu()
@@ -100,6 +99,8 @@ public class RPG
         	File f = new File("bytes.sav");
         	f.delete();
         	System.out.println("Save file deleted.");
+            TimeUnit.SECONDS.sleep(3);
+            Runtime.getRuntime().exec("cls");
         	mainMenu();
         }
         break;
@@ -143,8 +144,8 @@ public class RPG
       }
       case 2:
       {
-      	Save s = new Save();
-      	System.out.println(s);
+      	Save save = new Save();
+      	System.out.println(save);
         System.out.println("Press any key to continue...");
         System.in.read();
       	break;
@@ -156,7 +157,6 @@ public class RPG
       }
       case 4:
       {
-      	java.lang.System.exit();
         break;
       }
       default:

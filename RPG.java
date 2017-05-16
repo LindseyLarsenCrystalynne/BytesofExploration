@@ -99,6 +99,8 @@ public class RPG
         {
         	File f = new File("bytes.sav");
         	f.delete();
+        	System.out.println("Save file deleted.");
+        	mainMenu();
         }
         break;
       }

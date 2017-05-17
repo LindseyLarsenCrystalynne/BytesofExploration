@@ -5,17 +5,17 @@ public class Berserker
 	
 	}
 
-	public void Charge()
+	public void charge()
 	{
 	
 	}
 
-	public void Rage()
+	public void rage()
 	{
 	
 	}
 
-	public void BloodLust()
+	public void bloodLust()
 	{
 	
 	}

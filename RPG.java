@@ -92,7 +92,7 @@ public class RPG
 		
 		String playerClass = n.nextLine();
 		
-		if (playerClass.equalsIgnoreCase("random") || playerClass.equals(""))
+		if (playerClass.equalsIgnoreCase("random") || playerClass.equals("") || !(playerClass.equals("Archer") || playerClass.equals("Beserker") || playerClass.equals("Knight") || playerClass.equals("Mage") || playerClass.equals("Warrior")))
 		{
 			String likePlayerClass = "";
 			

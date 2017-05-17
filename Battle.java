@@ -54,7 +54,37 @@ public class Battle
 			 		System.out.println("You're defending!");
 			 		// playerDefend();
 			 		break;
-				}
+			 	}
+			 	
+			 	case "Skill":
+			 	{
+			 		case "Archer":
+			 		{
+			 			System.out.println("\nWhich type of skill?\n");
+			 			System.out.println("[Shatter Arrow] [Sprint]");
+			 			System.out.println("[Fire Arrow] [Arrow Storm]");
+			 			System.out.println("      [Ice Arrow]");
+			 		}
+			 		
+			 		case "Berserker":
+			 		{
+			 			System.out.println("\nWhich type of skill?\n");
+			 			System.out.println("[Power Slam] [Charge]");
+			 			System.out.println("[Rage] [Blood Lust]");
+			 		}
+			 		
+			 		case "Knight":
+			 		{
+			 			System.out.println("\nWhich type of skill?\n");
+			 			System.out.println("[Heavy Slam] [Call Horse]");
+			 			System.out.println("[Bulk Up]");
+			 		}
+			 	}
+			 	
+			 	default:
+			 	{
+			 		System.out.println("Invalid selection.");
+			 	}
 			}
 			System.out.println("test");
 			enemyTurn();

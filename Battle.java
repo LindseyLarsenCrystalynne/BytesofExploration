@@ -4,6 +4,13 @@ public class Battle
 {
 	ArrayList<Enemies> enemyList = new ArrayList<Enemies>();
 	
+	int enemy;
+	
+	public Battle(int enemyNumber)
+	{
+		enemy = enemyNumber;
+	}
+	
 	public void start()
 	{
 		enemyList.add(new Enemies());
@@ -58,8 +65,8 @@ public class Battle
 	{
 		Player p = new Player();
 
-		int newHP = enemyList.get(0).getCurHealth() - p.getAttack();
-		enemyList.get(0).setCurHealth(newHP);
+		int newHP = enemyList.get(enemy).getCurHealth() - p.getAttack();
+		enemyList.get(enemy).setCurHealth(newHP);
 		return "\nYou attacked the enemy for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
 	}
 
@@ -67,17 +74,17 @@ public class Battle
 	{
 		Player p = new Player();
 
-		int newHP = p.getCurHealth() - enemyList.get(0).getAttack();
+		int newHP = p.getCurHealth() - enemyList.get(enemy).getAttack();
 		p.setCurHealth(newHP);
-		return "\nThe enemy attacked you for " + enemyList.get(0).getAttack() + " damage! You now have " + newHP + " health.";
+		return "\nThe enemy attacked you for " + enemyList.get(enemy).getAttack() + " damage! You now have " + newHP + " health.";
 	}
 
 	public String playerMAttack()
 	{
 		Player p = new Player();
 		
-		int newHP = enemyList.get(0).getCurHealth() - p.getMagic();
-		enemyList.get(0).setCurHealth(newHP);
+		int newHP = enemyList.get(enemy).getCurHealth() - p.getMagic();
+		enemyList.get(enemy).setCurHealth(newHP);
 		return "\nYou attacked the enemy for " + p.getMagic() + " damage! The enemy now has " + newHP + " health.";
 	}
 
@@ -85,9 +92,9 @@ public class Battle
 	{
 		Player p = new Player();
 
-		int newHP = p.getCurHealth() - enemyList.get(0).getMagic();
+		int newHP = p.getCurHealth() - enemyList.get(enemy).getMagic();
 		p.setCurHealth(newHP);
-		return "\nThe enemy attacked you for " + enemyList.get(0).getMagic() + " damage! You now have " + newHP + " health.";
+		return "\nThe enemy attacked you for " + enemyList.get(enemy).getMagic() + " damage! You now have " + newHP + " health.";
 	}
 
 	public void enemyTurn()

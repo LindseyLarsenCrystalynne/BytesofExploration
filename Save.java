@@ -253,22 +253,22 @@ public class Save
 	{
 		String output = "";
 
-		output += "Name: " + getName();
-		output += "Max Health: " + getMaxHealth();
-		output += "Current Health: " + getCurHealth();
-		output += "Max Mana: " + getMaxMana();
-		output += "Current Mana: " + getCurMana();
-		output += "Defense: " + getDefense();
-		output += "Magic Resistance: " + getMagicResistance();
-		output += "Attack: " + getAttack();
-		output += "Magic: " + getMagic();
-		output += "Dexterity: " + getDexterity();
-		output += "Level Up Experience: " + getLevelUpExp();
-		output += "Experience: " + getExp();
-		output += "Level: " + getLvl();
-		output += "Status: " + getStatus();
-		output += "Magic: " + getMagic();
-		output += "Skill: " + getSkill();
+		output += "Name: " + getName() + "\n";
+		output += "Max Health: " + getMaxHealth() + "\n";
+		output += "Current Health: " + getCurHealth() + "\n";
+		output += "Max Mana: " + getMaxMana() + "\n";
+		output += "Current Mana: " + getCurMana() + "\n";
+		output += "Defense: " + getDefense() + "\n";
+		output += "Magic Resistance: " + getMagicResistance() + "\n";
+		output += "Attack: " + getAttack() + "\n";
+		output += "Magic: " + getMagic() + "\n";
+		output += "Dexterity: " + getDexterity() + "\n";
+		output += "Level Up Experience: " + getLevelUpExp() + "\n";
+		output += "Experience: " + getExp() + "\n";
+		output += "Level: " + getLvl() + "\n";
+		output += "Status: " + getStatus() + "\n";
+		output += "Magic: " + getMagic() + "\n";
+		output += "Skill: " + getSkill() + "\n";
 
 		return output;
 	}

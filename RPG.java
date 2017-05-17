@@ -95,41 +95,41 @@ public class RPG
 
 		switch (selection)
 		{
-		case 1:
-		{
-			Save save = new Save();
-			save.setName(Name());
-			break;
-		}
-		case 2:
-		{
-			Save save = new Save();
-			System.out.print("Are you sure you want to format the save data? Type yes to format. ");
-			String delete = s.nextLine();
-			if (delete.equalsIgnoreCase("yes"))
+			case 1:
 			{
-				File f = new File("bytes.sav");
-				f.delete();
-				System.out.println("Save file deleted.");
+				Save save = new Save();
+				save.setName(Name());
+				break;
+			}
+			case 2:
+			{
+				Save save = new Save();
+				System.out.print("Are you sure you want to format the save data? Type yes to format. ");
+				String delete = s.nextLine();
+				if (delete.equalsIgnoreCase("yes"))
+				{
+					File f = new File("bytes.sav");
+					f.delete();
+					System.out.println("Save file deleted.");
+					TimeUnit.SECONDS.sleep(3);
+					Runtime.getRuntime().exec("cls");
+					mainMenu();
+				}
+				break;
+			}
+			case 3:
+			{
+				mainMenu();
+				break;
+			}
+			default:
+			{
+				System.out.println("Invalid selection.");
 				TimeUnit.SECONDS.sleep(3);
 				Runtime.getRuntime().exec("cls");
 				mainMenu();
+				break;
 			}
-			break;
-		}
-		case 3:
-		{
-			mainMenu();
-			break;
-		}
-		default:
-		{
-			System.out.println("Invalid selection.");
-			TimeUnit.SECONDS.sleep(3);
-			Runtime.getRuntime().exec("cls");
-			mainMenu();
-			break;
-		}
 		}
 	}
 
@@ -141,7 +141,7 @@ public class RPG
 		
 		if (save.getName().equals(""))
 		{
-			Name();
+			save.setName(Name());
 		}
 
 		System.out.println("=====Main Menu=====\n");

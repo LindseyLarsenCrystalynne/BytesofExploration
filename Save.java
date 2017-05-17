@@ -21,6 +21,7 @@ public class Save
 	private int lvl;
 	private int money;
 	private int status;
+	private int skill;
 
 	public String getName()
 	{
@@ -172,6 +173,16 @@ public class Save
 		this.money = money;
 	}
 
+	public int getSkill()
+	{
+		return skill;
+	}
+
+	public void setSkill(int skill)
+	{
+		this.skill = skill;
+	}
+
 	public void FileSave()
 	{
 		try {
@@ -194,6 +205,7 @@ public class Save
 			save.writeObject(getLvl());
 			save.writeObject(getStatus());
 			save.writeObject(getMagic());
+			save.writeObject(getSkill());
 
 			saveFile.close();
 		}
@@ -226,6 +238,7 @@ public class Save
 				setLvl((Integer) save.readObject());
 				setStatus((Integer) save.readObject());
 				setMagic((Integer) save.readObject());
+				setSkill((Integer) save.readObject());
 
 				saveFile.close();
 			}
@@ -255,6 +268,7 @@ public class Save
 		output += "Level: " + getLvl();
 		output += "Status: " + getStatus();
 		output += "Magic: " + getMagic();
+		output += "Skill: " + getSkill();
 
 		return output;
 	}

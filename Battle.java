@@ -19,7 +19,7 @@ public class Battle
 			{
 				case "Fight":
 			 	{
-			 		System.out.println("\nWhich type of attack?\n");;
+			 		System.out.println("\nWhich type of attack?\n");
 			 		System.out.println("  [Physical] [Magic]\n");
 					System.out.print("Choose Your Selection: ");
 			 		switch (scan.nextLine())
@@ -46,9 +46,14 @@ public class Battle
 			 		break;
 			 	}
 			 	
+			 	case "Skill":
+			 	{
+			 		System.out.println("\nWhich type of skill?\n");
+			 	}
+			 	
 			 	case "Run":
 			 	{
-			 		
+			 		playerRun();
 			 	}
 			}
 		}
@@ -94,7 +99,7 @@ public class Battle
 		return "\nThe enemy attacked you for " + e.getMagic() + " damage! You now have " + newHP + " health.";
 	}
 
-		public void enemyTurn()
+	public void enemyTurn()
 	{
 		Player p = new Player();
 		if (p.getMaxHealth() < 30) 

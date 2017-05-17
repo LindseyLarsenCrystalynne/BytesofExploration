@@ -79,6 +79,25 @@ public class Battle
 			 			System.out.println("[Heavy Slam] [Call Horse]");
 			 			System.out.println("[Bulk Up]");
 			 		}
+			 		
+			 		case "Mage":
+			 		{
+			 			System.out.println("\nWhich type of skill?\n");
+			 			System.out.println("[Fire Ball] [Hail]");
+			 			System.out.println("[Lightning] [Tsunami]");
+			 			System.out.println("[Boulder]");
+			 		}
+			 		
+			 		case "Warrior":
+			 		{
+			 			System.out.println("\nWhich type of skill?\n");
+			 			System.out.println("[Strike] [Strength]");
+			 		}
+			 		
+			 		default:
+			 		{
+			 			System.out.println("Invalid selection.");
+			 		}
 			 	}
 			 	
 			 	default:

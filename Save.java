@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream;
 public class Save
 {
 	private String name = "";
+	private String playerClass = "";
 	private int maxHealth;
 	private int curHealth;
 	private int maxMana;
@@ -21,7 +22,6 @@ public class Save
 	private int lvl;
 	private int money;
 	private int status;
-	private int skill;
 
 	public String getName()
 	{
@@ -31,6 +31,16 @@ public class Save
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public String getPlayerClass()
+	{
+		return playerClass;
+	}
+
+	public void setPlayerClass(String playerClass)
+	{
+		this.playerClass = playerClass;
 	}
 
 	public int getMaxHealth()
@@ -173,16 +183,6 @@ public class Save
 		this.money = money;
 	}
 
-	public int getSkill()
-	{
-		return skill;
-	}
-
-	public void setSkill(int skill)
-	{
-		this.skill = skill;
-	}
-
 	public void FileSave()
 	{
 		try {
@@ -191,6 +191,7 @@ public class Save
 			ObjectOutputStream save = new ObjectOutputStream(saveFile);
 
 			save.writeObject(getName());
+			save.writeObject(getPlayerClass());
 			save.writeObject(getMaxHealth());
 			save.writeObject(getCurHealth());
 			save.writeObject(getMaxMana());
@@ -205,7 +206,6 @@ public class Save
 			save.writeObject(getLvl());
 			save.writeObject(getStatus());
 			save.writeObject(getMagic());
-			save.writeObject(getSkill());
 
 			saveFile.close();
 		}
@@ -224,6 +224,7 @@ public class Save
 				ObjectInputStream save = new ObjectInputStream(saveFile);
 
 				setName((String) save.readObject());
+				setPlayerClass((String) save.readObject());
 				setMaxHealth((Integer) save.readObject());
 				setCurHealth((Integer) save.readObject());
 				setMaxMana((Integer) save.readObject());
@@ -238,7 +239,6 @@ public class Save
 				setLvl((Integer) save.readObject());
 				setStatus((Integer) save.readObject());
 				setMagic((Integer) save.readObject());
-				setSkill((Integer) save.readObject());
 
 				saveFile.close();
 			}
@@ -254,6 +254,7 @@ public class Save
 		String output = "";
 
 		output += "Name: " + getName() + "\n";
+		output += "Class: " + getPlayerClass() + "\n";
 		output += "Max Health: " + getMaxHealth() + "\n";
 		output += "Current Health: " + getCurHealth() + "\n";
 		output += "Max Mana: " + getMaxMana() + "\n";
@@ -268,7 +269,6 @@ public class Save
 		output += "Level: " + getLvl() + "\n";
 		output += "Status: " + getStatus() + "\n";
 		output += "Magic: " + getMagic() + "\n";
-		output += "Skill: " + getSkill() + "\n";
 
 		return output;
 	}

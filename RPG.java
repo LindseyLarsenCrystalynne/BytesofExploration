@@ -67,7 +67,7 @@ public class RPG
 				
 				username = randomNames[(int)(Math.random() * 100)];
 
-				System.out.print("This name has been chosen for you: " + username + " - do you want to keep it? (y/n) ");
+				System.out.print("This name has been chosen for you: " + username + " - do you want to use it? (y/n) ");
 
 				likeName = n.nextLine();
 			}
@@ -79,6 +79,36 @@ public class RPG
 		}
 
 		return username;
+	}
+	
+	public String playerClass()
+	{
+		Scanner n = new Scanner(System.in);
+		System.out.println("What class do you want? Type 'random' for a random skill: \n");
+		System.out.println("                [Archer] [Beserker]");
+		System.out.println("                [Knight] [Mage]");
+		System.out.println("                     [Warrior]");
+		System.out.print("Choose Your Selection: ");
+		
+		String playerClass = n.nextLine();
+		
+		if (playerClass.equalsIgnoreCase("random") || playerClass.equals(""))
+		{
+			String likePlayerClass = "";
+			
+			while (!likePlayerClass.equals("y"))
+			{
+				String[] randomPlayerClasses = {"Archer", "Beserker", "Knight", "Mage", "Warrior"};
+				
+				playerClass = randomPlayerClasses[(int)(Math.random() * 5)];
+				
+				System.out.print("This class has been chosen for you: " + playerClass + " - do you want to use it? (y/n) ");
+				
+				likePlayerClass = n.nextLine();
+			}
+		}
+		
+		return playerClass;
 	}
 
 	public void optionsMenu()
@@ -111,8 +141,8 @@ public class RPG
 					File f = new File("bytes.sav");
 					f.delete();
 					System.out.println("Save file deleted.");
-					TimeUnit.SECONDS.sleep(3);
-					Runtime.getRuntime().exec("cls");
+					// TimeUnit.SECONDS.sleep(3);
+					// Runtime.getRuntime().exec("cls");
 					mainMenu();
 				}
 				break;
@@ -125,8 +155,8 @@ public class RPG
 			default:
 			{
 				System.out.println("Invalid selection.");
-				TimeUnit.SECONDS.sleep(3);
-				Runtime.getRuntime().exec("cls");
+				// TimeUnit.SECONDS.sleep(3);
+				// Runtime.getRuntime().exec("cls");
 				mainMenu();
 				break;
 			}
@@ -142,6 +172,7 @@ public class RPG
 		if (save.getName().equals(""))
 		{
 			save.setName(Name());
+			save.setPlayerClass(playerClass());
 		}
 
 		System.out.println("=====Main Menu=====\n");

@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 import java.io.*;
 
 public class RPG
@@ -22,27 +21,38 @@ public class RPG
 
 	public String RandomString(String txtfile)
 	{
-		Scanner sc = new Scanner(new File(txtfile));
-		List<String> lines = new ArrayList<String>();
-
-		while (sc.hasNextLine())
+		try
 		{
-			lines.add(sc.nextLine());
+			Scanner sc = new Scanner(new File(txtfile));
+			
+			List<String> lines = new ArrayList<String>();
+
+			while (sc.hasNextLine())
+			{
+				lines.add(sc.nextLine());
+			}
+
+			String[] arr = lines.toArray(new String[0]);
+
+			int rnd = new Random().nextInt(arr.length-1);
+
+			String str = arr[rnd];
+
+			return str;
 		}
-
-		String[] arr = lines.toArray(new String[0]);
-
-		int rnd = new Random().nextInt(arr.length-1);
-
-		String str = arr[rnd];
-
-		return str;
+		
+		catch(FileNotFoundException file)
+		{
+	    	System.err.println("Error: Names file not found");
+	    	
+	    	return "Unknown";
+	    }
 	}
 
 	public String Name()
 	{
 		Scanner n = new Scanner(System.in);
-		System.out.println("What's your name? Type 'random' for a random name: ");
+		System.out.print("What's your name? Type 'random' for a random name: ");
 		String name = n.nextLine();
 
 		String username = "";
@@ -53,7 +63,9 @@ public class RPG
 
 			while (!likeName.equals("y"))
 			{
-				username = RandomString("Names.txt");
+				String[] randomNames = {"Aaron", "Abbie", "Abby", "Alex", "Amanda", "Amy", "Andy", "Anna", "Annie", "Ashley", "Bill", "Bob", "Brandon", "Brittany", "Carl", "Carson", "Casey", "Charlie", "Chase", "Chris", "Christa", "Cindy", "Corrine", "Courtney", "Crystal", "Dan", "Daniel", "Danny", "DJ", "Earl", "Eduardo", "Emily", "Emma", "Eric", "Eriko", "Frodo", "Gandalf", "Gino", "Grant", "Haley", "Harley", "Jack", "Jake", "James", "Jared", "Jessie", "Jillian", "John", "Johnny", "Jonathan", "Julie", "Juro", "Justin", "Kane", "Karen", "Kate", "Katie", "Kelly", "Ken", "Kennedy", "Kimmiy", "Kimmy", "Kyle", "Lance", "Lauren", "Lillian", "Lily", "Luke", "Mallory", "Matt", "Matthew", "Maxwell", "Michael", "Natalie", "Nicholas", "Nicole", "Owen", "Paige", "Pam", "Patrick", "Paul", "Phillip", "Quinn", "Rachel", "Raymond", "Richard", "Ronald", "Ryan", "Sean", "Stephanie", "Steve", "Tim", "Tyler", "Valarie", "Vincent", "Vivian", "Will", "Xavier", "Zachery", "Zack"};
+				
+				username = randomNames[(int)(Math.random() * 100)];
 
 				System.out.print("This name has been chosen for you: " + username + " - do you want to keep it? (y/n) ");
 
@@ -124,6 +136,13 @@ public class RPG
 	public void mainMenu()
 	{
 		Scanner s = new Scanner(System.in);
+		
+		Save save = new Save();
+		
+		if (save.getName().equals(""))
+		{
+			Name();
+		}
 
 		System.out.println("=====Main Menu=====\n");
 		System.out.println("1. Start Game");
@@ -144,7 +163,6 @@ public class RPG
 			}
 			case 2:
 			{
-				Save save = new Save();
 				System.out.println(save);
 				System.out.println("Press any key to continue...");
 				// System.in.read();

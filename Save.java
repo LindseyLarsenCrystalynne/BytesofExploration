@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 
 public class Save
 {
-	private String name;
+	private String name = "";
 	private int maxHealth;
 	private int curHealth;
 	private int maxMana;

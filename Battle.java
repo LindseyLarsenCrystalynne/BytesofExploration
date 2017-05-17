@@ -5,7 +5,7 @@ public class Battle
 	public void start()
 	{
 		boolean fight = true;
-		System.out.println("=====Fight=====");
+		System.out.println("\u001B[31m=====Fight=====");
 		Scanner scan = new Scanner(System.in);
 		while (fight) 
 		{

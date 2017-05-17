@@ -94,17 +94,16 @@ public class Battle
 		return "\nThe enemy attacked you for " + e.getMagic() + " damage! You now have " + newHP + " health.";
 	}
 
-	public void enemyTurn()
+		public void enemyTurn()
 	{
 		Player p = new Player();
-
-		if (p.getMaxHealth() < 30) {
+		if (p.getMaxHealth() < 30) 
 			if (((double) p.getCurHealth() / p.getMaxHealth()) <= .25)
-				enemyAttack();
-		} else if ((((double) Math.random()) * 10) > 8) {
+				System.out.println(enemyAttack());
+		else if ((((double) Math.random()) * 10) > 8) 
 			System.out.println("filler for enemy skill");
-		} else
-			enemyAttack();
+		else
+			System.out.println(enemyAttack());
 	}
 	
 	public String playerRun()
@@ -124,4 +123,5 @@ public class Battle
 		return "\nError 404: Legs Not Found";
 	}
 }
+
 

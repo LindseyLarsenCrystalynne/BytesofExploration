@@ -44,7 +44,12 @@ public class Battle
 			 		System.out.println("You're defending!");
 			 		// playerDefend();
 			 		break;
-				}
+			 	}
+			 	
+			 	case "Run":
+			 	{
+			 		
+			 	}
 			}
 		}
 	}
@@ -100,6 +105,23 @@ public class Battle
 			System.out.println("filler for enemy skill");
 		} else
 			enemyAttack();
+	}
+	
+	public String playerRun()
+	{
+		double run = Math.random();
+		
+		if (run <= 0.50)
+		{
+			return "\nRan away safely!";
+		}
+		
+		else if (run > 0.50)
+		{
+			return "\nFailed to run away!";
+		}
+		
+		return "\nError 404: Legs Not Found";
 	}
 }
 

@@ -5,14 +5,14 @@ public class Battle
 	public void start()
 	{
 		boolean fight = true;
-		System.out.println("\u001B[31m=====Fight=====");
+		System.out.println("=====Fight=====");
 		Scanner scan = new Scanner(System.in);
 		while (fight) 
 		{
 			System.out.println("\nWhat would you like to do?\n");
-			System.out.println("[Fight] [Defend]");
-			System.out.println("[Skill] [Item]");
-			System.out.println("     [Run]\n");
+			System.out.println("      [Fight] [Defend]");
+			System.out.println("      [Skill] [Item]");
+			System.out.println("           [Run]\n");
 			System.out.print("Choose Your Selection: ");
 			
 			switch (scan.nextLine())
@@ -20,7 +20,7 @@ public class Battle
 				case "Fight":
 			 	{
 			 		System.out.println("\nWhich type of attack?\n");;
-			 		System.out.println("[Physical] [Magic]\n");
+			 		System.out.println("  [Physical] [Magic]\n");
 					System.out.print("Choose Your Selection: ");
 			 		switch (scan.nextLine())
 			 		{

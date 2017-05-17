@@ -4,12 +4,11 @@ public class Test
 	{
 		Player p = new Player();
 		Enemies e = new Enemies();
+		RPG r = new RPG();
 		e.setCurHealth(6);
 		p.setAttack(5);
 		p.setMaxHealth(10);
-		
-		Battle b = new Battle();
-		b.start();
+		r.mainMenu();
 	}
 	
 }

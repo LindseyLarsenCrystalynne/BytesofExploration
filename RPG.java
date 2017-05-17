@@ -136,38 +136,37 @@ public class RPG
 
 		switch (selection)
 		{
-		case 1:
-		{
-			Battle b = new Battle();
-			b.start();
-			break;
-		}
-		case 2:
-		{
-			Save save = new Save();
-			System.out.println(save);
-			System.out.println("Press any key to continue...");
-			System.in.read();
-			break;
-		}
-		case 3:
-		{
-			optionsMenu();
-			break;
-		}
-		case 4:
-		{
-			break;
-		}
-		default:
-		{
-			System.out.println("Invalid selection.");
-			TimeUnit.SECONDS.sleep(3);
-			Runtime.getRuntime().exec("cls");
-			mainMenu();
-			break;
-		}
-		break;
+			case 1:
+			{
+				Battle b = new Battle();
+				b.start();
+				break;
+			}
+			case 2:
+			{
+				Save save = new Save();
+				System.out.println(save);
+				System.out.println("Press any key to continue...");
+				// System.in.read();
+				break;
+			}
+			case 3:
+			{
+				optionsMenu();
+				break;
+			}
+			case 4:
+			{
+				break;
+			}
+			default:
+			{
+				System.out.println("Invalid selection.");
+				// TimeUnit.SECONDS.sleep(3);
+				// Runtime.getRuntime().exec("cls");
+				mainMenu();
+				break;
+			}
 		}
 	}
 }

@@ -88,8 +88,7 @@ public class RPG
 		System.out.println("=====Options Menu=====\n");
 		System.out.println("1. Change Name");
 		System.out.println("2. Change Class");
-		System.out.println("3. Format Save Data");
-		System.out.println("4. Return to Main Menu\n");
+		System.out.println("3. Return to Main Menu\n");
 		System.out.print("Choose Your Selection: ");
 		
 		Save save = new Save();
@@ -109,22 +108,6 @@ public class RPG
 				break;
 			}
 			case 3:
-			{
-				Scanner s2 = new Scanner(System.in);
-				System.out.print("Are you sure you want to format the save data? Type yes to format. ");
-				String delete = s2.nextLine();
-				System.out.println("\n");
-				if (delete.equalsIgnoreCase("yes"))
-				{
-					File f = new File("bytes.sav");
-					f.delete();
-					System.out.println("Save file deleted. :(");
-					System.out.println("\n");
-					mainMenu();
-				}
-				break;
-			}
-			case 4:
 			{
 				mainMenu();
 				break;

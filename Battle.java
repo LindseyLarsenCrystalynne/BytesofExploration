@@ -13,12 +13,21 @@ public class Battle
 
 	public void start()
 	{
+		Player p = new Player();
+		int statM = p.getMagic();
+		int statA = p.getAttack();
+		int statDef = p.getDefense();
+		int statDex = p.getDexterity();
+		int statMR = p.getMagicResistence();
+		
+		int turn = 0;
 		enemyList.add(new Enemies());
 		boolean fight = true;
 		System.out.println("⚔=⚔=⚔=⚔=⚔=Fight=⚔=⚔=⚔=⚔=⚔");
 		Scanner scan = new Scanner(System.in);
 		while (fight) 
 		{
+			turn++;
 			System.out.println("\nWhat would you like to do?\n");
 			System.out.println("[Fight] [Defend]");
 			System.out.println("[Skill] [Item]");
@@ -58,7 +67,6 @@ public class Battle
 			 	
 			 	case "Skill":
 			 	{
-			 		Player p = new Player();
 			 		switch(p.getRole())
 			 		{
 			 		case "Archer":
@@ -73,7 +81,25 @@ public class Battle
 			 			{
 			 			case "Shatter Arrow":
 			 			{
-			 				playerSkill(a.shatterArrow(),"Shatter Arrow");
+			 				playerSkill(a.shatterArrow(),0,"Shatter Arrow");
+			 			}
+			 			case "Sprint":
+			 			{
+			 				turn = 2;
+			 				playerSelfSkill("Dexterity",1.5, "Sprint" ,"You run faster for 2 turns!");
+			 				
+			 			}
+			 			case "Fire Arrow":
+			 			{
+			 				
+			 			}
+			 			case "Arrow Storm":
+			 			{
+			 				
+			 			}
+			 			case "Ice Arrow":
+			 			{
+			 				
 			 			}
 			 			}
 			 			break;
@@ -114,14 +140,24 @@ public class Battle
 			 			System.out.println("[Fire Ball] [Hail]");
 			 			System.out.println("[Lightning] [Tsunami]");
 			 			System.out.println("[Boulder]");
+			 			System.out.print("What is your choice --> ");
+			 			switch(scan.nextLine())
+			 			{
+			 			
+			 			}
 			 			break;
 			 		}
 			 		
 			 		case "Warrior":
 			 		{
-			 			Warrior w = new Warrior
+			 			Warrior w = new Warrior();
 			 			System.out.println("\nWhich type of skill?\n");
 			 			System.out.println("[Strike] [Strength]");
+			 			System.out.print("What is your choice --> ");
+			 			switch(scan.nextLine())
+			 			{
+			 			
+			 			}
 			 			break;
 			 		}
 			 		
@@ -139,16 +175,56 @@ public class Battle
 		 		}
 			}
 			enemyTurn();
+			if(turn == 0)
+			{
+				p.setAttack(statA);
+				p.setDefense(statDef);
+				p.setDexterity(statDex);
+				p.setMagic(statM);
+				p.setMagicResistence(statMR);
+			}
+			else if(turn > 0)
+				turn--;
 		}
 	}
 	
-	public String playerSkill(int damage, String skill)
+	public String playerSkill(int damage,int status, String skill)
 	{
 		Player p = new Player();
 
 		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
 		enemyList.get(enemy).setCurHealth(newHP);
 		return "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
+	}
+	
+	public String playerSelfSkill(String stat, double scale, String skill,String message)
+	{
+		
+		Player p = new Player();
+		switch(stat)
+		{
+		case "Dexterity":
+		{
+			p.setDexterity((int)(p.getDexterity() * scale));
+		}
+		case "Magic Resistance":
+		{
+			p.setMagicResistence((int)(p.getMagicResistence() * scale));
+		}
+		case "Defense":
+		{
+			p.setDefense((int)(p.getDefense() * scale));
+		}
+		case "Attack":
+		{
+			
+		}
+		case "Magic":
+		{
+			
+		}
+		}
+		return "\nYou used " + skill + "! " + message;
 	}
 
 	public String playerAttack(double scale)
@@ -203,13 +279,13 @@ public class Battle
 			else if ((((double) Math.random()) * 25) > 24) // else at a 1/25
 															// chance the enemy
 															// will hit a crit
-				System.out.println("It was a critical strike!" + enemyAttack(1.5));
+				System.out.println("It was a crit!" + enemyAttack(1.5));
 			else
 				System.out.println(enemyAttack(1));
 		} else if (((double) p.getCurHealth() / p.getMaxHealth()) <= .1)
 			System.out.println(enemyAttack(1));
 		else if ((((double) Math.random()) * 10) > 8)
-			System.out.println("It was a critical strike!" + enemyAttack(1.5));
+			System.out.println("It was a crit!" + enemyAttack(1.5));
 		else
 			System.out.println(enemyAttack(1));
 	}

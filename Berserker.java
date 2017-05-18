@@ -1,4 +1,4 @@
-public class Berserker
+public class Berserker extends Player
 {
 	public void powerSlam() 
 	{

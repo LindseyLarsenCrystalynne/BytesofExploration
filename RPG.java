@@ -19,36 +19,6 @@ public class RPG
 		}
 	}
 
-	public String RandomString(String txtfile)
-	{
-		try
-		{
-			Scanner sc = new Scanner(new File(txtfile));
-			
-			List<String> lines = new ArrayList<String>();
-
-			while (sc.hasNextLine())
-			{
-				lines.add(sc.nextLine());
-			}
-
-			String[] arr = lines.toArray(new String[0]);
-
-			int rnd = new Random().nextInt(arr.length-1);
-
-			String str = arr[rnd];
-
-			return str;
-		}
-		
-		catch(FileNotFoundException file)
-		{
-	    	System.err.println("Error: Names file not found");
-	    	
-	    	return "Unknown";
-	    }
-	}
-
 	public String Name()
 	{
 		Scanner n = new Scanner(System.in);

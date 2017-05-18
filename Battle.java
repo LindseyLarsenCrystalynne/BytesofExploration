@@ -58,37 +58,58 @@ public class Battle
 			 	
 			 	case "Skill":
 			 	{
-			 		Archer p = new Archer();
+			 		Player p = new Player();
 			 		switch(p.getRole())
 			 		{
 			 		case "Archer":
 			 		{
+			 			Archer a = new Archer();
 			 			System.out.println("\nWhich type of skill?\n");
 			 			System.out.println(" [Shatter Arrow] [Sprint]");
 			 			System.out.println("[Fire Arrow] [Arrow Storm]");
 			 			System.out.println("      [Ice Arrow]");
-			 			
+			 			System.out.print("What is your choice --> ");
+			 			switch(scan.nextLine())
+			 			{
+			 			case "Shatter Arrow":
+			 			{
+			 				playerSkill(a.shatterArrow(),"Shatter Arrow");
+			 			}
+			 			}
 			 			break;
 			 		}
 
 			 		case "Berserker":
 			 		{
+			 			Berserker b = new Berserker();
 			 			System.out.println("\nWhich type of skill?\n");
 			 			System.out.println("[Power Slam] [Charge]");
 			 			System.out.println(" [Rage] [Blood Lust]");
+			 			System.out.print("What is your choice --> ");
+			 			switch(scan.nextLine())
+			 			{
+			 			case "Power Slam":
+			 			{
+			 				
+			 			}
+			 			
+			 			}
 			 			break;
 			 		}
 			 		
 			 		case "Knight":
 			 		{
+			 			Knight k = new Knight();
 			 			System.out.println("\nWhich type of skill?\n");
 			 			System.out.println("[Heavy Slam] [Call Horse]");
 			 			System.out.println("       [Bulk Up]");
+			 			System.out.print("What is your choice --> ");
 			 			break;
 			 		}
 			 		
 			 		case "Mage":
 			 		{
+			 			Mage m = new Mage();
 			 			System.out.println("\nWhich type of skill?\n");
 			 			System.out.println("[Fire Ball] [Hail]");
 			 			System.out.println("[Lightning] [Tsunami]");
@@ -98,6 +119,7 @@ public class Battle
 			 		
 			 		case "Warrior":
 			 		{
+			 			Warrior w = new Warrior
 			 			System.out.println("\nWhich type of skill?\n");
 			 			System.out.println("[Strike] [Strength]");
 			 			break;
@@ -110,6 +132,11 @@ public class Battle
 			 		}
 			 	}
 			 	}
+			 	default:
+		 		{
+		 			System.out.println("Invalid selection.");
+		 			break;
+		 		}
 			}
 			enemyTurn();
 		}
@@ -176,13 +203,13 @@ public class Battle
 			else if ((((double) Math.random()) * 25) > 24) // else at a 1/25
 															// chance the enemy
 															// will hit a crit
-				System.out.println("It was a critical strike! " + enemyAttack(1.5));
+				System.out.println("It was a critical strike!" + enemyAttack(1.5));
 			else
 				System.out.println(enemyAttack(1));
 		} else if (((double) p.getCurHealth() / p.getMaxHealth()) <= .1)
 			System.out.println(enemyAttack(1));
 		else if ((((double) Math.random()) * 10) > 8)
-			System.out.println("It was a critical strike! " + enemyAttack(1.5));
+			System.out.println("It was a critical strike!" + enemyAttack(1.5));
 		else
 			System.out.println(enemyAttack(1));
 	}

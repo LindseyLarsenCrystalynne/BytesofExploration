@@ -42,6 +42,12 @@ public class RPG
 				likeName = n.nextLine();
 			}
 		}
+		
+		else if (name.equalsIgnoreCase("Lindsey") || name.equalsIgnoreCase("Larsen") || name.equalsIgnoreCase("Crystalynne"))
+		{
+			System.out.println("Hmm... I wonder if you're trying to pretend to be one of the developers...");;
+			username = name;
+		}
 
 		else
 		{

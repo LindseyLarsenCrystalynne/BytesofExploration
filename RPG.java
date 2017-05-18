@@ -146,10 +146,14 @@ public class RPG
 		
 		Save save = new Save();
 		
+		save.Load();
+		
 		if (save.getName().equals(""))
 		{
+			System.out.println("Looks like this is your first time playing this game! Welcome!");
 			save.setName(Name());
 			save.setPlayerClass(playerClass());
+			save.FileSave();
 		}
 
 		System.out.println("=====Main Menu=====\n");
@@ -165,7 +169,7 @@ public class RPG
 		{
 			case 1:
 			{
-				Battle b = new Battle();
+				Battle b = new Battle(0);
 				b.start();
 				break;
 			}

@@ -244,7 +244,11 @@ public class Save
 			}
 
 			catch (Exception exc) {
-				System.out.println("Error loading the save file.");
+				System.err.println("Error loading the save file. It might be corrupted. :(");
+				RPG r = new RPG();
+				setName(r.Name());
+				setPlayerClass(r.playerClass());
+				FileSave();
 			}
 		}
 	}

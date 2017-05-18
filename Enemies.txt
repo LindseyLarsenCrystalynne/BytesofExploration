@@ -1,50 +1,51 @@
+HPMPD MRA M D E Name      L M
 1 0 0 0 0 0 2 1 Buttonfly 1 1 - Enemy from Kirby’s Epic Yarn. They don’t attack you - drops a yarn ball (throwable for damage)
 1 0 0 0 1 0 2 1 Buttonbee 1 1- Enemy from Kirby’s Epic Yarn. They can be thrown to make yarn balls.
 1 0 0 0 2 0 2 1 Buttonbug 1 1- Enemy from Kirby’s Epic Yarn. They’re more aggressive than Buttonflies and Buttonbees.
+2 0 0 0 1 0 0 1 Shotzo 1 2 - Enemy from Kirby games. It’s basically a cannon.
+2 0 0 0 1 0 1 1 Octopea 1 1 - Enemy from Kirby’s Epic Yarn. They are octopi.
 2 0 0 0 1 0 1 1 Waddle Dee 1 2 - Enemy of Kirby games. They easily can be defeated.
 2 0 0 0 1 0 1 1 Dandan 1 2 - Enemy from Kirby’s Epic Yarn. They are yellow.
 2 0 0 0 1 0 1 1 Scarfy 1 2 - Enemy from Kirby games. He’s orange.
 4 0 1 0 2 0 2 2 Waddle Doo 2 3 - Stronger version of Waddle Dee.
 4 0 1 0 2 0 2 2 Gordo 2 3 - Enemy from Kirby games. They have spikes.
 4 0 1 0 2 0 2 2 Chilly 2 3 - Enemy from Kirby games. It’s a snowman who tries to freeze stuff.
-7 7 2 3 0 3 2 5 Kracko 2 5- Enemy from Kirby games. It’s a cloud with some spikes and an eye.
-Octopea - Enemy from Kirby’s Epic Yarn. They are octopi.
-Whispy Woods - Boss from Kirby games. It’s an apple tree and attacks by making the apples in his tree fall.
-Shotzo - Enemy from Kirby games. It’s basically a cannon.
-Sawgill - Enemy from Kirby games. It’s a long blue fish.
-Knuckle Joe - Enemy of Kirby games. He punches and kicks a lot.
-15 0 1 0 5 King Dedede - Main villain of Kirby games.
+4 0 2 0 3 0 3 3 Sawgill 3 3- Enemy from Kirby games. It’s a long blue fish.
+5 0 2 0 3 4 3 3 Knuckle Joe 3 3 - Enemy of Kirby games. He punches and kicks a lot.
+7 7 2 3 0 3 2 5 Kracko 2 5 - Enemy from Kirby games. It’s a cloud with some spikes and an eye.
+9 9 3 0 0 4 0 7 Whispy Woods 3 7 - Boss from Kirby games. It’s an apple tree and attacks by making the apples in his tree fall.
+15 0 1 0 5 0 2 9 King Dedede 3 9- Main villain of Kirby games.
 
+HPMPD MRA M D E Name   L M
+4 0 1 0 2 0 2 2 Goomba 4 3 - If you stomp one of these, they will die.
+4 0 3 0 2 0 2 2 Buzzy Beetle 4 3 - Blue turtles with have a hard shell.
+4 0 3 0 3 0 2 2 Spike Top 4 3 - A red Buzzy Beetle with a spike on the top.
+4 0 1 0 2 0 5 2 Paragoomba 4 3 - Goomba with wings.
+4 0 1 0 2 0 2 2 Koopa Troopa 4 3 - Enemy of Mario games. They’re easily defeated by stomping on their shell.
+4 0 1 1 0 2 0 2 Piranha Plant 4 3 - Enemy of Mario games. They are like venus flytraps.
+8 0 1 2 2 0 2 2 Dry Bones 4 6 - Similar to Koopa Troopas, but can get back up once they’re defeated.
+5 5 0 1 1 2 2 3 Roy Koopa 4 4 - One of the Koopalings from Mario games. Has a cannon.
+5 5 0 1 1 2 2 3 Spike 5 5 - Throws spike balls at you.
+5 0 3 3 1 1 5 5 Shy Guy 5 5 - Enemy with a mask.
+5 0 3 3 2 1 5 5 Snifit 5 5-  Enemy from Mario games. They are Shy Guys which have an extended nozzle.
+6 0 3 2 3 0 2 5 Monty Mole 5 6 - Enemy from Mario games. They throw rocks at the player.
+6 3 1 1 1 1 3 4 Boo 5 4 - You can only attack after you block (or look away if we’re having a more indepth action system)
+6 10 2 2 2 2 2 4 Kamek 5 5 - Villian of Mario games. He often spews magic.
+6 0 3 3 4 0 4 5 Lakitu 6 3 - He floats around in a cloud throwing Spinies at you. If you kill him, you can float in his cloud.
+13 0 5 2 5 0 1 12 Bowser Jr. 4 8 - Bowser’s son.
+6 2 5 3 3 3 2 5 Burt the Bashful 6 4 - Enemy from Yoshi games. They have big trousers.
+7 0 5 0 5 0 3 5 Hammer Bros. 6 5 - Mario enemies that throw hammers at you.
+7 0 5 0 5 0 3 5 Rocky Wrench 6 5 - Enemy from Mario games. They pop out of manholes and throw a wrench.
+13 0 5 2 5 0 6 12 Wendy O. Koopa 4 8 - One of the Koopalings from Mario games. Has rings
+13 13 5 5 5 5 3 12 Iggy Koopa 4 8- One of the Koopalings from Mario games. Has a yellow magic wand.
+13 13 5 5 5 5 3 12 Larry Koopa 4 8 - One of the Koopalings from Mario games. Has a wand.
+ Lemmy Koopa 4 8 - One of the Koopalings from Mario games. Carries bombs and rolls around on a ball.
+Ludwig von Koopa 4 8 - One of the Koopalings from Mario games. Has a blue magic wand.
+Morton Koopa Jr. 4 8 - One of the Koopalings from Mario games. Has a ruby magic wand.
+Snifberg the Unfeeling 5 10 - Enemy from Yoshi’s Woolly World. It’s an Ice Snifit.
+Dr. Eggman 5 10 - Main villain of Sonic games.
+Bowser 6 18 - Main villain of Mario games.
 
-
-Monty Mole - Enemy from Mario games. They throw rocks at the player.
-Wendy O. Koopa - One of the Koopalings from Mario games. Has rings
-Bowser - Main villain of Mario games.
-Bowser Jr. - Bowser’s son.
-Burt the Bashful - Enemy from Yoshi games. They have big trousers.
-Goomba - If you stomp one of these, they will die.
-Dry Bones - Similar to Koopa Troopas, but can get back up once they’re defeated.
-Iggy Koopa - One of the Koopalings from Mario games. Has a yellow magic wand.
-Kamek - Villian of Mario games. He often spews magic.
-Hammer Bros. - Mario enemies that throw hammers at you.
-Koopa Troopa - Enemy of Mario games. They’re easily defeated by stomping on their shell.
-Lakitu - He floats around in a cloud throwing Spinies at you. If you kill him, you can float in his cloud.
-Larry Koopa - One of the Koopalings from Mario games. Has a wand.
-Lemmy Koopa - One of the Koopalings from Mario games. Carries bombs and rolls around on a ball.
-Ludwig von Koopa - One of the Koopalings from Mario games. Has a blue magic wand.
-Morton Koopa Jr. - One of the Koopalings from Mario games. Has a ruby magic wand.
-Piranha Plant - Enemy of Mario games. They are like venus flytraps.
-Rocky Wrench - Enemy from Mario games. They pop out of manholes and throw a wrench.
-Roy Koopa - One of the Koopalings from Mario games. Has a cannon.
-Snifberg the Unfeeling - Enemy from Yoshi’s Woolly World. It’s an Ice Snifit.
-Snifit - Enemy from Mario games. They are Shy Guys which have an extended nozzle.
-Spike - Throws spike balls at you.
-Spike Top - A red Buzzy Beetle with a spike on the top.
-Shy Guy - Enemy with a mask.
-Paragoomba - Goomba with wings.
-Buzzy Beetle - Blue turtles with have a hard shell.
-Dr. Eggman - Main villain of Sonic games.
-Boo - You can only attack after you block (or look away if we’re having a more indepth action system)
 
 Spider 4 0 1 0 2 0 2 2 3 - Enemy from Minecraft.
 Slime 2 0 0 0 1 0 1 1 2- Enemy from Minecraft. It drops slime which you can eat for health but also a poison effect or sell.

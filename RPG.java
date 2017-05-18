@@ -118,6 +118,18 @@ public class RPG
 				mainMenu();
 				break;
 			}
+			case 99:
+			{
+				int i = 1;
+				while (i < 1000)
+				{
+					System.out.println("CONGRATULATIONS! YOU HAVE ENTERED A SECRET MODE!");
+					i += 1;
+				}
+				System.out.println("\n");
+				mainMenu();
+				break;
+			}
 			default:
 			{
 				System.err.println("Invalid selection.\n");

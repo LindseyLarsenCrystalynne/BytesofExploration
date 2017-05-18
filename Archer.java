@@ -1,9 +1,11 @@
-public class Archer
+public class Archer extends Player
 {
-	public void shatterArrow()
+	public int shatterArrow()
 	{
 		Player p = new Player();
-		p.getLvl * 1.5  * p.getDexterity;
+		int damage = (int)(p.getLvl() * .75 * p.getDexterity());
+		return damage;
+		
 	}
 
 	public void sprint()

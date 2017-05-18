@@ -187,6 +187,8 @@ public class RPG
 					System.out.println("CONGRATULATIONS! YOU HAVE ENTERED A SECRET MODE!");
 					i += 1;
 				}
+				System.out.println("\n");
+				mainMenu();
 				break;
 			}
 			default:

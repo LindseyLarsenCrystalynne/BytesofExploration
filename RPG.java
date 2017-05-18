@@ -83,14 +83,16 @@ public class RPG
 
 	public void optionsMenu()
 	{
-		Scanner s = new Scanner(System.in);;
+		Scanner s = new Scanner(System.in);
 
 		System.out.println("=====Options Menu=====\n");
 		System.out.println("1. Change Name");
 		System.out.println("2. Change Class");
 		System.out.println("3. Format Save Data");
-		System.out.println("4. Return to Main Menu");
+		System.out.println("4. Return to Main Menu\n");
 		System.out.print("Choose Your Selection: ");
+		
+		Save save = new Save();
 
 		int selection = s.nextInt();
 
@@ -98,28 +100,26 @@ public class RPG
 		{
 			case 1:
 			{
-				Save save = new Save();
 				save.setName(Name());
 				break;
 			}
 			case 2:
 			{
-				Save save = new Save();
 				save.setPlayerClass(playerClass());
 				break;
 			}
 			case 3:
 			{
-				Save save = new Save();
+				Scanner s2 = new Scanner(System.in);
 				System.out.print("Are you sure you want to format the save data? Type yes to format. ");
-				String delete = s.nextLine();
+				String delete = s2.nextLine();
+				System.out.println("\n");
 				if (delete.equalsIgnoreCase("yes"))
 				{
 					File f = new File("bytes.sav");
 					f.delete();
-					System.out.println("Save file deleted.");
-					// TimeUnit.SECONDS.sleep(3);
-					// Runtime.getRuntime().exec("cls");
+					System.out.println("Save file deleted. :(");
+					System.out.println("\n");
 					mainMenu();
 				}
 				break;
@@ -131,9 +131,7 @@ public class RPG
 			}
 			default:
 			{
-				System.out.println("Invalid selection.");
-				// TimeUnit.SECONDS.sleep(3);
-				// Runtime.getRuntime().exec("cls");
+				System.err.println("Invalid selection.\n");
 				mainMenu();
 				break;
 			}
@@ -175,9 +173,12 @@ public class RPG
 			}
 			case 2:
 			{
+				Scanner s2 = new Scanner(System.in);
 				System.out.println(save);
-				System.out.println("Press any key to continue...");
-				// System.in.read();
+				System.out.print("Type in anything to continue: ");
+				s2.nextLine();
+				System.out.println("\n");
+				mainMenu();
 				break;
 			}
 			case 3:

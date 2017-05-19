@@ -3,7 +3,8 @@ import java.util.*;
 public class Battle
 {
 	ArrayList<Enemies> enemyList = new ArrayList<Enemies>();
-
+	
+	Scanner ene = new Scanner(File);
 	int enemy;
 
 	public Battle(int enemyNumber)
@@ -118,7 +119,18 @@ public class Battle
 			 			{
 			 				
 			 			}
-			 			
+			 			case "Charge":
+			 			{
+			 				
+			 			}
+			 			case "Rage":
+			 			{
+			 				
+			 			}
+			 			case "Blood Lust":
+			 			{
+			 				
+			 			}
 			 			}
 			 			break;
 			 		}
@@ -130,6 +142,21 @@ public class Battle
 			 			System.out.println("[Heavy Slam] [Call Horse]");
 			 			System.out.println("       [Bulk Up]");
 			 			System.out.print("What is your choice --> ");
+			 			switch(scan.nextLine())
+			 			{
+			 			case "Heavy Slam":
+			 			{
+			 				
+			 			}
+			 			case "Call Horse":
+			 			{
+			 				
+			 			}
+			 			case "Bulk Up":
+			 			{
+			 				
+			 			}
+			 			}
 			 			break;
 			 		}
 			 		
@@ -143,7 +170,26 @@ public class Battle
 			 			System.out.print("What is your choice --> ");
 			 			switch(scan.nextLine())
 			 			{
-			 			
+			 			case "Fire Ball":
+			 			{
+			 				
+			 			}
+			 			case "Hail":
+			 			{
+			 				
+			 			}
+			 			case "Lightning":
+			 			{
+			 				
+			 			}
+			 			case "Tsunami":
+			 			{
+			 				
+			 			}
+			 			case "Boulder":
+			 			{
+			 				
+			 			}
 			 			}
 			 			break;
 			 		}
@@ -191,10 +237,38 @@ public class Battle
 	public String playerSkill(int damage,int status, String skill)
 	{
 		Player p = new Player();
-
+		String output = "";
+		String st;
 		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
 		enemyList.get(enemy).setCurHealth(newHP);
-		return "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
+		
+		switch(status) // 0 = normal 1 = burned 2 = poisoned 3 = slowed 4 = frozen
+		{
+		case 1:
+		{
+			st = "burned";
+		}
+		case 2:
+		{
+			
+		}
+		case 3:
+		{
+			
+		}
+		case 4:
+		{
+			
+		}
+		default:
+		{
+			
+		}
+		}
+		
+		output += "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
+		if(status != 0)
+			output += "You inflicted " + 
 	}
 	
 	public String playerSelfSkill(String stat, double scale, String skill,String message)

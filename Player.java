@@ -17,7 +17,7 @@ public class Player
 	private static int lvl;
 	private static int status;
 	private static int money;
-	private ArrayList<Items> inv = new ArrayList<Items>();
+	private static ArrayList<Items> inv = new ArrayList<Items>();
 
 	public int getMaxHealth()
 	{
@@ -172,5 +172,10 @@ public class Player
 	public void addItem(Items i)
 	{
 		inv.add(i);
+	}
+	
+	public Items removeItem(int i)
+	{
+		return inv.remove(i);
 	}
 }

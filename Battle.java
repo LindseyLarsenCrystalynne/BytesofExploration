@@ -70,142 +70,158 @@ public class Battle
 			 	{
 			 		switch(p.getRole())
 			 		{
-			 		case "Archer":
-			 		{
-			 			Archer a = new Archer();
-			 			System.out.println("\nWhich type of skill?\n");
-			 			System.out.println(" [Shatter Arrow] [Sprint]");
-			 			System.out.println("[Fire Arrow] [Arrow Storm]");
-			 			System.out.println("      [Ice Arrow]");
-			 			System.out.print("What is your choice --> ");
-			 			switch(scan.nextLine())
-			 			{
-			 			case "Shatter Arrow":
-			 			{
-			 				playerSkill(a.shatterArrow(),0,"Shatter Arrow");
-			 			}
-			 			case "Sprint":
-			 			{
-			 				turn = 2;
-			 				playerSelfSkill("Dexterity",1.5, "Sprint" ,"You run faster for 2 turns!");
-			 				
-			 			}
-			 			case "Fire Arrow":
-			 			{
-			 				
-			 			}
-			 			case "Arrow Storm":
-			 			{
-			 				
-			 			}
-			 			case "Ice Arrow":
-			 			{
-			 				
-			 			}
-			 			}
-			 			break;
-			 		}
-
-			 		case "Berserker":
-			 		{
-			 			Berserker b = new Berserker();
-			 			System.out.println("\nWhich type of skill?\n");
-			 			System.out.println("[Power Slam] [Charge]");
-			 			System.out.println(" [Rage] [Blood Lust]");
-			 			System.out.print("What is your choice --> ");
-			 			switch(scan.nextLine())
-			 			{
-			 			case "Power Slam":
-			 			{
-			 				
-			 			}
-			 			case "Charge":
-			 			{
-			 				
-			 			}
-			 			case "Rage":
-			 			{
-			 				
-			 			}
-			 			case "Blood Lust":
-			 			{
-			 				
-			 			}
-			 			}
-			 			break;
-			 		}
-			 		
-			 		case "Knight":
-			 		{
-			 			Knight k = new Knight();
-			 			System.out.println("\nWhich type of skill?\n");
-			 			System.out.println("[Heavy Slam] [Call Horse]");
-			 			System.out.println("       [Bulk Up]");
-			 			System.out.print("What is your choice --> ");
-			 			switch(scan.nextLine())
-			 			{
-			 			case "Heavy Slam":
-			 			{
-			 				
-			 			}
-			 			case "Call Horse":
-			 			{
-			 				
-			 			}
-			 			case "Bulk Up":
-			 			{
-			 				
-			 			}
-			 			}
-			 			break;
-			 		}
-			 		
-			 		case "Mage":
-			 		{
-			 			Mage m = new Mage();
-			 			System.out.println("\nWhich type of skill?\n");
-			 			System.out.println("[Fire Ball] [Hail]");
-			 			System.out.println("[Lightning] [Tsunami]");
-			 			System.out.println("[Boulder]");
-			 			System.out.print("What is your choice --> ");
-			 			switch(scan.nextLine())
-			 			{
-			 			case "Fire Ball":
-			 			{
-			 				
-			 			}
-			 			case "Hail":
-			 			{
-			 				
-			 			}
-			 			case "Lightning":
-			 			{
-			 				
-			 			}
-			 			case "Tsunami":
-			 			{
-			 				
-			 			}
-			 			case "Boulder":
-			 			{
-			 				
-			 			}
-			 			}
-			 			break;
-			 		}
-			 		
-			 		case "Warrior":
-			 		{
-			 			Warrior w = new Warrior();
-			 			System.out.println("\nWhich type of skill?\n");
-			 			System.out.println("[Strike] [Strength]");
-			 			System.out.print("What is your choice --> ");
-			 			switch(scan.nextLine())
-			 			{
-			 			
-			 			}
-			 			break;
-			 		}
+				 		case "Archer":
+				 		{
+				 			Archer a = new Archer();
+				 			System.out.println("\nWhich type of skill?\n");
+				 			System.out.println(" [Shatter Arrow] [Sprint]");
+				 			System.out.println("[Fire Arrow] [Arrow Storm]");
+				 			System.out.println("      [Ice Arrow]");
+				 			System.out.print("What is your choice --> ");
+				 			switch(scan.nextLine())
+				 			{
+					 			case "Shatter Arrow":
+					 			{
+					 				playerSkill(a.shatterArrow(),0,"Shatter Arrow");
+					 			}
+					 			case "Sprint":
+					 			{
+					 				turn = 2;
+					 				playerSelfSkill("Dexterity",1.5, "Sprint" ,"You run faster for 2 turns!");
+					 				
+					 			}
+					 			case "Fire Arrow":
+					 			{
+					 				
+					 			}
+					 			case "Arrow Storm":
+					 			{
+					 				
+					 			}
+					 			case "Ice Arrow":
+					 			{
+					 				
+					 			}
+			 					default:
+			 					{
+			 						System.err.println("Invalid selection.");
+			 					}
+				 			}
+				 			break;
+				 		}
+	
+				 		case "Berserker":
+				 		{
+				 			Berserker b = new Berserker();
+				 			System.out.println("\nWhich type of skill?\n");
+				 			System.out.println("[Power Slam] [Charge]");
+				 			System.out.println(" [Rage] [Blood Lust]");
+				 			System.out.print("What is your choice --> ");
+				 			switch(scan.nextLine())
+				 			{
+				 				case "Power Slam":
+				 				{
+				 					
+				 				}
+				 				case "Charge":
+				 				{
+				 					
+				 				}
+					 			case "Rage":
+						 		{
+						 				
+					 			}
+					 			case "Blood Lust":
+					 			{
+					 				
+					 			}
+			 					default:
+			 					{
+			 						System.err.println("Invalid selection.");
+			 					}
+				 			}
+				 			break;
+				 		}
+				 		
+				 		case "Knight":
+				 		{
+				 			Knight k = new Knight();
+				 			System.out.println("\nWhich type of skill?\n");
+				 			System.out.println("[Heavy Slam] [Call Horse]");
+				 			System.out.println("       [Bulk Up]");
+				 			System.out.print("What is your choice --> ");
+				 			switch(scan.nextLine())
+				 			{
+				 				case "Heavy Slam":
+				 				{
+				 				
+				 				}
+				 				case "Call Horse":
+				 				{
+				 					
+				 				}
+				 				case "Bulk Up":
+				 				{
+				 				
+				 				}
+			 					default:
+			 					{
+			 						System.err.println("Invalid selection.");
+			 					}
+				 			}
+				 			break;
+				 		}
+				 		
+				 		case "Mage":
+				 		{
+				 			Mage m = new Mage();
+				 			System.out.println("\nWhich type of skill?\n");
+				 			System.out.println("[Fire Ball] [Hail]");
+				 			System.out.println("[Lightning] [Tsunami]");
+				 			System.out.println("[Boulder]");
+				 			System.out.print("What is your choice --> ");
+				 			switch(scan.nextLine())
+				 			{
+				 				case "Fire Ball":
+				 				{
+				 				
+				 				}
+				 				case "Hail":
+				 				{
+				 				
+				 				}
+				 				case "Lightning":
+				 				{
+				 				
+				 				}
+				 				case "Tsunami":
+				 				{
+				 				
+				 				}
+				 				case "Boulder":
+				 				{
+				 				
+				 				}
+				 				default:
+				 				{
+				 					System.err.println("Invalid selection.");
+				 				}
+				 			}
+				 			break;
+				 		}
+				 		
+				 		case "Warrior":
+				 		{
+				 			Warrior w = new Warrior();
+				 			System.out.println("\nWhich type of skill?\n");
+				 			System.out.println("[Strike] [Strength]");
+				 			System.out.print("What is your choice --> ");
+				 			switch(scan.nextLine())
+				 			{
+				 			
+				 			}
+				 			break;
+				 		}
 			 		
 			 		default:
 			 		{
@@ -244,31 +260,31 @@ public class Battle
 		
 		switch(status) // 0 = normal 1 = burned 2 = poisoned 3 = slowed 4 = frozen
 		{
-		case 1:
-		{
-			st = "burned";
-		}
-		case 2:
-		{
-			
-		}
-		case 3:
-		{
-			
-		}
-		case 4:
-		{
-			
-		}
-		default:
-		{
-			
-		}
+			case 1:
+			{
+				st = "burned";
+			}
+			case 2:
+			{
+				st = "poisoned";
+			}
+			case 3:
+			{
+				st = "slowed";
+			}
+			case 4:
+			{
+				st = "frozen";
+			}
+			default:
+			{
+				st = "invalid";
+			}
 		}
 		
 		output += "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
 		if(status != 0)
-			output += "You inflicted " + 
+			output += "You inflicted ";
 	}
 	
 	public String playerSelfSkill(String stat, double scale, String skill,String message)
@@ -277,26 +293,30 @@ public class Battle
 		Player p = new Player();
 		switch(stat)
 		{
-		case "Dexterity":
-		{
-			p.setDexterity((int)(p.getDexterity() * scale));
-		}
-		case "Magic Resistance":
-		{
-			p.setMagicResistence((int)(p.getMagicResistence() * scale));
-		}
-		case "Defense":
-		{
-			p.setDefense((int)(p.getDefense() * scale));
-		}
-		case "Attack":
-		{
-			
-		}
-		case "Magic":
-		{
-			
-		}
+			case "Dexterity":
+			{
+				p.setDexterity((int)(p.getDexterity() * scale));
+			}
+			case "Magic Resistance":
+			{
+				p.setMagicResistence((int)(p.getMagicResistence() * scale));
+			}
+			case "Defense":
+			{
+				p.setDefense((int)(p.getDefense() * scale));
+			}
+			case "Attack":
+			{
+				
+			}
+			case "Magic":
+			{
+				
+			}
+			default:
+			{
+				System.err.println("Invalid selection.");
+			}
 		}
 		return "\nYou used " + skill + "! " + message;
 	}

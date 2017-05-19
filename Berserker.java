@@ -1,22 +1,20 @@
 public class Berserker extends Player
 {
-	public void powerSlam() 
+	public int powerSlam() 
 	{
-	
+		int damage = (int)(getLvl() * .95 * getDexterity());
+		return damage;
 	}
 
-	public void charge()
+	public int charge()
 	{
-	
+		int damage = (int)(getLvl() * (Math.random() * 2) * getMagicResistence());
+		return damage;
 	}
 
-	public void rage()
+	public int rage()
 	{
-	
-	}
-
-	public void bloodLust()
-	{
-	
+		int damage = (int)(getLvl() * .55 * 2);
+		return damage;
 	}
 }

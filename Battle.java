@@ -214,25 +214,11 @@ public class Battle
 				 			break;
 				 		}
 				 		
-				 		case "Warrior":
+				 		default:
 				 		{
-				 			Warrior w = new Warrior();
-				 			System.out.println("\nWhich type of skill?\n");
-				 			System.out.println("[Strike] [Strength]");
-				 			System.out.print("What is your choice --> ");
-				 			switch(scan.nextLine())
-				 			{
-				 			
-				 			}
+				 			System.out.println("Invalid selection.");
 				 			break;
 				 		}
-			 		
-			 		default:
-			 		{
-			 			System.out.println("Invalid selection.");
-			 			break;
-			 		}
-			 	}
 			 	}
 			 	default:
 		 		{

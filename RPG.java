@@ -63,20 +63,19 @@ public class RPG
 		System.out.println("What class do you want? Type 'random' for a random skill: \n");
 		System.out.println("                [Archer] [Beserker]");
 		System.out.println("                [Knight] [Mage]");
-		System.out.println("                     [Warrior]");
 		System.out.print("Choose Your Selection: ");
 		
 		String playerClass = n.nextLine();
 		
-		if (playerClass.equalsIgnoreCase("random") || playerClass.equals("") || !(playerClass.equals("Archer") || playerClass.equals("Beserker") || playerClass.equals("Knight") || playerClass.equals("Mage") || playerClass.equals("Warrior")))
+		if (playerClass.equalsIgnoreCase("random") || playerClass.equals("") || !playerClass.equals("Archer") || !playerClass.equals("Beserker") || !playerClass.equals("Knight") || !playerClass.equals("Mage"))
 		{
 			String likePlayerClass = "";
 			
 			while (!likePlayerClass.equals("y"))
 			{
-				String[] randomPlayerClasses = {"Archer", "Beserker", "Knight", "Mage", "Warrior"};
+				String[] randomPlayerClasses = {"Archer", "Beserker", "Knight", "Mage"};
 				
-				playerClass = randomPlayerClasses[(int)(Math.random() * 5)];
+				playerClass = randomPlayerClasses[(int)(Math.random() * 4)];
 				
 				System.out.print("This class has been chosen for you: " + playerClass + " - do you want to use it? (y/n) ");
 				

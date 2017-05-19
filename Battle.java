@@ -14,6 +14,7 @@ public class Battle
 
 	public void start()
 	{
+		Save s = new Save();+
 		Player p = new Player();
 		int statM = p.getMagic();
 		int statA = p.getAttack();
@@ -68,7 +69,7 @@ public class Battle
 			 	
 			 	case "Skill":
 			 	{
-			 		switch(p.getRole())
+			 		switch(s.getPlayerClass())
 			 		{
 				 		case "Archer":
 				 		{
@@ -87,20 +88,19 @@ public class Battle
 					 			case "Sprint":
 					 			{
 					 				turn = 2;
-					 				playerSelfSkill("Dexterity",1.5, "Sprint" ,"You run faster for 2 turns!");
-					 				
+					 				playerSelfSkill("Dexterity",1.5,"Sprint","You run faster for 2 turns!");
 					 			}
 					 			case "Fire Arrow":
 					 			{
-					 				
+					 				playerSkill(a.fireArrow(),1,"Fire Arrow");
 					 			}
 					 			case "Arrow Storm":
 					 			{
-					 				
+					 				playerSkill(a.arrowStorm(),1,"Arrow Storm");
 					 			}
 					 			case "Ice Arrow":
 					 			{
-					 				
+					 				playerSkill(a.shatterArrow(),4,"Ice Arrow");
 					 			}
 			 					default:
 			 					{
@@ -121,19 +121,19 @@ public class Battle
 				 			{
 				 				case "Power Slam":
 				 				{
-				 					
+					 				playerSkill(b.powerSlam(),5,"Power Slam");
 				 				}
 				 				case "Charge":
 				 				{
-				 					
+					 				playerSkill(b.charge(),5,"Power Slam");
 				 				}
 					 			case "Rage":
 						 		{
-						 				
+					 				playerSkill(b.rage(),5,"Rage");
 					 			}
 					 			case "Blood Lust":
 					 			{
-					 				
+					 				playerSkill(b.bloodLust(),1,"Blood Lust");
 					 			}
 			 					default:
 			 					{
@@ -258,8 +258,12 @@ public class Battle
 		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
 		enemyList.get(enemy).setCurHealth(newHP);
 		
-		switch(status) // 0 = normal 1 = burned 2 = poisoned 3 = slowed 4 = frozen
+		switch(status)
 		{
+			case 0:
+			{
+				st = "did nothing";
+			}
 			case 1:
 			{
 				st = "burned";
@@ -274,17 +278,17 @@ public class Battle
 			}
 			case 4:
 			{
-				st = "frozen";
+				st = "froze";
 			}
-			default:
+			case 5:
 			{
-				st = "invalid";
+				st = "punched";
 			}
 		}
 		
 		output += "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
 		if(status != 0)
-			output += "You inflicted ";
+			output += "You " + st + " the enemy!";
 	}
 	
 	public String playerSelfSkill(String stat, double scale, String skill,String message)

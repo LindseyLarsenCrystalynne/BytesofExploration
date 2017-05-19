@@ -155,7 +155,7 @@ public class Battle
 				 			{
 				 				case "Heavy Slam":
 				 				{
-					 				playerSkill(b.heavySlam(),5,"Heavy Slam");
+					 				playerSkill(k.heavySlam(),5,"Heavy Slam");
 				 				}
 				 				case "Call Horse":
 				 				{
@@ -187,23 +187,24 @@ public class Battle
 				 			{
 				 				case "Fire Ball":
 				 				{
-				 				
+					 				playerSkill(m.fireBall(),1,"Heavy Slam");
 				 				}
 				 				case "Hail":
 				 				{
-				 				
+					 				playerSkill(m.hail(),4,"Hail");
 				 				}
 				 				case "Lightning":
 				 				{
-				 				
+					 				playerSkill(m.lightning(),1,"Lightning");
 				 				}
 				 				case "Tsunami":
 				 				{
-				 				
+					 				playerSkill(m.tsunami(),3,"Tsunami");
 				 				}
-				 				case "Boulder":
+				 				case "Call Mother Nature":
 				 				{
-				 				
+					 				turn = 2;
+					 				playerSelfSkill("Magic Resistance",1.5,"Call Mother Nature","You called Mother Nature and she gave you 2 more turns!");
 				 				}
 				 				default:
 				 				{

@@ -1,27 +1,26 @@
-public class Mage
+public class Mage extends Player
 {
-	public void firevall()
+	public int fireBall()
 	{
-	
+		int damage = (int)(getLvl() * 1.25 * getDexterity());
+		return damage;
 	}
 
-	public void hail()
+	public int hail()
 	{
-	
+		int damage = (int)(getLvl() * (Math.random() * 1.5) * getMagicResistence());
+		return damage;
 	}
 
-	public void lightning()
+	public int lightning()
 	{
-	
+		int damage = (int)(getLvl() * (Math.random() * 2) * getMagicResistence());
+		return damage;
 	}
 
-	public void tsunami()
+	public int tsunami()
 	{
-	
-	}
-
-	public void boulder()
-  {
-	
+		int damage = (int)(getLvl() * 1.50 * getDexterity());
+		return damage;
 	}
 }

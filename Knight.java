@@ -1,17 +1,8 @@
-public class Knight
+public class Knight extends Player
 {
-  public void heavySlam()
+  public int heavySlam()
   {
-    
-  }
-    
-  public void callHorse()
-  {
-    
-  }
-  
-  public void bulkUp()
-  {
-  
+	  int damage = (int)(getLvl() * (Math.random() * 2) * getMagicResistence());
+	  return damage;
   }
 }

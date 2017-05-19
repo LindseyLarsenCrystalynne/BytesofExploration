@@ -155,15 +155,17 @@ public class Battle
 				 			{
 				 				case "Heavy Slam":
 				 				{
-				 				
+					 				playerSkill(b.heavySlam(),5,"Heavy Slam");
 				 				}
 				 				case "Call Horse":
 				 				{
-				 					
+					 				turn = 2;
+					 				playerSelfSkill("Dexterity",1,"Call Horse","You called a horse! Now you have 2 more turns!");
 				 				}
 				 				case "Bulk Up":
 				 				{
-				 				
+					 				turn = 2;
+					 				playerSelfSkill("Defense",2,"Bulk Up","You've bulked up! Have 2 more turns!");
 				 				}
 			 					default:
 			 					{
@@ -309,14 +311,6 @@ public class Battle
 			case "Defense":
 			{
 				p.setDefense((int)(p.getDefense() * scale));
-			}
-			case "Attack":
-			{
-				
-			}
-			case "Magic":
-			{
-				
 			}
 			default:
 			{

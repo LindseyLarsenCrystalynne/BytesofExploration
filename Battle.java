@@ -353,13 +353,13 @@ public class Battle
 			else if ((((double) Math.random()) * 25) > 24) // else at a 1/25
 															// chance the enemy
 															// will hit a crit
-				System.out.println("It was a crit!" + enemyAttack(1.5));
+				System.out.println("It was a critical strike!" + enemyAttack(1.5));
 			else
 				System.out.println(enemyAttack(1));
 		} else if (((double) p.getCurHealth() / p.getMaxHealth()) <= .1)
 			System.out.println(enemyAttack(1));
 		else if ((((double) Math.random()) * 10) > 8)
-			System.out.println("It was a crit!" + enemyAttack(1.5));
+			System.out.println("It was a critical strike!" + enemyAttack(1.5));
 		else
 			System.out.println(enemyAttack(1));
 	}

@@ -2,29 +2,25 @@ public class Archer extends Player
 {
 	public int shatterArrow()
 	{
-		Player p = new Player();
-		int damage = (int)(p.getLvl() * .75 * p.getDexterity());
+		int damage = (int)(getLvl() * .75 * getDexterity());
 		return damage;
-		
 	}
 
-	public void sprint()
+	public int fireArrow()
 	{
-		
+		int damage = (int)(getLvl() * (Math.random() * 2) * getDexterity());
+		return damage;
 	}
 
-	public void fireArrow()
+	public int arrowStorm()
 	{
-	
+		int damage = (int)(getLvl() * .55 * getMagicResistence());
+		return damage;
 	}
 
-	public void arrowStorm()
+	public int iceArrow()
 	{
-	
-	}
-
-	public void iceArrow()
-  {
-	
+		int damage = (int)(getLvl() * (Math.random() * 1.75) * getDexterity());
+		return damage;
 	}
 }

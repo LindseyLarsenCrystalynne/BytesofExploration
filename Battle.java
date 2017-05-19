@@ -131,9 +131,10 @@ public class Battle
 						 		{
 					 				playerSkill(b.rage(),5,"Rage");
 					 			}
-					 			case "Blood Lust":
+					 			case "Exercise":
 					 			{
-					 				playerSkill(b.bloodLust(),1,"Blood Lust");
+					 				turn = 2;
+					 				playerSelfSkill("Magic Resistance",1.5,"Exercise","You exercised a bit and now have 2 more turns!");
 					 			}
 			 					default:
 			 					{

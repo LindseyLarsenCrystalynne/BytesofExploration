@@ -178,4 +178,14 @@ public class Player
 	{
 		return inv.remove(i);
 	}
+	
+	public Items getItem(int i)
+	{
+		return inv.get(i);
+	}
+	
+	public int getInvSize()
+	{
+		return inv.size();
+	}
 }

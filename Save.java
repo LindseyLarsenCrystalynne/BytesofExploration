@@ -22,6 +22,17 @@ public class Save
 	private int lvl;
 	private int money;
 	private int status;
+	private int enemy;
+	
+	public int getEnemy()
+	{
+		return enemy;
+	}
+
+	public void setEnemy(int enemy)
+	{
+		this.enemy = enemy;
+	}
 
 	public String getName()
 	{

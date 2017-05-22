@@ -1,4 +1,4 @@
-public class Test
+public class Test throws InterruptedException
 {
 	public static void main(String[] args)
 	{

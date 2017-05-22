@@ -86,7 +86,7 @@ public class RPG
 		return playerClass;
 	}
 
-	public void optionsMenu()
+	public void optionsMenu() throws InterruptedException
 	{
 		Scanner s = new Scanner(System.in);
 
@@ -144,9 +144,11 @@ public class RPG
 		
 		Save save = new Save();
 		
+		boolean first = false;
+		
 		save.Load();
 		
-		if (save.getName().equals(""))
+		if (first = save.getName().equals(""))
 		{
 			System.out.println("Looks like this is your first time playing this game! Welcome!");
 			save.setName(Name());
@@ -164,14 +166,17 @@ public class RPG
 			save.setMoney(0);
 			save.setStatus(0);
 			save.FileSave();
-			
+			save.setEnemy(0);
 		}
 		switch (mainMenuSelection())
 		{
 			case 1:
 			{
-				Cutscene c = new Cutscene(0);
-				Battle b = new Battle(0);
+				if(first)
+				{
+					Cutscene c = new Cutscene(0);
+				}
+				Battle b = new Battle(save.getEnemy());
 				b.start();
 				break;
 			}

@@ -53,7 +53,7 @@ public class Battle
 			
 			switch (scan.nextLine())
 			{
-				case "Fight":
+				case "Fight": case "fight":
 			 	{
 			 		System.out.println("\nWhich type of attack?\n");;
 			 		System.out.println("[Physical] [Magic]\n");

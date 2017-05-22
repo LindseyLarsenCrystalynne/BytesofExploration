@@ -14,8 +14,6 @@ public class Shop
 
 	public Shop()
 	{
-		System.out
-				.println("Welcome to the shop! Would you like to sell or buy?\n		(Sell / Buy)\n		  Or leave");
 		try
 		{
 			setList();
@@ -35,15 +33,13 @@ public class Shop
 			FileReader fileReader = new FileReader(file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			String line;
-			
+
 			for (int u = 0; u < 2; u++)
 			{
 				if ((line = bufferedReader.readLine()) != null)
 				{
 					String a = line;
-					
-					
-					
+
 					if (a.charAt(0) == '1')
 					{
 						a = a.substring(2);
@@ -54,10 +50,10 @@ public class Shop
 						int mana = 0;
 						int assign = 0;
 						int end = 0;
-						
+
 						end = ifSpace(a);
-						
-						while(assign < 5)
+
+						while (assign < 5)
 						{
 							switch (assign)
 							{
@@ -69,7 +65,7 @@ public class Shop
 								assign++;
 								break;
 							case 1:
-								
+
 								price = Integer.parseInt(a.substring(0, end));
 								a = a.substring(end + 1);
 								end = ifSpace(a);
@@ -94,7 +90,7 @@ public class Shop
 							}
 						}
 
-						Consumables c = new Consumables(name,price,heal,damage,mana);
+						Consumables c = new Consumables(name, price, heal, damage, mana);
 						iList[u] = c;
 					}
 
@@ -108,7 +104,7 @@ public class Shop
 			System.err.println("It didn't work");
 		}
 	}
-	
+
 	public int ifSpace(String a)
 	{
 		int end = 0;
@@ -116,7 +112,7 @@ public class Shop
 		{
 			if (a.charAt(i) == ' ')
 			{
-				
+
 				end = i;
 				break;
 			}
@@ -143,7 +139,15 @@ public class Shop
 		{
 			p.setMoney(p.getMoney() - iList[item].getPrice());
 			p.addItem(iList[item]);
+			System.out.println("You bought a " + iList[item].getName());
+			System.out.println("This is now your current inventory");
+			for (int h = 0; h < p.getInvSize(); h++)
+			{
+				System.out.println(p.getItem(h));
+			}
 		}
+		scan.nextLine();
+		sh();
 	}
 
 	public void sell(String name, int amount)
@@ -156,7 +160,7 @@ public class Shop
 	{
 		int i = 0;
 		int page = 0;
-
+		System.out.println("\nWelcome to the shop! Would you like to sell or buy?\n		(Sell / Buy)\n		  Or Leave\n		  (Leave)");
 		System.out.print("Selection: ");
 		switch (scan.nextLine())
 		{
@@ -185,9 +189,12 @@ public class Shop
 			buy();
 			break;
 		}
+		case "Leave":
+
+			break;
 		default:
 		{
-			System.out.println("This isn't a selection.");
+			System.out.println("\nThis isn't a selection.");
 			sh();
 			break;
 		}

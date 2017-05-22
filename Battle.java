@@ -22,7 +22,7 @@ public class Battle
 		}
 	}
 
-	public void start()
+	public void start() throws InterruptedException
 	{
 		Save s = new Save();
 		Player p = new Player();
@@ -51,22 +51,22 @@ public class Battle
 			System.out.println("     [Run]\n");
 			System.out.print("Choose Your Selection: ");
 			
-			switch (scan.nextLine())
+			switch (scan.nextLine().toUpperCase())
 			{
-				case "Fight": case "fight":
+				case "FIGHT":
 			 	{
 			 		System.out.println("\nWhich type of attack?\n");;
 			 		System.out.println("[Physical] [Magic]\n");
 					System.out.print("Choose Your Selection: ");
-			 		switch (scan.nextLine())
+			 		switch (scan.nextLine().toUpperCase())
 			 		{
-			 			case "Physical":
+			 			case "PHYSICAL":
 			 			{
 			 				System.out.println(playerAttack(1));
 			 				break;
 			 			}
 
-			 			case "Magic":
+			 			case "MAGIC":
 			 			{
 			 				System.out.println(playerMAttack(1));
 			 				break;
@@ -75,14 +75,14 @@ public class Battle
 			 		break;
 			 	}
 
-			 	case "Defend":
+			 	case "DEFEND":
 			 	{
 			 		System.out.println("You're defending!");
 			 		// playerDefend();
 			 		break;
 			 	}
 			 	
-			 	case "Skill":
+			 	case "SKILL":
 			 	{
 			 		switch(s.getPlayerClass())
 			 		{
@@ -229,6 +229,7 @@ public class Battle
 				 			break;
 				 		}
 				 		
+				 		
 				 		default:
 				 		{
 				 			System.out.println("Invalid selection.");
@@ -236,9 +237,14 @@ public class Battle
 				 		}
 			 		}
 			 	}
+			 	case "RUN":
+				 		{
+				 			System.out.println("\nYou ran away!");
+				 			battleEnd();
+				 		}
 			 	default:
 		 		{
-		 			System.out.println("Invalid selection.");
+		 			System.out.println("\nInvalid selection.");
 		 			break;
 		 		}
 			}
@@ -279,6 +285,12 @@ public class Battle
 				p.setMoney(p.getMoney() + enemyList.get(enemy).getMoney());
 			}
 		}
+	}
+
+	private void battleEnd() throws InterruptedException
+	{
+		RPG r = new RPG();
+		r.mainMenu();
 	}
 
 	public String playerSkill(int damage, int status, String skill)

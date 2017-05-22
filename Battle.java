@@ -248,6 +248,31 @@ public class Battle
 			}
 			else if(turn > 0)
 				turn--;
+			
+			if(p.getCurHealth() == 0)
+			{
+				p.setAttack(statA);
+				p.setDefense(statDef);
+				p.setDexterity(statDex);
+				p.setMagic(statM);
+				p.setMagicResistence(statMR);
+				System.out.println("Player was defeated :(");
+				System.out.println("You lost half of your coins");
+				p.setMoney(p.getMoney()/2);
+			}
+			else if(enemyList.get(enemy).getCurHealth() == 0)
+			{
+				p.setAttack(statA);
+				p.setDefense(statDef);
+				p.setDexterity(statDex);
+				p.setMagic(statM);
+				p.setMagicResistence(statMR);
+				System.out.println("Player won!");
+				System.out.println("Player earned " + enemyList.get(enemy).getMoney() + " coins");
+				System.out.println("and " + enemyList.get(enemy).getExp() + " experience.");
+				p.setExp(p.getExp() +enemyList.get(enemy).getExp());
+				p.setMoney(p.getMoney() + enemyList.get(enemy).getMoney());
+			}
 		}
 	}
 

@@ -1,20 +1,30 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class Battle
 {
 	ArrayList<Enemies> enemyList = new ArrayList<Enemies>();
-	
-	Scanner ene = new Scanner(File);
+
 	int enemy;
 
 	public Battle(int enemyNumber)
 	{
 		enemy = enemyNumber;
+		try
+		{
+			setEList();
+		} catch (ClassNotFoundException e)
+		{
+			System.err.println("It didn't work.");
+		}
 	}
 
 	public void start()
 	{
-		Save s = new Save();+
+		Save s = new Save();
 		Player p = new Player();
 		int statM = p.getMagic();
 		int statA = p.getAttack();
@@ -219,6 +229,7 @@ public class Battle
 				 			System.out.println("Invalid selection.");
 				 			break;
 				 		}
+			 		}
 			 	}
 			 	default:
 		 		{
@@ -239,70 +250,71 @@ public class Battle
 				turn--;
 		}
 	}
-	
-	public String playerSkill(int damage,int status, String skill)
+
+	public String playerSkill(int damage, int status, String skill)
 	{
 		Player p = new Player();
 		String output = "";
 		String st;
 		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
 		enemyList.get(enemy).setCurHealth(newHP);
-		
-		switch(status)
+
+		switch (status)
 		{
-			case 0:
-			{
-				st = "did nothing";
-			}
-			case 1:
-			{
-				st = "burned";
-			}
-			case 2:
-			{
-				st = "poisoned";
-			}
-			case 3:
-			{
-				st = "slowed";
-			}
-			case 4:
-			{
-				st = "froze";
-			}
-			case 5:
-			{
-				st = "punched";
-			}
+		case 0:
+		{
+			st = "did nothing";
 		}
-		
-		output += "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
-		if(status != 0)
+		case 1:
+		{
+			st = "burned";
+		}
+		case 2:
+		{
+			st = "poisoned";
+		}
+		case 3:
+		{
+			st = "slowed";
+		}
+		case 4:
+		{
+			st = "froze";
+		}
+		case 5:
+		{
+			st = "punched";
+		}
+		}
+
+		output += "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has "
+				+ newHP + " health.";
+		if (status != 0)
 			output += "You " + st + " the enemy!";
 	}
-	
-	public String playerSelfSkill(String stat, double scale, String skill,String message)
+
+	public String playerSelfSkill(String stat, double scale, String skill, String message)
 	{
-		
+
 		Player p = new Player();
-		switch(stat)
+		switch (stat)
 		{
-			case "Dexterity":
-			{
-				p.setDexterity((int)(p.getDexterity() * scale));
-			}
-			case "Magic Resistance":
-			{
-				p.setMagicResistence((int)(p.getMagicResistence() * scale));
-			}
-			case "Defense":
-			{
-				p.setDefense((int)(p.getDefense() * scale));
-			}
-			default:
-			{
-				System.err.println("Invalid selection.");
-			}
+		case "Dexterity":
+		{
+			p.setDexterity((int) (p.getDexterity() * scale));
+		}
+		case "Magic Resistance":
+		{
+			p.setMagicResistence((int) (p.getMagicResistence() * scale));
+		}
+		case "Defense":
+		{
+			p.setDefense((int) (p.getDefense() * scale));
+		}
+		default:
+		{
+			System.err.println("Invalid selection.");
+		}
 		}
 		return "\nYou used " + skill + "! " + message;
 	}
@@ -353,7 +365,7 @@ public class Battle
 		if (p.getMaxHealth() < 30) // if the player has less than 30 maximum
 									// health
 		{
-			if (((double) p.getCurHealth() / p.getMaxHealth()) <= .25) // 
+			if (((double) p.getCurHealth() / p.getMaxHealth()) <= .25) //
 				System.out.println(enemyAttack(1)); // a basic attack will be
 													// used
 			else if ((((double) Math.random()) * 25) > 24) // else at a 1/25
@@ -368,5 +380,143 @@ public class Battle
 			System.out.println("It was a critical strike!" + enemyAttack(1.5));
 		else
 			System.out.println(enemyAttack(1));
+	}
+
+	public void setEList() throws ClassNotFoundException
+	{
+		try
+		{
+			File file = new File("Enemies");
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			String line;
+			for (int i = 0; i < 100; i++) // Runs through the creation process
+											// 100 times
+			{
+				if ((line = bufferedReader.readLine()) != null)
+				{
+					String b = line;
+					int mHealth = 0;
+					int mMana = 0;
+					int def = 0;
+					int mR = 0;
+					int attk = 0;
+					int mag = 0;
+					int dex = 0;
+					int exp = 0;
+					String n = "";
+					int lvl = 0;
+					int mon = 0;
+					String lore = "";
+					int assign = 0;
+					int end = 0;
+
+					end = ifSpace(b);
+
+					while (assign < 11)
+					{
+						switch (assign)
+						{
+						case 0:
+							mHealth = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 1:
+							mMana = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 2:
+							def = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 3:
+							mR = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 4:
+							attk = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 5:
+							mag = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 6:
+							dex = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 7:
+							exp = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 8:
+							n = b.substring(0, end);
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 9:
+							lvl = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 10:
+							mon = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+						case 11:
+							lore = b.substring(0);
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+							break;
+
+						}
+					}
+					Enemies e = new Enemies(n, mHealth, mMana, def, mR, attk, mag, dex, exp, lvl, mon);
+					enemyList.add(e);
+				}
+
+			}
+			bufferedReader.close();
+		} catch (IOException e)
+		{
+
+			System.err.println("It didn't work");
+		}
+	}
+
+	public int ifSpace(String a)
+	{
+		int end = 0;
+		for (int i = 0; i < a.length(); i++)
+		{
+			if (a.charAt(i) == ' ')
+			{
+
+				end = i;
+				break;
+			}
+		}
+		return end;
 	}
 }

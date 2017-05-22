@@ -260,6 +260,7 @@ public class Battle
 			else if(turn > 0)
 				turn--;
 			
+			RPG r = new RPG();
 			if(p.getCurHealth() == 0)
 			{
 				p.setAttack(statA);
@@ -270,6 +271,7 @@ public class Battle
 				System.out.println("Player was defeated :(");
 				System.out.println("You lost half of your coins");
 				p.setMoney(p.getMoney()/2);
+				r.mainMenu();
 			}
 			else if(enemyList.get(enemy).getCurHealth() == 0)
 			{
@@ -283,6 +285,10 @@ public class Battle
 				System.out.println("and " + enemyList.get(enemy).getExp() + " experience.");
 				p.setExp(p.getExp() +enemyList.get(enemy).getExp());
 				p.setMoney(p.getMoney() + enemyList.get(enemy).getMoney());
+				
+				r.battleWon(enemy);
+				r.mainMenu();
+				
 			}
 		}
 	}

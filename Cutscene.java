@@ -18,6 +18,7 @@ public class Cutscene
 			p.setLevelUpExp(5);
 			p.setStatus(0);
 			p.setMagicResistence(0);
+			p.setMagic(1);
 			p.setMoney(0);
 			break;
 		}

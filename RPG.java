@@ -148,9 +148,8 @@ public class RPG
 		
 		save.Load();
 		
-		if (save.getName().equals(""))
+		if (first = save.getName().equals(""))
 		{
-			first = true;
 			System.out.println("Looks like this is your first time playing this game! Welcome!");
 			save.setName(Name());
 			save.setPlayerClass(playerClass());
@@ -236,10 +235,17 @@ public class RPG
 		}
 		catch(InputMismatchException e)
 		{
-			System.err.println("Invalid selection.\n");
+			System.out.println("\nPlease use 1, 2  3, or 4 for your selection.");
 			mainMenu();
 		}
 		return selection;
+	}
+	
+	public void battleWon(int i)
+	{
+		Save save = new Save();
+		save.setEnemy(i + 1);
+		
 	}
 
 }

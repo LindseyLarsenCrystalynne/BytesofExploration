@@ -191,7 +191,7 @@ public class Battle
 				 			System.out.println("\nWhich type of skill?\n");
 				 			System.out.println("[Fire Ball] [Hail]");
 				 			System.out.println("[Lightning] [Tsunami]");
-				 			System.out.println("[Boulder]");
+				 			System.out.println("[Call Mother Nature]");
 				 			System.out.print("What is your choice --> ");
 				 			switch(scan.nextLine())
 				 			{

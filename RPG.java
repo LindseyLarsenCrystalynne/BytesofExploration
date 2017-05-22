@@ -148,8 +148,9 @@ public class RPG
 		
 		save.Load();
 		
-		if (first = save.getName().equals(""))
+		if (save.getName().equals(""))
 		{
+			first = true;
 			System.out.println("Looks like this is your first time playing this game! Welcome!");
 			save.setName(Name());
 			save.setPlayerClass(playerClass());

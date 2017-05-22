@@ -49,4 +49,9 @@ public class Items
 	{
 		amount = a;
 	}
+	
+	public String toString()
+	{
+		return name;
+	}
 }

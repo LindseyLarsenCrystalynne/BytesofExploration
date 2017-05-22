@@ -4,8 +4,8 @@ public class TheRPGGame
 {
 	public static void main(String[] args) throws InterruptedException
   {
-  	System.out.println("The RPG Game");
-    System.out.println("By Crystalynne Pham, Larsen Vallecillo, and Lindsey Truong");
+  	System.out.println("\t\tThe RPG Game\n");
+    System.out.println("By Crystalynne Pham, Larsen Vallecillo, and Lindsey Truong\n\n");
     
     RPG r = new RPG();
     

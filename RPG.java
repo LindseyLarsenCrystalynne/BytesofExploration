@@ -176,6 +176,19 @@ public class RPG
 				{
 					Cutscene c = new Cutscene(0);
 				}
+				Player p = new Player();
+				p.setAttack(save.getAttack());
+				p.setCurHealth(save.getCurHealth());
+				p.setCurMana(save.getCurMana());
+				p.setMaxHealth(save.getMaxHealth());
+				p.setMaxMana(0);
+				p.setDefense(0);
+				p.setDexterity(1);
+				p.setLevelUpExp(5);
+				p.setStatus(0);
+				p.setMagicResistence(0);
+				p.setMagic(1);
+				p.setMoney(0);
 				Battle b = new Battle(save.getEnemy());
 				b.start();
 				break;

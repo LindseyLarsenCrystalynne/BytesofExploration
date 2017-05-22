@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.*;
 
 public class Items
@@ -6,24 +7,14 @@ public class Items
 	String name;
 	int amount;
 	
-	public Items(int category, String name, int price, int a, int mR, int ma, int dex, int def) // armor weapon or other. If it isn't armor or a weapon A slot is damage to the enemy  
+	public Items(String n, int p) // armor weapon or other. If it isn't armor or a weapon A slot is damage to the enemy  
 	{
-		switch(category)
-		{
-		case 0:
-		{
-			this.name = name;
-			this.price = price;
-			break;
-		}
-		case 1:
-		{
-			this.name = name;
-			this.price = price;
-			break;
-		}
-		}
+		name = n;
+		price = p;
+		
+		
 	}
+	
 	public String equip(int item)
 	{
 		

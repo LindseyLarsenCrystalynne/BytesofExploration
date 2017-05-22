@@ -523,7 +523,7 @@ public class Battle
 
 						}
 					}
-					Enemies e = new Enemies(n, mHealth, mMana, def, mR, attk, mag, dex, exp, lvl, mon);
+					Enemies e = new Enemies(n, mHealth, mMana, def, mR, attk, mag, dex, exp, lvl, mon,lore);
 					enemyList.add(e);
 				}
 

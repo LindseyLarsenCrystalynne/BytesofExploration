@@ -236,7 +236,7 @@ public class RPG
 		}
 		catch(InputMismatchException e)
 		{
-			System.out.println("\nPlease use 1, 2  3, or 4 for your selection.");
+			System.err.println("Invalid selection.\n");
 			mainMenu();
 		}
 		return selection;

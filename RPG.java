@@ -60,14 +60,14 @@ public class RPG
 	public String playerClass()
 	{
 		Scanner n = new Scanner(System.in);
-		System.out.println("What class do you want? Type 'random' for a random skill: \n");
+		System.out.println("What class do you want? Type 'random' for a random class: \n");
 		System.out.println("                [Archer] [Beserker]");
 		System.out.println("                [Knight] [Mage]");
 		System.out.print("Choose Your Selection: ");
 		
 		String playerClass = n.nextLine();
 		
-		if (playerClass.equalsIgnoreCase("random") || playerClass.equals("") || !playerClass.equals("Archer") || !playerClass.equals("Beserker") || !playerClass.equals("Knight") || !playerClass.equals("Mage"))
+		if (playerClass.equalsIgnoreCase("random") || playerClass.equalsIgnoreCase("") && !(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Beserker")) && !(playerClass.equalsIgnoreCase("Knight")) && !(playerClass.equalsIgnoreCase("Mage")))
 		{
 			String likePlayerClass = "";
 			
@@ -151,19 +151,22 @@ public class RPG
 			System.out.println("Looks like this is your first time playing this game! Welcome!");
 			save.setName(Name());
 			save.setPlayerClass(playerClass());
+			save.setAttack(1);
+			save.setMagic(1);
+			save.setCurHealth(5);
+			save.setMaxHealth(5);
+			save.setCurMana(0);
+			save.setMaxMana(0);
+			save.setDefense(0);
+			save.setMagicResistance(0);
+			save.setDexterity(1);
+			save.setLevelUpExp(5);
+			save.setMoney(0);
+			save.setStatus(0);
 			save.FileSave();
+			
 		}
-
-		System.out.println("=====Main Menu=====\n");
-		System.out.println("1. Start Game");
-		System.out.println("2: Stats");
-		System.out.println("3: Options Menu");
-		System.out.println("4: Exit\n");
-		System.out.print("Choose Your Selection: ");
-
-		int selection = s.nextInt();
-
-		switch (selection)
+		switch (mainMenuSelection())
 		{
 			case 1:
 			{
@@ -210,4 +213,26 @@ public class RPG
 			}
 		}
 	}
+	public int mainMenuSelection()
+	{
+		Scanner s = new Scanner(System.in);
+		int selection = 0;
+		System.out.println("=====Main Menu=====\n");
+		System.out.println("1. Start Game");
+		System.out.println("2: Stats");
+		System.out.println("3: Options Menu");
+		System.out.println("4: Exit\n");
+		System.out.print("Choose Your Selection: ");
+		try
+		{
+			selection = s.nextInt();
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("\nPlease use 1, 2  3, or 4 for your selection.");
+			mainMenu();
+		}
+		return selection;
+	}
+
 }

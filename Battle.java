@@ -35,7 +35,7 @@ public class Battle
 		int turn = 0;
 		enemyList.add(new Enemies());
 		boolean fight = true;
-		System.out.println("⚔=⚔=⚔=⚔=⚔=Fight=⚔=⚔=⚔=⚔=⚔");
+		System.out.println("=====Fight=====");
 		Scanner scan = new Scanner(System.in);
 		while (fight) 
 		{
@@ -280,7 +280,7 @@ public class Battle
 	{
 		Player p = new Player();
 		String output = "";
-		String st;
+		String st = "";
 		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
 		enemyList.get(enemy).setCurHealth(newHP);
 
@@ -316,6 +316,7 @@ public class Battle
 				+ newHP + " health.";
 		if (status != 0)
 			output += "You " + st + " the enemy!";
+		return output;
 	}
 
 	public String playerSelfSkill(String stat, double scale, String skill, String message)

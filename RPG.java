@@ -138,7 +138,7 @@ public class RPG
 		}
 	}
 
-	public void mainMenu()
+	public void mainMenu() throws InterruptedException
 	{
 		Scanner s = new Scanner(System.in);
 		
@@ -170,6 +170,7 @@ public class RPG
 		{
 			case 1:
 			{
+				Cutscene c = new Cutscene(0);
 				Battle b = new Battle(0);
 				b.start();
 				break;
@@ -213,7 +214,7 @@ public class RPG
 			}
 		}
 	}
-	public int mainMenuSelection()
+	public int mainMenuSelection() throws InterruptedException
 	{
 		Scanner s = new Scanner(System.in);
 		int selection = 0;

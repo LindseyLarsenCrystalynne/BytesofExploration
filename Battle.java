@@ -31,6 +31,7 @@ public class Battle
 		int statDef = p.getDefense();
 		int statDex = p.getDexterity();
 		int statMR = p.getMagicResistence();
+		int enemyMaxHP = enemyList.get(enemy).getCurHealth();
 		
 		int turn = 0;
 		enemyList.add(new Enemies());
@@ -40,6 +41,8 @@ public class Battle
 		while (fight) 
 		{
 			turn++;
+			System.out.println("You're fighting " + enemyList.get(enemy).getName());
+			System.out.println("They have " + enemyList.get(enemy).getCurHealth() +" "+ enemyList.get(enemy).get);
 			System.out.println("\nWhat would you like to do?\n");
 			System.out.println("[Fight] [Defend]");
 			System.out.println("[Skill] [Item]");
@@ -191,7 +194,7 @@ public class Battle
 				 			System.out.println("\nWhich type of skill?\n");
 				 			System.out.println("[Fire Ball] [Hail]");
 				 			System.out.println("[Lightning] [Tsunami]");
-				 			System.out.println("[Call Mother Nature]");
+				 			System.out.println("[Boulder]");
 				 			System.out.print("What is your choice --> ");
 				 			switch(scan.nextLine())
 				 			{

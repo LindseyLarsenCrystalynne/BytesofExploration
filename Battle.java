@@ -32,7 +32,7 @@ public class Battle
 		int statDex = p.getDexterity();
 		int statMR = p.getMagicResistence();
 		int enemyMaxHP = enemyList.get(enemy).getCurHealth();
-		
+		int enemyMaxMana = enemyList.get(enemy).getCurMana();
 		int turn = 0;
 		enemyList.add(new Enemies());
 		boolean fight = true;
@@ -41,8 +41,10 @@ public class Battle
 		while (fight) 
 		{
 			turn++;
-			System.out.println("You're fighting " + enemyList.get(enemy).getName());
-			System.out.println("They have " + enemyList.get(enemy).getCurHealth() +" "+ enemyList.get(enemy).get);
+			System.out.println("Enemy Name : " + enemyList.get(enemy).getName());
+			System.out.println("Health :  " + enemyList.get(enemy).getCurHealth() +" / "+ enemyMaxHP);
+			System.out.println("Mana : " + enemyList.get(enemy).getCurMana() +  " / " + enemyMaxMana);
+			
 			System.out.println("\nWhat would you like to do?\n");
 			System.out.println("[Fight] [Defend]");
 			System.out.println("[Skill] [Item]");

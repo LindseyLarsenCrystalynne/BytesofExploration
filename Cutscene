@@ -1,0 +1,13 @@
+
+public class Cutscene
+{
+	public Cutscene(int whichCutscene)
+	{
+		switch(whichCutscene)
+		{
+		case 0: 
+			System.out.println("filler");
+			break;
+		}
+	}
+}

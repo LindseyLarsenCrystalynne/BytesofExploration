@@ -34,18 +34,9 @@ public class Enemies
 		money = 3;
 	}
 
-	public String getLore()
-	{
-		return lore;
-	}
-
-	public void setLore(String lore)
-	{
-		this.lore = lore;
-	}
-
 	public Enemies(String n, int mHealth, int mMana,int def,int mR,int attk,int mag,int dex,int exp,int lvl,int mon,String l)
 	{
+		name = n;
 		maxHealth = mHealth;
 		curHealth = mHealth;
 		maxMana = mMana; 
@@ -56,10 +47,19 @@ public class Enemies
 		magic = mag;
 		dexterity = dex;
 		this.exp = exp;
-		name = n;
 		this.lvl = lvl;
 		money = mon; 
 		lore = l;
+	}
+
+	public String getLore()
+	{
+		return lore;
+	}
+
+	public void setLore(String lore)
+	{
+		this.lore = lore;
 	}
 
 	public int getMaxHealth()

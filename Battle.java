@@ -43,6 +43,7 @@ public class Battle
 		{
 			turn++;
 			System.out.println("Enemy Name : " + enemyList.get(enemy).getName());
+			System.out.println("Description : " + enemyList.get(enemy).getLore());
 			System.out.println("Health :  " + enemyList.get(enemy).getCurHealth() +" / "+ enemyMaxHP);
 			System.out.println("Mana : " + enemyList.get(enemy).getCurMana() +  " / " + enemyMaxMana);
 			System.out.println("\n" + p.getName() + "'s Health: ");
@@ -512,73 +513,61 @@ public class Battle
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 1:
 							mMana = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 2:
 							def = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 3:
 							mR = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 4:
 							attk = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 5:
 							mag = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 6:
 							dex = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 7:
 							exp = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 8:
 							n = b.substring(0, end);
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 9:
 							lvl = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 10:
 							mon = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 11:
 							lore = b.substring(0);
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 
 						}
 					}

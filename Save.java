@@ -222,7 +222,7 @@ public class Save
 		}
 
 		catch (Exception exc) {
-			System.out.println("Error saving to the save file.");
+			System.err.println("Error saving to the save file.");
 		}
 	}
 

@@ -217,12 +217,13 @@ public class Save
 			save.writeObject(getLvl());
 			save.writeObject(getStatus());
 			save.writeObject(getMagic());
+			save.writeObject(getEnemy());
 
 			saveFile.close();
 		}
 
 		catch (Exception exc) {
-			System.err.println("Error saving to the save file.");
+			System.out.println("Error saving to the save file.");
 		}
 	}
 
@@ -250,7 +251,7 @@ public class Save
 				setLvl((Integer) save.readObject());
 				setStatus((Integer) save.readObject());
 				setMagic((Integer) save.readObject());
-
+				setEnemy((Integer) save.readObject());
 				saveFile.close();
 			}
 
@@ -284,6 +285,7 @@ public class Save
 		output += "Level: " + getLvl() + "\n";
 		output += "Status: " + getStatus() + "\n";
 		output += "Magic: " + getMagic() + "\n";
+		output += "Current enemy #: " + getEnemy() + "\n";
 
 		return output;
 	}

@@ -268,6 +268,25 @@ public class RPG
 	public void battleWon(int i, int mHealth, int cHealth, int mMana, int cMana, int def, int mR, int attk, int mag,
 			int dex, int lvlUpExp, int xp, String n, int lvl, int status, int money)
 	{
+		int x = xp;
+		int l = lvl;
+		int lUpE = lvlUpExp;
+		if(xp >= lvlUpExp)
+		{
+			l = lvl + 1;
+			x = (xp -= lvlUpExp);
+			lUpE = (lvlUpExp += 3);
+			mag += 1;
+			attk += 1;
+			def += 1;
+			cHealth += 2;
+			cMana += 2;
+			mR += 1;
+			mMana += 2;
+			mHealth += 2;
+			dex += 1;
+			
+		}
 		Save save = new Save();
 		save.setMagic(mag);
 		save.setAttack(attk);
@@ -278,10 +297,10 @@ public class RPG
 		save.setMaxMana(mMana);
 		save.setMaxHealth(mHealth);
 		save.setDexterity(dex);
-		save.setLevelUpExp(lvlUpExp);
-		save.setExp(xp);
+		save.setLevelUpExp(lUpE);
+		save.setExp(x);
 		save.setName(n);
-		save.setLvl(lvl);
+		save.setLvl(l);
 		save.setStatus(status);
 		save.setMoney(money);
 		save.setEnemy(i);

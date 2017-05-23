@@ -212,6 +212,11 @@ public class RPG
 			{
 				break;
 			}
+			case 5:
+			{
+				Shop shop = new Shop();
+				shop.sh();
+			}
 			case 99:
 			{
 				int i = 1;
@@ -240,7 +245,8 @@ public class RPG
 		System.out.println("1. Start Game");
 		System.out.println("2: Stats");
 		System.out.println("3: Options Menu");
-		System.out.println("4: Exit\n");
+		System.out.println("4: Exit");
+		System.out.println("5: Shop\n");
 		System.out.print("Choose Your Selection: ");
 		try
 		{
@@ -248,7 +254,7 @@ public class RPG
 		}
 		catch(InputMismatchException e)
 		{
-			System.out.println("\nPlease use 1, 2  3, or 4 for your selection.");
+			System.out.println("\nPlease use 1, 2  3, 4 or 5 for your selection.");
 			mainMenu();
 		}
 		return selection;

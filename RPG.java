@@ -177,6 +177,7 @@ public class RPG
 					Cutscene c = new Cutscene(0);
 				}
 				Player p = new Player();
+				p.setName(save.getName());
 				p.setAttack(save.getAttack());
 				p.setCurHealth(save.getCurHealth());
 				p.setCurMana(save.getCurMana());
@@ -212,11 +213,11 @@ public class RPG
 			{
 				break;
 			}
-			case 5:
-			{
-				Shop shop = new Shop();
-				shop.sh();
-			}
+			case 5:		
+-			{		
+-				Shop shop = new Shop();		
+-				shop.sh();		
+-			}
 			case 99:
 			{
 				int i = 1;
@@ -245,8 +246,8 @@ public class RPG
 		System.out.println("1. Start Game");
 		System.out.println("2: Stats");
 		System.out.println("3: Options Menu");
-		System.out.println("4: Exit");
-		System.out.println("5: Shop\n");
+		System.out.println("4: Exit");	
+-		System.out.println("5: Shop\n");
 		System.out.print("Choose Your Selection: ");
 		try
 		{
@@ -260,10 +261,28 @@ public class RPG
 		return selection;
 	}
 	
-	public void battleWon(int i)
+	public void battleWon(int i,int mHealth,int cHealth,int mMana,int cMana ,int def,int mR ,int attk ,int mag ,int dex ,int lvlUpExp,int xp, String n,int lvl,int status,int money)
 	{
 		Save save = new Save();
+		save.setMagic(mag);
+		save.setAttack(attk);
+		save.setDefense(def);
+		save.setCurHealth(cHealth);
+		save.setCurMana(cMana);
+		save.setMagicResistance(mR);
+		save.setMaxMana(mMana);
+		save.setMaxHealth(mHealth);
+		save.setDexterity(dex);
+		save.setLevelUpExp(lvlUpExp);
+		save.setExp(xp);
+		save.setName(n);
+		save.setLvl(lvl);
+		save.setStatus(status);
+		save.setMoney(money);
 		save.setEnemy(i + 1);
+		
+		save.FileSave();
+
 		
 	}
 

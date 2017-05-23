@@ -44,7 +44,7 @@ public class Battle
 			System.out.println("Enemy Name : " + enemyList.get(enemy).getName());
 			System.out.println("Health :  " + enemyList.get(enemy).getCurHealth() +" / "+ enemyMaxHP);
 			System.out.println("Mana : " + enemyList.get(enemy).getCurMana() +  " / " + enemyMaxMana);
-			
+			System.out.println("\n" + p.getName() + "'s Health: ");
 			System.out.println("\nWhat would you like to do?\n");
 			System.out.println("[Fight] [Defend]");
 			System.out.println("[Skill] [Item]");
@@ -99,6 +99,7 @@ public class Battle
 					 			case "Shatter Arrow":
 					 			{
 					 				playerSkill(a.shatterArrow(),0,"Shatter Arrow");
+					 				enemyTurn();
 					 			}
 					 			case "Sprint":
 					 			{
@@ -108,14 +109,17 @@ public class Battle
 					 			case "Fire Arrow":
 					 			{
 					 				playerSkill(a.fireArrow(),1,"Fire Arrow");
+					 				enemyTurn();
 					 			}
 					 			case "Arrow Storm":
 					 			{
 					 				playerSkill(a.arrowStorm(),1,"Arrow Storm");
+					 				enemyTurn();
 					 			}
 					 			case "Ice Arrow":
 					 			{
 					 				playerSkill(a.shatterArrow(),4,"Ice Arrow");
+					 				enemyTurn();
 					 			}
 			 					default:
 			 					{
@@ -137,14 +141,17 @@ public class Battle
 				 				case "Power Slam":
 				 				{
 					 				playerSkill(b.powerSlam(),5,"Power Slam");
+					 				enemyTurn();
 				 				}
 				 				case "Charge":
 				 				{
 					 				playerSkill(b.charge(),5,"Power Slam");
+					 				enemyTurn();
 				 				}
 					 			case "Rage":
 						 		{
 					 				playerSkill(b.rage(),5,"Rage");
+					 				enemyTurn();
 					 			}
 					 			case "Exercise":
 					 			{
@@ -153,7 +160,7 @@ public class Battle
 					 			}
 			 					default:
 			 					{
-			 						System.err.println("Invalid selection.");
+			 						System.err.println("Invalid selection.\n");
 			 					}
 				 			}
 				 			break;
@@ -171,11 +178,13 @@ public class Battle
 				 				case "Heavy Slam":
 				 				{
 					 				playerSkill(k.heavySlam(),5,"Heavy Slam");
+					 				enemyTurn();
 				 				}
 				 				case "Call Horse":
 				 				{
 					 				turn = 2;
 					 				playerSelfSkill("Dexterity",1,"Call Horse","You called a horse! Now you have 2 more turns!");
+					 				
 				 				}
 				 				case "Bulk Up":
 				 				{
@@ -184,7 +193,7 @@ public class Battle
 				 				}
 			 					default:
 			 					{
-			 						System.err.println("Invalid selection.");
+			 						System.err.println("Invalid selection.\n");
 			 					}
 				 			}
 				 			break;
@@ -203,18 +212,22 @@ public class Battle
 				 				case "Fire Ball":
 				 				{
 					 				playerSkill(m.fireBall(),1,"Heavy Slam");
+					 				enemyTurn();
 				 				}
 				 				case "Hail":
 				 				{
 					 				playerSkill(m.hail(),4,"Hail");
+					 				enemyTurn();
 				 				}
 				 				case "Lightning":
 				 				{
 					 				playerSkill(m.lightning(),1,"Lightning");
+					 				enemyTurn();
 				 				}
 				 				case "Tsunami":
 				 				{
 					 				playerSkill(m.tsunami(),3,"Tsunami");
+					 				enemyTurn();
 				 				}
 				 				case "Call Mother Nature":
 				 				{
@@ -223,7 +236,7 @@ public class Battle
 				 				}
 				 				default:
 				 				{
-				 					System.err.println("Invalid selection.");
+				 					System.err.println("Invalid selection.\n");
 				 				}
 				 			}
 				 			break;
@@ -232,7 +245,7 @@ public class Battle
 				 		
 				 		default:
 				 		{
-				 			System.out.println("Invalid selection.");
+				 			System.out.println("Invalid selection.\n");
 				 			break;
 				 		}
 			 		}
@@ -244,11 +257,10 @@ public class Battle
 				 		}
 			 	default:
 		 		{
-		 			System.out.println("\nInvalid selection.");
+		 			System.out.println("\nInvalid selection.\n");
 		 			break;
 		 		}
 			}
-			enemyTurn();
 			if(turn == 0)
 			{
 				p.setAttack(statA);
@@ -281,12 +293,12 @@ public class Battle
 				p.setMagic(statM);
 				p.setMagicResistence(statMR);
 				System.out.println("Player won!");
-				System.out.println("Player earned " + enemyList.get(enemy).getMoney() + " coins");
+				System.out.println(p.getName() + "Player earned " + enemyList.get(enemy).getMoney() + " coins");
 				System.out.println("and " + enemyList.get(enemy).getExp() + " experience.");
 				p.setExp(p.getExp() +enemyList.get(enemy).getExp());
 				p.setMoney(p.getMoney() + enemyList.get(enemy).getMoney());
 				
-				r.battleWon(enemy);
+				r.battleWon(enemy,p.getMaxHealth(),p.getMaxHealth(),p.getMaxMana(),p.getMaxMana(),p.getDefense(),p.getMagicResistence(),p.getAttack(),p.getMagic(),p.getDexterity(),p.getLevelUpExp(),p.getExp(),p.getName(),p.getLvl(),p.getStatus(),p.getMoney());
 				r.mainMenu();
 				
 			}

@@ -162,9 +162,9 @@ public class Shop
 		int page = 0;
 		System.out.println("\nWelcome to the shop! Would you like to sell or buy?\n		(Sell / Buy)\n		  Or Leave\n		  (Leave)");
 		System.out.print("Selection: ");
-		switch (scan.nextLine())
+		switch (scan.nextLine().toUpperCase())
 		{
-		case "Sell":
+		case "SELL":
 		{
 			System.out.println("Pick an item to sell!");
 			System.out.println("Name: ");
@@ -174,7 +174,7 @@ public class Shop
 			sell(n, q);
 			break;
 		}
-		case "Buy":
+		case "BUY":
 		{
 			System.out.println("\n\n		Pick an item to buy!");
 			while (i != 5 && iList[i] != null)
@@ -189,7 +189,7 @@ public class Shop
 			buy();
 			break;
 		}
-		case "Leave":
+		case "LEAVE":
 
 			break;
 		default:

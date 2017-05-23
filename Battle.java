@@ -71,6 +71,12 @@ public class Battle
 			 				System.out.println(playerMAttack(1));
 			 				break;
 			 			}
+
+			 			default:
+			 			{
+	 						System.err.println("Invalid selection.");
+				 			break;
+			 			}
 			 		}
 			 		break;
 			 	}
@@ -100,30 +106,36 @@ public class Battle
 					 			{
 					 				playerSkill(a.shatterArrow(),0,"Shatter Arrow");
 					 				enemyTurn();
+						 			break;
 					 			}
 					 			case "Sprint":
 					 			{
 					 				turn = 2;
 					 				playerSelfSkill("Dexterity",1.5,"Sprint","You run faster for 2 turns!");
+						 			break;
 					 			}
 					 			case "Fire Arrow":
 					 			{
 					 				playerSkill(a.fireArrow(),1,"Fire Arrow");
 					 				enemyTurn();
+						 			break;
 					 			}
 					 			case "Arrow Storm":
 					 			{
 					 				playerSkill(a.arrowStorm(),1,"Arrow Storm");
 					 				enemyTurn();
+						 			break;
 					 			}
 					 			case "Ice Arrow":
 					 			{
 					 				playerSkill(a.shatterArrow(),4,"Ice Arrow");
 					 				enemyTurn();
+						 			break;
 					 			}
 			 					default:
 			 					{
 			 						System.err.println("Invalid selection.");
+						 			break;
 			 					}
 				 			}
 				 			break;
@@ -142,25 +154,30 @@ public class Battle
 				 				{
 					 				playerSkill(b.powerSlam(),5,"Power Slam");
 					 				enemyTurn();
+						 			break;
 				 				}
 				 				case "Charge":
 				 				{
 					 				playerSkill(b.charge(),5,"Power Slam");
 					 				enemyTurn();
+						 			break;
 				 				}
 					 			case "Rage":
 						 		{
 					 				playerSkill(b.rage(),5,"Rage");
 					 				enemyTurn();
+						 			break;
 					 			}
 					 			case "Exercise":
 					 			{
 					 				turn = 2;
 					 				playerSelfSkill("Magic Resistance",1.5,"Exercise","You exercised a bit and now have 2 more turns!");
+						 			break;
 					 			}
 			 					default:
 			 					{
 			 						System.err.println("Invalid selection.\n");
+						 			break;
 			 					}
 				 			}
 				 			break;
@@ -179,21 +196,24 @@ public class Battle
 				 				{
 					 				playerSkill(k.heavySlam(),5,"Heavy Slam");
 					 				enemyTurn();
+						 			break;
 				 				}
 				 				case "Call Horse":
 				 				{
 					 				turn = 2;
 					 				playerSelfSkill("Dexterity",1,"Call Horse","You called a horse! Now you have 2 more turns!");
-					 				
+						 			break;
 				 				}
 				 				case "Bulk Up":
 				 				{
 					 				turn = 2;
 					 				playerSelfSkill("Defense",2,"Bulk Up","You've bulked up! Have 2 more turns!");
+						 			break;
 				 				}
 			 					default:
 			 					{
 			 						System.err.println("Invalid selection.\n");
+						 			break;
 			 					}
 				 			}
 				 			break;
@@ -213,35 +233,40 @@ public class Battle
 				 				{
 					 				playerSkill(m.fireBall(),1,"Heavy Slam");
 					 				enemyTurn();
+						 			break;
 				 				}
 				 				case "Hail":
 				 				{
 					 				playerSkill(m.hail(),4,"Hail");
 					 				enemyTurn();
+						 			break;
 				 				}
 				 				case "Lightning":
 				 				{
 					 				playerSkill(m.lightning(),1,"Lightning");
 					 				enemyTurn();
+						 			break;
 				 				}
 				 				case "Tsunami":
 				 				{
 					 				playerSkill(m.tsunami(),3,"Tsunami");
 					 				enemyTurn();
+						 			break;
 				 				}
 				 				case "Call Mother Nature":
 				 				{
 					 				turn = 2;
 					 				playerSelfSkill("Magic Resistance",1.5,"Call Mother Nature","You called Mother Nature and she gave you 2 more turns!");
+						 			break;
 				 				}
 				 				default:
 				 				{
 				 					System.err.println("Invalid selection.\n");
+						 			break;
 				 				}
 				 			}
 				 			break;
 				 		}
-				 		
 				 		
 				 		default:
 				 		{
@@ -249,12 +274,15 @@ public class Battle
 				 			break;
 				 		}
 			 		}
+
+			 		break;
 			 	}
 			 	case "RUN":
-				 		{
-				 			System.out.println("\nYou ran away!");
-				 			battleEnd();
-				 		}
+				{
+				 	System.out.println("\nYou ran away!");
+				 	battleEnd();
+		 			break;
+				}
 			 	default:
 		 		{
 		 			System.out.println("\nInvalid selection.\n");

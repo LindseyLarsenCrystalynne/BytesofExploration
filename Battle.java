@@ -25,6 +25,7 @@ public class Battle
 	public void start() throws InterruptedException
 	{
 		Save s = new Save();
+		s.Load();
 		Player p = new Player();
 		int statM = p.getMagic();
 		int statA = p.getAttack();

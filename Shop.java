@@ -12,7 +12,7 @@ public class Shop
 	Items[] iList = new Items[20];
 	Scanner scan = new Scanner(System.in);
 
-	public Shop()
+	public Shop() throws InterruptedException
 	{
 		try
 		{
@@ -120,7 +120,7 @@ public class Shop
 		return end;
 	}
 
-	public void buy()
+	public void buy() throws InterruptedException
 	{
 		Player p = new Player();
 		p.setMoney(20);
@@ -156,7 +156,7 @@ public class Shop
 
 	}
 
-	public void sh()
+	public void sh() throws InterruptedException
 	{
 		int i = 0;
 		int page = 0;
@@ -166,7 +166,7 @@ public class Shop
 		{
 		case "SELL":
 		{
-			System.out.println("Pick an item to sell!");
+			System.out.println("\nPick an item to sell!");
 			System.out.println("Name: ");
 			String n = scan.nextLine();
 			System.out.println("Quantity: ");
@@ -189,9 +189,13 @@ public class Shop
 			buy();
 			break;
 		}
-		case "LEAVE":
-
+		case "LEAVE":	
+		{
+			System.out.println();
+			RPG menu = new RPG();
+			menu.mainMenu();
 			break;
+		}
 		default:
 		{
 			System.out.println("\nThis isn't a selection.");

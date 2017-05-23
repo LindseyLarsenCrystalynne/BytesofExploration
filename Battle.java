@@ -36,7 +36,7 @@ public class Battle
 		int turn = 0;
 		enemyList.add(new Enemies());
 		boolean fight = true;
-		System.out.println("=====Fight=====");
+		System.out.println("\n\n=====Fight=====");
 		Scanner scan = new Scanner(System.in);
 		while (fight) 
 		{

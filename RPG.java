@@ -27,36 +27,44 @@ public class RPG
 
 		String username = "";
 
-		if (name.equalsIgnoreCase("random") || name.equals(""))
-		{
+		if (name.equalsIgnoreCase("random") || name.equals("")) {
 			String likeName = "";
 
-			while (!likeName.equals("y"))
-			{
-				String[] randomNames = {"Aaron", "Abbie", "Abby", "Alex", "Amanda", "Amy", "Andy", "Anna", "Annie", "Ashley", "Bill", "Bob", "Brandon", "Brittany", "Carl", "Carson", "Casey", "Charlie", "Chase", "Chris", "Christa", "Cindy", "Corrine", "Courtney", "Crystal", "Dan", "Daniel", "Danny", "DJ", "Earl", "Eduardo", "Emily", "Emma", "Eric", "Eriko", "Frodo", "Gandalf", "Gino", "Grant", "Haley", "Harley", "Jack", "Jake", "James", "Jared", "Jessie", "Jillian", "John", "Johnny", "Jonathan", "Julie", "Juro", "Justin", "Kane", "Karen", "Kate", "Katie", "Kelly", "Ken", "Kennedy", "Kimmiy", "Kimmy", "Kyle", "Lance", "Lauren", "Lillian", "Lily", "Luke", "Mallory", "Matt", "Matthew", "Maxwell", "Michael", "Natalie", "Nicholas", "Nicole", "Owen", "Paige", "Pam", "Patrick", "Paul", "Phillip", "Quinn", "Rachel", "Raymond", "Richard", "Ronald", "Ryan", "Sean", "Stephanie", "Steve", "Tim", "Tyler", "Valarie", "Vincent", "Vivian", "Will", "Xavier", "Zachery", "Zack"};
-				
-				username = randomNames[(int)(Math.random() * 100)];
+			while (!likeName.equals("y")) {
+				String[] randomNames = { "Aaron", "Abbie", "Abby", "Alex", "Amanda", "Amy", "Andy", "Anna", "Annie",
+						"Ashley", "Bill", "Bob", "Brandon", "Brittany", "Carl", "Carson", "Casey", "Charlie", "Chase",
+						"Chris", "Christa", "Cindy", "Corrine", "Courtney", "Crystal", "Dan", "Daniel", "Danny", "DJ",
+						"Earl", "Eduardo", "Emily", "Emma", "Eric", "Eriko", "Frodo", "Gandalf", "Gino", "Grant",
+						"Haley", "Harley", "Jack", "Jake", "James", "Jared", "Jessie", "Jillian", "John", "Johnny",
+						"Jonathan", "Julie", "Juro", "Justin", "Kane", "Karen", "Kate", "Katie", "Kelly", "Ken",
+						"Kennedy", "Kimmiy", "Kimmy", "Kyle", "Lance", "Lauren", "Lillian", "Lily", "Luke", "Mallory",
+						"Matt", "Matthew", "Maxwell", "Michael", "Natalie", "Nicholas", "Nicole", "Owen", "Paige",
+						"Pam", "Patrick", "Paul", "Phillip", "Quinn", "Rachel", "Raymond", "Richard", "Ronald", "Ryan",
+						"Sean", "Stephanie", "Steve", "Tim", "Tyler", "Valarie", "Vincent", "Vivian", "Will", "Xavier",
+						"Zachery", "Zack" };
+
+				username = randomNames[(int) (Math.random() * 100)];
 
 				System.out.print("This name has been chosen for you: " + username + " - do you want to use it? (y/n) ");
 
 				likeName = n.nextLine();
 			}
 		}
-		
-		else if (name.equalsIgnoreCase("Lindsey") || name.equalsIgnoreCase("Larsen") || name.equalsIgnoreCase("Crystalynne"))
-		{
-			System.out.println("Hmm... I wonder if you're trying to pretend to be one of the developers...");;
+
+		else if (name.equalsIgnoreCase("Lindsey") || name.equalsIgnoreCase("Larsen")
+				|| name.equalsIgnoreCase("Crystalynne")) {
+			System.out.println("Hmm... I wonder if you're trying to pretend to be one of the developers...");
+			;
 			username = name;
 		}
 
-		else
-		{
+		else {
 			username = name;
 		}
 
 		return username;
 	}
-	
+
 	public String playerClass()
 	{
 		Scanner n = new Scanner(System.in);
@@ -64,25 +72,26 @@ public class RPG
 		System.out.println("                [Archer] [Beserker]");
 		System.out.println("                [Knight] [Mage]");
 		System.out.print("Choose Your Selection: ");
-		
+
 		String playerClass = n.nextLine();
-		
-		if (playerClass.equalsIgnoreCase("random") || playerClass.equalsIgnoreCase("") && !(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Beserker")) && !(playerClass.equalsIgnoreCase("Knight")) && !(playerClass.equalsIgnoreCase("Mage")))
-		{
+
+		if (playerClass.equalsIgnoreCase("random") || playerClass.equalsIgnoreCase("")
+				&& !(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Beserker"))
+				&& !(playerClass.equalsIgnoreCase("Knight")) && !(playerClass.equalsIgnoreCase("Mage"))) {
 			String likePlayerClass = "";
-			
-			while (!likePlayerClass.equals("y"))
-			{
-				String[] randomPlayerClasses = {"Archer", "Beserker", "Knight", "Mage"};
-				
-				playerClass = randomPlayerClasses[(int)(Math.random() * 4)];
-				
-				System.out.print("This class has been chosen for you: " + playerClass + " - do you want to use it? (y/n) ");
-				
+
+			while (!likePlayerClass.equals("y")) {
+				String[] randomPlayerClasses = { "Archer", "Beserker", "Knight", "Mage" };
+
+				playerClass = randomPlayerClasses[(int) (Math.random() * 4)];
+
+				System.out.print(
+						"This class has been chosen for you: " + playerClass + " - do you want to use it? (y/n) ");
+
 				likePlayerClass = n.nextLine();
 			}
 		}
-		
+
 		return playerClass;
 	}
 
@@ -95,46 +104,40 @@ public class RPG
 		System.out.println("2. Change Class");
 		System.out.println("3. Return to Main Menu\n");
 		System.out.print("Choose Your Selection: ");
-		
+
 		Save save = new Save();
 
 		int selection = s.nextInt();
 
 		switch (selection)
 		{
-			case 1:
-			{
-				save.setName(Name());
-				break;
+		case 1: {
+			save.setName(Name());
+			break;
+		}
+		case 2: {
+			save.setPlayerClass(playerClass());
+			break;
+		}
+		case 3: {
+			mainMenu();
+			break;
+		}
+		case 99: {
+			int i = 1;
+			while (i < 1000) {
+				System.out.println("CONGRATULATIONS! YOU HAVE ENTERED A SECRET MODE!");
+				i += 1;
 			}
-			case 2:
-			{
-				save.setPlayerClass(playerClass());
-				break;
-			}
-			case 3:
-			{
-				mainMenu();
-				break;
-			}
-			case 99:
-			{
-				int i = 1;
-				while (i < 1000)
-				{
-					System.out.println("CONGRATULATIONS! YOU HAVE ENTERED A SECRET MODE!");
-					i += 1;
-				}
-				System.out.println("\n");
-				mainMenu();
-				break;
-			}
-			default:
-			{
-				System.err.println("Invalid selection.\n");
-				mainMenu();
-				break;
-			}
+			System.out.println("\n");
+			mainMenu();
+			break;
+		}
+		default: {
+			System.err.println("Invalid selection.\n");
+			mainMenu();
+			break;
+		}
 		}
 	}
 
@@ -214,10 +217,10 @@ public class RPG
 				break;
 			}
 			case 5:		
--			{		
--				Shop shop = new Shop();		
--				shop.sh();		
--			}
+			{		
+				Shop shop = new Shop();		
+				shop.sh();		
+			}
 			case 99:
 			{
 				int i = 1;
@@ -238,6 +241,7 @@ public class RPG
 			}
 		}
 	}
+
 	public int mainMenuSelection() throws InterruptedException
 	{
 		Scanner s = new Scanner(System.in);
@@ -247,7 +251,7 @@ public class RPG
 		System.out.println("2: Stats");
 		System.out.println("3: Options Menu");
 		System.out.println("4: Exit");	
--		System.out.println("5: Shop\n");
+		System.out.println("5: Shop\n");
 		System.out.print("Choose Your Selection: ");
 		try
 		{
@@ -260,8 +264,9 @@ public class RPG
 		}
 		return selection;
 	}
-	
-	public void battleWon(int i,int mHealth,int cHealth,int mMana,int cMana ,int def,int mR ,int attk ,int mag ,int dex ,int lvlUpExp,int xp, String n,int lvl,int status,int money)
+
+	public void battleWon(int i, int mHealth, int cHealth, int mMana, int cMana, int def, int mR, int attk, int mag,
+			int dex, int lvlUpExp, int xp, String n, int lvl, int status, int money)
 	{
 		Save save = new Save();
 		save.setMagic(mag);
@@ -280,10 +285,9 @@ public class RPG
 		save.setStatus(status);
 		save.setMoney(money);
 		save.setEnemy(i + 1);
-		
+
 		save.FileSave();
 
-		
 	}
 
 }

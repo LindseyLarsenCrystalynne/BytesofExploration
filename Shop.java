@@ -176,7 +176,9 @@ public class Shop
 		}
 		case "BUY":
 		{
+			Player p = new Player();
 			System.out.println("\n\n		Pick an item to buy!");
+			System.out.println("Balanace : " + p.getMoney() + " coins\n");
 			while (i != 5 && iList[i] != null)
 			{
 				System.out.println(iList[i].getName() + " costs " + iList[i].getPrice() + " coins.");
@@ -185,7 +187,7 @@ public class Shop
 			if (page < 3)
 				i = 0;
 
-			System.out.print("Selection: ");
+			System.out.print("\nSelection: ");
 			buy();
 			break;
 		}

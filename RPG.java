@@ -284,9 +284,9 @@ public class RPG
 		save.setLvl(lvl);
 		save.setStatus(status);
 		save.setMoney(money);
-		save.setEnemy(i + 1);
-
+		save.setEnemy(i);
 		save.FileSave();
+		save.Load();
 
 	}
 

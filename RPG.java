@@ -183,8 +183,10 @@ public class RPG
 			save.setLevelUpExp(5);
 			save.setMoney(0);
 			save.setStatus(0);
-			save.FileSave();
 			save.setEnemy(0);
+			save.FileSave();
+			save.Load();
+			
 		}
 		switch (mainMenuSelection())
 		{

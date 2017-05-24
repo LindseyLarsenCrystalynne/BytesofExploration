@@ -218,7 +218,8 @@ public class Save
 			save.writeObject(getStatus());
 			save.writeObject(getMagic());
 			save.writeObject(getEnemy());
-
+			save.writeObject(getPlayerClass());
+			
 			saveFile.close();
 		}
 
@@ -252,6 +253,7 @@ public class Save
 				setStatus((Integer) save.readObject());
 				setMagic((Integer) save.readObject());
 				setEnemy((Integer) save.readObject());
+				setPlayerClass((String) save.readObject());
 				saveFile.close();
 			}
 

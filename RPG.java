@@ -90,9 +90,15 @@ public class RPG
 
 				likePlayerClass = n.nextLine();
 			}
-		}
+		} else if (!(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Beserker"))
+				&& !(playerClass.equalsIgnoreCase("Knight")) && !(playerClass.equalsIgnoreCase("Mage")))
 
-		return playerClass;
+		{
+			System.out.println("Please enter something valid!\n\n");
+			return playerClass();
+		} else
+			return playerClass;
+		return "error";
 	}
 
 	public void optionsMenu() throws InterruptedException
@@ -106,17 +112,27 @@ public class RPG
 		System.out.print("Choose Your Selection: ");
 
 		Save save = new Save();
-
+		Player p = new Player();
 		int selection = s.nextInt();
 
 		switch (selection)
 		{
 		case 1: {
+			save.Load();
 			save.setName(Name());
+			save.FileSave();
+			save.Load();
+			System.out.println("\nYou've changed your name!\n");
+			optionsMenu();
 			break;
 		}
 		case 2: {
+			save.Load();
 			save.setPlayerClass(playerClass());
+			save.FileSave();
+			save.Load();
+			System.out.println("\nYou've changed your class!\n");
+			optionsMenu();
 			break;
 		}
 		case 3: {
@@ -144,15 +160,14 @@ public class RPG
 	public void mainMenu() throws InterruptedException
 	{
 		Scanner s = new Scanner(System.in);
-		
+
 		Save save = new Save();
-		
+
 		boolean first = false;
-		
+
 		save.Load();
-		
-		if (first = save.getName().equals(""))
-		{
+
+		if (first = save.getName().equals("")) {
 			System.out.println("Looks like this is your first time playing this game! Welcome!");
 			save.setName(Name());
 			save.setPlayerClass(playerClass());
@@ -173,73 +188,65 @@ public class RPG
 		}
 		switch (mainMenuSelection())
 		{
-			case 1:
-			{
-				if(first)
-				{
-					Cutscene c = new Cutscene(0);
-				}
-				Player p = new Player();
-				p.setName(save.getName());
-				p.setAttack(save.getAttack());
-				p.setCurHealth(save.getCurHealth());
-				p.setCurMana(save.getCurMana());
-				p.setMaxHealth(save.getMaxHealth());
-				p.setMaxMana(save.getMaxMana());
-				p.setDefense(save.getDefense());
-				p.setDexterity(save.getDexterity());
-				p.setLevelUpExp(save.getLevelUpExp());
-				p.setStatus(save.getStatus());
-				p.setMagicResistence(save.getMagicResistance());
-				p.setMagic(save.getMagic());
-				p.setMoney(save.getMoney());
-				Battle b = new Battle(save.getEnemy());
-				b.start();
-				break;
+		case 1: {
+			if (first) {
+				Cutscene c = new Cutscene(0);
 			}
-			case 2:
-			{
-				Scanner s2 = new Scanner(System.in);
-				System.out.println("=====Stats=====");
-				System.out.println(save);
-				System.out.print("Type in anything to continue: ");
-				s2.nextLine();
-				System.out.println("\n");
-				mainMenu();
-				break;
+			Player p = new Player();
+			p.setName(save.getName());
+			p.setAttack(save.getAttack());
+			p.setCurHealth(save.getCurHealth());
+			p.setCurMana(save.getCurMana());
+			p.setMaxHealth(save.getMaxHealth());
+			p.setMaxMana(save.getMaxMana());
+			p.setDefense(save.getDefense());
+			p.setDexterity(save.getDexterity());
+			p.setLevelUpExp(save.getLevelUpExp());
+			p.setStatus(save.getStatus());
+			p.setMagicResistence(save.getMagicResistance());
+			p.setMagic(save.getMagic());
+			p.setMoney(save.getMoney());
+			p.setEnemy(save.getEnemy());
+			Battle b = new Battle(save.getEnemy());
+			b.start();
+			break;
+		}
+		case 2: {
+			Scanner s2 = new Scanner(System.in);
+			System.out.println(save);
+			System.out.print("Type in anything to continue: ");
+			s2.nextLine();
+			System.out.println("\n");
+			mainMenu();
+			break;
+		}
+		case 3: {
+			optionsMenu();
+			break;
+		}
+		case 4: {
+			break;
+		}
+		case 5: {
+			Shop shop = new Shop();
+			shop.sh();
+			break;
+		}
+		case 99: {
+			int i = 1;
+			while (i < 1000) {
+				System.out.println("CONGRATULATIONS! YOU HAVE ENTERED A SECRET MODE!");
+				i += 1;
 			}
-			case 3:
-			{
-				optionsMenu();
-				break;
-			}
-			case 4:
-			{
-				break;
-			}
-			case 5:		
-			{		
-				Shop shop = new Shop();		
-				shop.sh();		
-			}
-			case 99:
-			{
-				int i = 1;
-				while (i < 1000)
-				{
-					System.out.println("CONGRATULATIONS! YOU HAVE ENTERED A SECRET MODE!");
-					i += 1;
-				}
-				System.out.println("\n");
-				mainMenu();
-				break;
-			}
-			default:
-			{
-				System.err.println("Invalid selection.\n");
-				mainMenu();
-				break;
-			}
+			System.out.println("\n");
+			mainMenu();
+			break;
+		}
+		default: {
+			System.err.println("Invalid selection.\n");
+			mainMenu();
+			break;
+		}
 		}
 	}
 
@@ -251,15 +258,12 @@ public class RPG
 		System.out.println("1. Start Game");
 		System.out.println("2: Stats");
 		System.out.println("3: Options Menu");
-		System.out.println("4: Exit");	
+		System.out.println("4: Exit");
 		System.out.println("5: Shop\n");
 		System.out.print("Choose Your Selection: ");
-		try
-		{
+		try {
 			selection = s.nextInt();
-		}
-		catch(InputMismatchException e)
-		{
+		} catch (InputMismatchException e) {
 			System.out.println("\nPlease use 1, 2  3, 4 or 5 for your selection.");
 			mainMenu();
 		}
@@ -272,8 +276,7 @@ public class RPG
 		int x = xp;
 		int l = lvl;
 		int lUpE = lvlUpExp;
-		if(xp >= lvlUpExp)
-		{
+		if (xp >= lvlUpExp) {
 			l = lvl + 1;
 			x = (xp -= lvlUpExp);
 			lUpE = (lvlUpExp += 3);
@@ -286,7 +289,7 @@ public class RPG
 			mMana += 2;
 			mHealth += 2;
 			dex += 1;
-			
+
 		}
 		Save save = new Save();
 		save.setMagic(mag);

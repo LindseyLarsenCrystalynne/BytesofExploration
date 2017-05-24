@@ -45,7 +45,7 @@ public class Battle
 			System.out.println("Description : " + enemyList.get(enemy).getLore());
 			System.out.println("Health :  " + enemyList.get(enemy).getCurHealth() + " / " + enemyMaxHP);
 			System.out.println("Mana : " + enemyList.get(enemy).getCurMana() + " / " + enemyMaxMana);
-			System.out.println("\n" + p.getName() + "'s Health: ");
+			System.out.println("\n" + p.getName() + "'s Health: " + p.getCurHealth());
 			System.out.println("\nWhat would you like to do?\n");
 			System.out.println("[Fight] [Defend]");
 			System.out.println("[Skill] [Item]");

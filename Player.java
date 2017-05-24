@@ -18,7 +18,7 @@ public class Player
 	private static int status;
 	private static int money;
 	private int enemy;
-	private String playerClass;
+	private static String playerClass;
 	
 	public String getPlayerClass()
 	{

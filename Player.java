@@ -18,7 +18,19 @@ public class Player
 	private static int status;
 	private static int money;
 	private int enemy;
+	private String playerClass;
 	
+	public String getPlayerClass()
+	{
+		return playerClass;
+	}
+	
+	public void setPlayerClass(String p)
+	{
+		playerClass = p;
+	}
+
+
 	public int getEnemy()
 	{
 		return enemy;

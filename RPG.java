@@ -200,6 +200,7 @@ public class RPG
 			case 2:
 			{
 				Scanner s2 = new Scanner(System.in);
+				System.out.println("=====Stats=====");
 				System.out.println(save);
 				System.out.print("Type in anything to continue: ");
 				s2.nextLine();

@@ -1,191 +1,571 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
-public class Player
+public class Battle
 {
-	private static int maxHealth;
-	private static int curHealth;
-	private static int maxMana;
-	private static int curMana;
-	private static int defense;
-	private static int magicResistence;
-	private static int attack;
-	private static int magic;
-	private static int dexterity;
-	private static int levelUpExp;
-	private static int exp;
-	private static String name;
-	private static int lvl;
-	private static int status;
-	private static int money;
-	private static ArrayList<Items> inv = new ArrayList<Items>();
+	ArrayList<Enemies> enemyList = new ArrayList<Enemies>();
 
-	public int getMaxHealth()
+	int enemy;
+
+	public Battle(int enemyNumber)
 	{
-		return maxHealth;
+		enemy = enemyNumber;
+		try
+		{
+			setEList();
+		} catch (ClassNotFoundException e)
+		{
+			System.err.println("It didn't work.");
+		}
 	}
 
-	public void setMaxHealth(int maxHealth)
+	public void start() throws InterruptedException
 	{
-		Player.maxHealth = maxHealth;
+		Save s = new Save();
+		s.Load();
+		Player p = new Player();
+		int statM = p.getMagic();
+		int statA = p.getAttack();
+		int statDef = p.getDefense();
+		int statDex = p.getDexterity();
+		int statMR = p.getMagicResistence();
+		int enemyMaxHP = enemyList.get(enemy).getCurHealth();
+		int enemyMaxMana = enemyList.get(enemy).getCurMana();
+		int turn = 0;
+		enemyList.add(new Enemies());
+		boolean fight = true;
+		System.out.println("\n\n=====Fight=====");
+		Scanner scan = new Scanner(System.in);
+		while (fight) {
+			turn++;
+			System.out.println("Enemy Name : " + enemyList.get(enemy).getName());
+			System.out.println("Description : " + enemyList.get(enemy).getLore());
+			System.out.println("Health :  " + enemyList.get(enemy).getCurHealth() + " / " + enemyMaxHP);
+			System.out.println("Mana : " + enemyList.get(enemy).getCurMana() + " / " + enemyMaxMana);
+			System.out.println("\n" + p.getName() + "'s Health: ");
+			System.out.println("\nWhat would you like to do?\n");
+			System.out.println("[Fight] [Defend]");
+			System.out.println("[Skill] [Item]");
+			System.out.println("     [Run]\n");
+			System.out.print("Choose Your Selection: ");
+
+			switch (scan.nextLine().toUpperCase())
+			{
+			case "FIGHT": {
+				System.out.println("\nWhich type of attack?\n");
+				;
+				System.out.println("[Physical] [Magic]");
+				System.out.println("    [1]      [2]\n");
+				System.out.print("Choose Your Selection: ");
+				switch (scan.nextLine().toUpperCase())
+				{
+				case "PHYSICAL":
+				case "1": {
+					System.out.println(playerAttack(1));
+					enemyTurn();
+					break;
+				}
+
+				case "MAGIC":
+				case "2": {
+					System.out.println(playerMAttack(1));
+					enemyTurn();
+					break;
+				}
+
+				default: {
+					System.err.println("Invalid selection.");
+					break;
+				}
+				}
+				break;
+			}
+
+			case "DEFEND": {
+				System.out.println("You're defending!");
+				// playerDefend();
+				break;
+			}
+
+			case "SKILL": {
+				switch (s.getPlayerClass().toLowerCase())
+				{
+				case "archer": {
+					Archer a = new Archer();
+					System.out.println("\nWhich type of skill?\n");
+					System.out.println(" [Shatter Arrow] [Sprint]");
+					System.out.println("[Fire Arrow] [Arrow Storm]");
+					System.out.println("      [Ice Arrow]");
+					System.out.print("What is your choice --> ");
+					switch (scan.nextLine())
+					{
+					case "Shatter Arrow": {
+						playerSkill(a.shatterArrow(), 0, "Shatter Arrow");
+						enemyTurn();
+						break;
+					}
+					case "Sprint": {
+						turn = 2;
+						playerSelfSkill("Dexterity", 1.5, "Sprint", "You run faster for 2 turns!");
+						break;
+					}
+					case "Fire Arrow": {
+						playerSkill(a.fireArrow(), 1, "Fire Arrow");
+						enemyTurn();
+						break;
+					}
+					case "Arrow Storm": {
+						playerSkill(a.arrowStorm(), 1, "Arrow Storm");
+						enemyTurn();
+						break;
+					}
+					case "Ice Arrow": {
+						playerSkill(a.shatterArrow(), 4, "Ice Arrow");
+						enemyTurn();
+						break;
+					}
+					default: {
+						System.err.println("Invalid selection.");
+						break;
+					}
+					}
+					break;
+				}
+
+				case "berserker": {
+					Berserker b = new Berserker();
+					System.out.println("\nWhich type of skill?\n");
+					System.out.println("[Power Slam] [Charge]");
+					System.out.println(" [Rage] [Blood Lust]");
+					System.out.print("What is your choice --> ");
+					switch (scan.nextLine())
+					{
+					case "Power Slam": {
+						playerSkill(b.powerSlam(), 5, "Power Slam");
+						enemyTurn();
+						break;
+					}
+					case "Charge": {
+						playerSkill(b.charge(), 5, "Power Slam");
+						enemyTurn();
+						break;
+					}
+					case "Rage": {
+						playerSkill(b.rage(), 5, "Rage");
+						enemyTurn();
+						break;
+					}
+					case "Exercise": {
+						turn = 2;
+						playerSelfSkill("Magic Resistance", 1.5, "Exercise",
+								"You exercised a bit and now have 2 more turns!");
+						break;
+					}
+					default: {
+						System.err.println("Invalid selection.\n");
+						break;
+					}
+					}
+					break;
+				}
+
+				case "knight": {
+					Knight k = new Knight();
+					System.out.println("\nWhich type of skill?\n");
+					System.out.println("[Heavy Slam] [Call Horse]");
+					System.out.println("       [Bulk Up]");
+					System.out.print("What is your choice --> ");
+					switch (scan.nextLine())
+					{
+					case "Heavy Slam": {
+						playerSkill(k.heavySlam(), 5, "Heavy Slam");
+						enemyTurn();
+						break;
+					}
+					case "Call Horse": {
+						turn = 2;
+						playerSelfSkill("Dexterity", 1, "Call Horse", "You called a horse! Now you have 2 more turns!");
+						break;
+					}
+					case "Bulk Up": {
+						turn = 2;
+						playerSelfSkill("Defense", 2, "Bulk Up", "You've bulked up! Have 2 more turns!");
+						break;
+					}
+					default: {
+						System.err.println("Invalid selection.\n");
+						break;
+					}
+					}
+					break;
+				}
+
+				case "mage": {
+					Mage m = new Mage();
+					System.out.println("\nWhich type of skill?\n");
+					System.out.println("[Fire Ball] [Hail]");
+					System.out.println("[Lightning] [Tsunami]");
+					System.out.println("[Boulder]");
+					System.out.print("What is your choice --> ");
+					switch (scan.nextLine())
+					{
+					case "Fire Ball": {
+						playerSkill(m.fireBall(), 1, "Heavy Slam");
+						enemyTurn();
+						break;
+					}
+					case "Hail": {
+						playerSkill(m.hail(), 4, "Hail");
+						enemyTurn();
+						break;
+					}
+					case "Lightning": {
+						playerSkill(m.lightning(), 1, "Lightning");
+						enemyTurn();
+						break;
+					}
+					case "Tsunami": {
+						playerSkill(m.tsunami(), 3, "Tsunami");
+						enemyTurn();
+						break;
+					}
+					case "Call Mother Nature": {
+						turn = 2;
+						playerSelfSkill("Magic Resistance", 1.5, "Call Mother Nature",
+								"You called Mother Nature and she gave you 2 more turns!");
+						break;
+					}
+					default: {
+						System.err.println("Invalid selection.\n");
+						break;
+					}
+					}
+					break;
+				}
+
+				default: {
+					System.out.println("Invalid selection.\n");
+					break;
+				}
+				}
+
+				break;
+			}
+			case "RUN": {
+				System.out.println("\nYou ran away!");
+				battleEnd();
+				break;
+			}
+			default: {
+				System.out.println("\nInvalid selection.\n");
+				break;
+			}
+			}
+			if (turn == 0) {
+				p.setAttack(statA);
+				p.setDefense(statDef);
+				p.setDexterity(statDex);
+				p.setMagic(statM);
+				p.setMagicResistence(statMR);
+			} else if (turn > 0)
+				turn--;
+
+			RPG r = new RPG();
+			if (p.getCurHealth() == 0) {
+				p.setAttack(statA);
+				p.setDefense(statDef);
+				p.setDexterity(statDex);
+				p.setMagic(statM);
+				p.setMagicResistence(statMR);
+				System.out.println("Player was defeated :(");
+				System.out.println("You lost half of your coins");
+				p.setMoney(p.getMoney() / 2);
+				r.mainMenu();
+			} else if (enemyList.get(enemy).getCurHealth() == 0) {
+				p.setAttack(statA);
+				p.setDefense(statDef);
+				p.setDexterity(statDex);
+				p.setMagic(statM);
+				p.setMagicResistence(statMR);
+				System.out.println("Player won!");
+				System.out.println(p.getName() + " earned " + enemyList.get(enemy).getMoney() + " coins and "
+						+ enemyList.get(enemy).getExp() + " experience.\n");
+				p.setExp(p.getExp() + enemyList.get(enemy).getExp());
+				p.setMoney(p.getMoney() + enemyList.get(enemy).getMoney());
+
+				r.battleWon(enemy + 1, p.getMaxHealth(), p.getMaxHealth(), p.getMaxMana(), p.getMaxMana(),
+						p.getDefense(), p.getMagicResistence(), p.getAttack(), p.getMagic(), p.getDexterity(),
+						p.getLevelUpExp(), p.getExp(), p.getName(), p.getLvl(), p.getStatus(), p.getMoney());
+				r.mainMenu();
+
+			}
+		}
 	}
 
-	public int getCurHealth()
+	private void battleEnd() throws InterruptedException
 	{
-		return curHealth;
+		RPG r = new RPG();
+		r.mainMenu();
 	}
 
-	public void setCurHealth(int curHealth)
+	public String playerSkill(int damage, int status, String skill)
 	{
-		Player.curHealth = curHealth;
+		Player p = new Player();
+		String output = "";
+		String st = "";
+		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
+		enemyList.get(enemy).setCurHealth(newHP);
+
+		switch (status)
+		{
+		case 0:
+		{
+			st = "did nothing";
+		}
+		case 1:
+		{
+			st = "burned";
+		}
+		case 2:
+		{
+			st = "poisoned";
+		}
+		case 3:
+		{
+			st = "slowed";
+		}
+		case 4:
+		{
+			st = "froze";
+		}
+		case 5:
+		{
+			st = "punched";
+		}
+		}
+
+		output += "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has "
+				+ newHP + " health.";
+		if (status != 0)
+			output += "You " + st + " the enemy!";
+		return output;
 	}
 
-	public int getMaxMana()
+	public String playerSelfSkill(String stat, double scale, String skill, String message)
 	{
-		return maxMana;
+
+		Player p = new Player();
+		switch (stat)
+		{
+		case "Dexterity":
+		{
+			p.setDexterity((int) (p.getDexterity() * scale));
+		}
+		case "Magic Resistance":
+		{
+			p.setMagicResistence((int) (p.getMagicResistence() * scale));
+		}
+		case "Defense":
+		{
+			p.setDefense((int) (p.getDefense() * scale));
+		}
+		default:
+		{
+			System.err.println("Invalid selection.");
+		}
+		}
+		return "\nYou used " + skill + "! " + message;
 	}
 
-	public void setMaxMana(int maxMana)
+	public String playerAttack(double scale)
 	{
-		Player.maxMana = maxMana;
+		Player p = new Player();
+
+		int newHP = (int) (enemyList.get(enemy).getCurHealth() - (p.getAttack() * scale));
+		enemyList.get(enemy).setCurHealth(newHP);
+		return "\nYou attacked the enemy for " + p.getAttack() + " damage! The enemy now has " + newHP + " health.";
 	}
 
-	public int getCurMana()
+	public String enemyAttack(double scale)
 	{
-		return curMana;
+		Player p = new Player();
+
+		int newHP = (int) (p.getCurHealth() - (enemyList.get(enemy).getAttack() * scale));
+		p.setCurHealth(newHP);
+		return "\nThe enemy attacked you for " + enemyList.get(enemy).getAttack() + " damage! You now have " + newHP
+				+ " health.";
 	}
 
-	public void setCurMana(int curMana)
+	public String playerMAttack(double scale)
 	{
-		Player.curMana = curMana;
+		Player p = new Player();
+
+		int newHP = (int) (enemyList.get(enemy).getCurHealth() - (p.getMagic() * scale));
+		enemyList.get(enemy).setCurHealth(newHP);
+		return "\nYou attacked the enemy for " + p.getMagic() + " damage! The enemy now has " + newHP + " health.";
 	}
 
-	public int getDefense()
+	public String enemyMAttack(double scale)
 	{
-		return defense;
+		Player p = new Player();
+
+		int newHP = (int) (p.getCurHealth() - (enemyList.get(enemy).getMagic() * scale));
+		p.setCurHealth(newHP);
+		return "\nThe enemy attacked you for " + enemyList.get(enemy).getMagic() + " damage! You now have " + newHP
+				+ " health.";
 	}
 
-	public void setDefense(int defense)
+	public void enemyTurn()
 	{
-		Player.defense = defense;
+
+		Player p = new Player();
+
+		if (p.getMaxHealth() < 30) // if the player has less than 30 maximum
+									// health
+		{
+			if (((double) p.getCurHealth() / p.getMaxHealth()) <= .25) //
+				System.out.println(enemyAttack(1)); // a basic attack will be
+													// used
+			else if ((((double) Math.random()) * 25) > 24) // else at a 1/25
+															// chance the enemy
+															// will hit a crit
+				System.out.println("It was a critical strike!" + enemyAttack(1.5));
+			else
+				System.out.println(enemyAttack(1));
+		} else if (((double) p.getCurHealth() / p.getMaxHealth()) <= .1)
+			System.out.println(enemyAttack(1));
+		else if ((((double) Math.random()) * 10) > 8)
+			System.out.println("It was a critical strike!" + enemyAttack(1.5));
+		else
+			System.out.println(enemyAttack(1));
 	}
 
-	public int getMagicResistence()
+	public void setEList() throws ClassNotFoundException
 	{
-		return magicResistence;
+		try
+		{
+			File file = new File("Enemies");
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			String line;
+			for (int i = 0; i < 100; i++) // Runs through the creation process
+											// 100 times
+			{
+				if ((line = bufferedReader.readLine()) != null)
+				{
+					String b = line;
+					int mHealth = 0;
+					int mMana = 0;
+					int def = 0;
+					int mR = 0;
+					int attk = 0;
+					int mag = 0;
+					int dex = 0;
+					int exp = 0;
+					String n = "";
+					int lvl = 0;
+					int mon = 0;
+					String lore = "";
+					int assign = 0;
+					int end = 0;
+
+					end = ifSpace(b);
+
+					while (assign < 11)
+					{
+						switch (assign)
+						{
+						case 0:
+							mHealth = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 1:
+							mMana = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 2:
+							def = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 3:
+							mR = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 4:
+							attk = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 5:
+							mag = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 6:
+							dex = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 7:
+							exp = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 8:
+							n = b.substring(0, end);
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 9:
+							lvl = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 10:
+							mon = Integer.parseInt(b.substring(0, end));
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+						case 11:
+							lore = b.substring(0);
+							b = b.substring(end + 1);
+							end = ifSpace(b);
+							assign++;
+
+						}
+					}
+					Enemies e = new Enemies(n, mHealth, mMana, def, mR, attk, mag, dex, exp, lvl, mon,lore);
+					enemyList.add(e);
+				}
+
+			}
+			bufferedReader.close();
+		} catch (IOException e)
+		{
+
+			System.err.println("It didn't work");
+		}
 	}
 
-	public void setMagicResistence(int magicResistence)
+	public int ifSpace(String a)
 	{
-		Player.magicResistence = magicResistence;
-	}
+		int end = 0;
+		for (int i = 0; i < a.length(); i++)
+		{
+			if (a.charAt(i) == ' ')
+			{
 
-	public int getAttack()
-	{
-		return attack;
-	}
-
-	public void setAttack(int attack)
-	{
-		Player.attack = attack;
-	}
-
-	public int getMagic()
-	{
-		return magic;
-	}
-
-	public void setMagic(int magic)
-	{
-		Player.magic = magic;
-	}
-
-	public int getDexterity()
-	{
-		return dexterity;
-	}
-
-	public void setDexterity(int dexterity)
-	{
-		Player.dexterity = dexterity;
-	}
-
-	public int getLevelUpExp()
-	{
-		return levelUpExp;
-	}
-
-	public void setLevelUpExp(int levelUpExp)
-	{
-		Player.levelUpExp = levelUpExp;
-	}
-
-	public int getExp()
-	{
-		return exp;
-	}
-
-	public void setExp(int exp)
-	{
-		Player.exp = exp;
-	}
-
-	public String getName()
-	{
-		return name;
-	}
-
-	public void setName(String name)
-	{
-		Player.name = name;
-	}
-
-	public int getLvl()
-	{
-		return lvl;
-	}
-
-	public void setLvl(int lvl)
-	{
-		Player.lvl = lvl;
-	}
-
-	public int getStatus()
-	{
-		return status;
-	}
-
-	public void setStatus(int status)
-	{
-		Player.status = status;
-	}
-
-	public int getMoney()
-	{
-		return money;
-	}
-
-	public void setMoney(int money)
-	{
-		Player.money = money;
-	}
-
-	public void addItem(Items i)
-	{
-		inv.add(i);
-	}
-	
-	public Items removeItem(int i)
-	{
-		return inv.remove(i);
-	}
-	
-	public Items getItem(int i)
-	{
-		return inv.get(i);
-	}
-	
-	public int getInvSize()
-	{
-		return inv.size();
+				end = i;
+				break;
+			}
+		}
+		return end;
 	}
 }

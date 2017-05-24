@@ -47,7 +47,7 @@ public class Battle
 			System.out.println("Mana : " + enemyList.get(enemy).getCurMana() + " / " + enemyMaxMana);
 			System.out.println("\n" + p.getName() + "'s Health: " + p.getCurHealth());
 			System.out.println("\nWhat would you like to do?\n");
-			System.out.println("[Fight] [Defend]");
+			System.out.println("	[Fight] ");
 			System.out.println("[Skill] [Item]");
 			System.out.println("     [Run]\n");
 			System.out.print("Choose Your Selection: ");
@@ -81,12 +81,6 @@ public class Battle
 					break;
 				}
 				}
-				break;
-			}
-
-			case "DEFEND": {
-				System.out.println("You're defending!");
-				// playerDefend();
 				break;
 			}
 

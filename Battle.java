@@ -65,12 +65,14 @@ public class Battle
 				case "PHYSICAL":
 				case "1": {
 					System.out.println(playerAttack(1));
+					enemyTurn();
 					break;
 				}
 
 				case "MAGIC":
 				case "2": {
 					System.out.println(playerMAttack(1));
+					enemyTurn();
 					break;
 				}
 
@@ -89,9 +91,9 @@ public class Battle
 			}
 
 			case "SKILL": {
-				switch (s.getPlayerClass())
+				switch (s.getPlayerClass().toLowerCase())
 				{
-				case "Archer": {
+				case "archer": {
 					Archer a = new Archer();
 					System.out.println("\nWhich type of skill?\n");
 					System.out.println(" [Shatter Arrow] [Sprint]");
@@ -133,7 +135,7 @@ public class Battle
 					break;
 				}
 
-				case "Berserker": {
+				case "berserker": {
 					Berserker b = new Berserker();
 					System.out.println("\nWhich type of skill?\n");
 					System.out.println("[Power Slam] [Charge]");
@@ -170,7 +172,7 @@ public class Battle
 					break;
 				}
 
-				case "Knight": {
+				case "knight": {
 					Knight k = new Knight();
 					System.out.println("\nWhich type of skill?\n");
 					System.out.println("[Heavy Slam] [Call Horse]");
@@ -201,7 +203,7 @@ public class Battle
 					break;
 				}
 
-				case "Mage": {
+				case "mage": {
 					Mage m = new Mage();
 					System.out.println("\nWhich type of skill?\n");
 					System.out.println("[Fire Ball] [Hail]");

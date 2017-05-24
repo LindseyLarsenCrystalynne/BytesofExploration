@@ -39,272 +39,240 @@ public class Battle
 		boolean fight = true;
 		System.out.println("\n\n=====Fight=====");
 		Scanner scan = new Scanner(System.in);
-		while (fight) 
-		{
+		while (fight) {
 			turn++;
 			System.out.println("Enemy Name : " + enemyList.get(enemy).getName());
 			System.out.println("Description : " + enemyList.get(enemy).getLore());
-			System.out.println("Health :  " + enemyList.get(enemy).getCurHealth() +" / "+ enemyMaxHP);
-			System.out.println("Mana : " + enemyList.get(enemy).getCurMana() +  " / " + enemyMaxMana);
+			System.out.println("Health :  " + enemyList.get(enemy).getCurHealth() + " / " + enemyMaxHP);
+			System.out.println("Mana : " + enemyList.get(enemy).getCurMana() + " / " + enemyMaxMana);
 			System.out.println("\n" + p.getName() + "'s Health: ");
 			System.out.println("\nWhat would you like to do?\n");
 			System.out.println("[Fight] [Defend]");
 			System.out.println("[Skill] [Item]");
 			System.out.println("     [Run]\n");
 			System.out.print("Choose Your Selection: ");
-			
+
 			switch (scan.nextLine().toUpperCase())
 			{
-				case "FIGHT":
-			 	{
-			 		System.out.println("\nWhich type of attack?\n");;
-			 		System.out.println("[Physical] [Magic]\n");
-					System.out.print("Choose Your Selection: ");
-			 		switch (scan.nextLine().toUpperCase())
-			 		{
-			 			case "PHYSICAL":
-			 			{
-			 				System.out.println(playerAttack(1));
-			 				break;
-			 			}
-
-			 			case "MAGIC":
-			 			{
-			 				System.out.println(playerMAttack(1));
-			 				break;
-			 			}
-
-			 			default:
-			 			{
-	 						System.err.println("Invalid selection.");
-				 			break;
-			 			}
-			 		}
-			 		break;
-			 	}
-
-			 	case "DEFEND":
-			 	{
-			 		System.out.println("You're defending!");
-			 		// playerDefend();
-			 		break;
-			 	}
-			 	
-			 	case "SKILL":
-			 	{
-			 		switch(s.getPlayerClass())
-			 		{
-				 		case "Archer":
-				 		{
-				 			Archer a = new Archer();
-				 			System.out.println("\nWhich type of skill?\n");
-				 			System.out.println(" [Shatter Arrow] [Sprint]");
-				 			System.out.println("[Fire Arrow] [Arrow Storm]");
-				 			System.out.println("      [Ice Arrow]");
-				 			System.out.print("What is your choice --> ");
-				 			switch(scan.nextLine())
-				 			{
-					 			case "Shatter Arrow":
-					 			{
-					 				playerSkill(a.shatterArrow(),0,"Shatter Arrow");
-					 				enemyTurn();
-						 			break;
-					 			}
-					 			case "Sprint":
-					 			{
-					 				turn = 2;
-					 				playerSelfSkill("Dexterity",1.5,"Sprint","You run faster for 2 turns!");
-						 			break;
-					 			}
-					 			case "Fire Arrow":
-					 			{
-					 				playerSkill(a.fireArrow(),1,"Fire Arrow");
-					 				enemyTurn();
-						 			break;
-					 			}
-					 			case "Arrow Storm":
-					 			{
-					 				playerSkill(a.arrowStorm(),1,"Arrow Storm");
-					 				enemyTurn();
-						 			break;
-					 			}
-					 			case "Ice Arrow":
-					 			{
-					 				playerSkill(a.shatterArrow(),4,"Ice Arrow");
-					 				enemyTurn();
-						 			break;
-					 			}
-			 					default:
-			 					{
-			 						System.err.println("Invalid selection.");
-						 			break;
-			 					}
-				 			}
-				 			break;
-				 		}
-	
-				 		case "Berserker":
-				 		{
-				 			Berserker b = new Berserker();
-				 			System.out.println("\nWhich type of skill?\n");
-				 			System.out.println("[Power Slam] [Charge]");
-				 			System.out.println(" [Rage] [Blood Lust]");
-				 			System.out.print("What is your choice --> ");
-				 			switch(scan.nextLine())
-				 			{
-				 				case "Power Slam":
-				 				{
-					 				playerSkill(b.powerSlam(),5,"Power Slam");
-					 				enemyTurn();
-						 			break;
-				 				}
-				 				case "Charge":
-				 				{
-					 				playerSkill(b.charge(),5,"Power Slam");
-					 				enemyTurn();
-						 			break;
-				 				}
-					 			case "Rage":
-						 		{
-					 				playerSkill(b.rage(),5,"Rage");
-					 				enemyTurn();
-						 			break;
-					 			}
-					 			case "Exercise":
-					 			{
-					 				turn = 2;
-					 				playerSelfSkill("Magic Resistance",1.5,"Exercise","You exercised a bit and now have 2 more turns!");
-						 			break;
-					 			}
-			 					default:
-			 					{
-			 						System.err.println("Invalid selection.\n");
-						 			break;
-			 					}
-				 			}
-				 			break;
-				 		}
-				 		
-				 		case "Knight":
-				 		{
-				 			Knight k = new Knight();
-				 			System.out.println("\nWhich type of skill?\n");
-				 			System.out.println("[Heavy Slam] [Call Horse]");
-				 			System.out.println("       [Bulk Up]");
-				 			System.out.print("What is your choice --> ");
-				 			switch(scan.nextLine())
-				 			{
-				 				case "Heavy Slam":
-				 				{
-					 				playerSkill(k.heavySlam(),5,"Heavy Slam");
-					 				enemyTurn();
-						 			break;
-				 				}
-				 				case "Call Horse":
-				 				{
-					 				turn = 2;
-					 				playerSelfSkill("Dexterity",1,"Call Horse","You called a horse! Now you have 2 more turns!");
-						 			break;
-				 				}
-				 				case "Bulk Up":
-				 				{
-					 				turn = 2;
-					 				playerSelfSkill("Defense",2,"Bulk Up","You've bulked up! Have 2 more turns!");
-						 			break;
-				 				}
-			 					default:
-			 					{
-			 						System.err.println("Invalid selection.\n");
-						 			break;
-			 					}
-				 			}
-				 			break;
-				 		}
-				 		
-				 		case "Mage":
-				 		{
-				 			Mage m = new Mage();
-				 			System.out.println("\nWhich type of skill?\n");
-				 			System.out.println("[Fire Ball] [Hail]");
-				 			System.out.println("[Lightning] [Tsunami]");
-				 			System.out.println("[Boulder]");
-				 			System.out.print("What is your choice --> ");
-				 			switch(scan.nextLine())
-				 			{
-				 				case "Fire Ball":
-				 				{
-					 				playerSkill(m.fireBall(),1,"Heavy Slam");
-					 				enemyTurn();
-						 			break;
-				 				}
-				 				case "Hail":
-				 				{
-					 				playerSkill(m.hail(),4,"Hail");
-					 				enemyTurn();
-						 			break;
-				 				}
-				 				case "Lightning":
-				 				{
-					 				playerSkill(m.lightning(),1,"Lightning");
-					 				enemyTurn();
-						 			break;
-				 				}
-				 				case "Tsunami":
-				 				{
-					 				playerSkill(m.tsunami(),3,"Tsunami");
-					 				enemyTurn();
-						 			break;
-				 				}
-				 				case "Call Mother Nature":
-				 				{
-					 				turn = 2;
-					 				playerSelfSkill("Magic Resistance",1.5,"Call Mother Nature","You called Mother Nature and she gave you 2 more turns!");
-						 			break;
-				 				}
-				 				default:
-				 				{
-				 					System.err.println("Invalid selection.\n");
-						 			break;
-				 				}
-				 			}
-				 			break;
-				 		}
-				 		
-				 		default:
-				 		{
-				 			System.out.println("Invalid selection.\n");
-				 			break;
-				 		}
-			 		}
-
-			 		break;
-			 	}
-			 	case "RUN":
+			case "FIGHT": {
+				System.out.println("\nWhich type of attack?\n");
+				;
+				System.out.println("[Physical] [Magic]");
+				System.out.println("    [1]      [2]\n");
+				System.out.print("Choose Your Selection: ");
+				switch (scan.nextLine().toUpperCase())
 				{
-				 	System.out.println("\nYou ran away!");
-				 	battleEnd();
-		 			break;
+				case "PHYSICAL":
+				case "1": {
+					System.out.println(playerAttack(1));
+					break;
 				}
-			 	default:
-		 		{
-		 			System.out.println("\nInvalid selection.\n");
-		 			break;
-		 		}
+
+				case "MAGIC":
+				case "2": {
+					System.out.println(playerMAttack(1));
+					break;
+				}
+
+				default: {
+					System.err.println("Invalid selection.");
+					break;
+				}
+				}
+				break;
 			}
-			if(turn == 0)
-			{
+
+			case "DEFEND": {
+				System.out.println("You're defending!");
+				// playerDefend();
+				break;
+			}
+
+			case "SKILL": {
+				switch (s.getPlayerClass())
+				{
+				case "Archer": {
+					Archer a = new Archer();
+					System.out.println("\nWhich type of skill?\n");
+					System.out.println(" [Shatter Arrow] [Sprint]");
+					System.out.println("[Fire Arrow] [Arrow Storm]");
+					System.out.println("      [Ice Arrow]");
+					System.out.print("What is your choice --> ");
+					switch (scan.nextLine())
+					{
+					case "Shatter Arrow": {
+						playerSkill(a.shatterArrow(), 0, "Shatter Arrow");
+						enemyTurn();
+						break;
+					}
+					case "Sprint": {
+						turn = 2;
+						playerSelfSkill("Dexterity", 1.5, "Sprint", "You run faster for 2 turns!");
+						break;
+					}
+					case "Fire Arrow": {
+						playerSkill(a.fireArrow(), 1, "Fire Arrow");
+						enemyTurn();
+						break;
+					}
+					case "Arrow Storm": {
+						playerSkill(a.arrowStorm(), 1, "Arrow Storm");
+						enemyTurn();
+						break;
+					}
+					case "Ice Arrow": {
+						playerSkill(a.shatterArrow(), 4, "Ice Arrow");
+						enemyTurn();
+						break;
+					}
+					default: {
+						System.err.println("Invalid selection.");
+						break;
+					}
+					}
+					break;
+				}
+
+				case "Berserker": {
+					Berserker b = new Berserker();
+					System.out.println("\nWhich type of skill?\n");
+					System.out.println("[Power Slam] [Charge]");
+					System.out.println(" [Rage] [Blood Lust]");
+					System.out.print("What is your choice --> ");
+					switch (scan.nextLine())
+					{
+					case "Power Slam": {
+						playerSkill(b.powerSlam(), 5, "Power Slam");
+						enemyTurn();
+						break;
+					}
+					case "Charge": {
+						playerSkill(b.charge(), 5, "Power Slam");
+						enemyTurn();
+						break;
+					}
+					case "Rage": {
+						playerSkill(b.rage(), 5, "Rage");
+						enemyTurn();
+						break;
+					}
+					case "Exercise": {
+						turn = 2;
+						playerSelfSkill("Magic Resistance", 1.5, "Exercise",
+								"You exercised a bit and now have 2 more turns!");
+						break;
+					}
+					default: {
+						System.err.println("Invalid selection.\n");
+						break;
+					}
+					}
+					break;
+				}
+
+				case "Knight": {
+					Knight k = new Knight();
+					System.out.println("\nWhich type of skill?\n");
+					System.out.println("[Heavy Slam] [Call Horse]");
+					System.out.println("       [Bulk Up]");
+					System.out.print("What is your choice --> ");
+					switch (scan.nextLine())
+					{
+					case "Heavy Slam": {
+						playerSkill(k.heavySlam(), 5, "Heavy Slam");
+						enemyTurn();
+						break;
+					}
+					case "Call Horse": {
+						turn = 2;
+						playerSelfSkill("Dexterity", 1, "Call Horse", "You called a horse! Now you have 2 more turns!");
+						break;
+					}
+					case "Bulk Up": {
+						turn = 2;
+						playerSelfSkill("Defense", 2, "Bulk Up", "You've bulked up! Have 2 more turns!");
+						break;
+					}
+					default: {
+						System.err.println("Invalid selection.\n");
+						break;
+					}
+					}
+					break;
+				}
+
+				case "Mage": {
+					Mage m = new Mage();
+					System.out.println("\nWhich type of skill?\n");
+					System.out.println("[Fire Ball] [Hail]");
+					System.out.println("[Lightning] [Tsunami]");
+					System.out.println("[Boulder]");
+					System.out.print("What is your choice --> ");
+					switch (scan.nextLine())
+					{
+					case "Fire Ball": {
+						playerSkill(m.fireBall(), 1, "Heavy Slam");
+						enemyTurn();
+						break;
+					}
+					case "Hail": {
+						playerSkill(m.hail(), 4, "Hail");
+						enemyTurn();
+						break;
+					}
+					case "Lightning": {
+						playerSkill(m.lightning(), 1, "Lightning");
+						enemyTurn();
+						break;
+					}
+					case "Tsunami": {
+						playerSkill(m.tsunami(), 3, "Tsunami");
+						enemyTurn();
+						break;
+					}
+					case "Call Mother Nature": {
+						turn = 2;
+						playerSelfSkill("Magic Resistance", 1.5, "Call Mother Nature",
+								"You called Mother Nature and she gave you 2 more turns!");
+						break;
+					}
+					default: {
+						System.err.println("Invalid selection.\n");
+						break;
+					}
+					}
+					break;
+				}
+
+				default: {
+					System.out.println("Invalid selection.\n");
+					break;
+				}
+				}
+
+				break;
+			}
+			case "RUN": {
+				System.out.println("\nYou ran away!");
+				battleEnd();
+				break;
+			}
+			default: {
+				System.out.println("\nInvalid selection.\n");
+				break;
+			}
+			}
+			if (turn == 0) {
 				p.setAttack(statA);
 				p.setDefense(statDef);
 				p.setDexterity(statDex);
 				p.setMagic(statM);
 				p.setMagicResistence(statMR);
-			}
-			else if(turn > 0)
+			} else if (turn > 0)
 				turn--;
-			
+
 			RPG r = new RPG();
-			if(p.getCurHealth() == 0)
-			{
+			if (p.getCurHealth() == 0) {
 				p.setAttack(statA);
 				p.setDefense(statDef);
 				p.setDexterity(statDex);
@@ -312,25 +280,25 @@ public class Battle
 				p.setMagicResistence(statMR);
 				System.out.println("Player was defeated :(");
 				System.out.println("You lost half of your coins");
-				p.setMoney(p.getMoney()/2);
+				p.setMoney(p.getMoney() / 2);
 				r.mainMenu();
-			}
-			else if(enemyList.get(enemy).getCurHealth() == 0)
-			{
+			} else if (enemyList.get(enemy).getCurHealth() == 0) {
 				p.setAttack(statA);
 				p.setDefense(statDef);
 				p.setDexterity(statDex);
 				p.setMagic(statM);
 				p.setMagicResistence(statMR);
 				System.out.println("Player won!");
-				System.out.println(p.getName() + "Player earned " + enemyList.get(enemy).getMoney() + " coins");
-				System.out.println("and " + enemyList.get(enemy).getExp() + " experience.");
-				p.setExp(p.getExp() +enemyList.get(enemy).getExp());
+				System.out.println(p.getName() + " earned " + enemyList.get(enemy).getMoney() + " coins and "
+						+ enemyList.get(enemy).getExp() + " experience.\n");
+				p.setExp(p.getExp() + enemyList.get(enemy).getExp());
 				p.setMoney(p.getMoney() + enemyList.get(enemy).getMoney());
-				
-				r.battleWon(enemy + 1,p.getMaxHealth(),p.getMaxHealth(),p.getMaxMana(),p.getMaxMana(),p.getDefense(),p.getMagicResistence(),p.getAttack(),p.getMagic(),p.getDexterity(),p.getLevelUpExp(),p.getExp(),p.getName(),p.getLvl(),p.getStatus(),p.getMoney());
+
+				r.battleWon(enemy + 1, p.getMaxHealth(), p.getMaxHealth(), p.getMaxMana(), p.getMaxMana(),
+						p.getDefense(), p.getMagicResistence(), p.getAttack(), p.getMagic(), p.getDexterity(),
+						p.getLevelUpExp(), p.getExp(), p.getName(), p.getLvl(), p.getStatus(), p.getMoney());
 				r.mainMenu();
-				
+
 			}
 		}
 	}
@@ -513,61 +481,73 @@ public class Battle
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 1:
 							mMana = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 2:
 							def = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 3:
 							mR = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 4:
 							attk = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 5:
 							mag = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 6:
 							dex = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 7:
 							exp = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 8:
 							n = b.substring(0, end);
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 9:
 							lvl = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 10:
 							mon = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 						case 11:
 							lore = b.substring(0);
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
+							break;
 
 						}
 					}

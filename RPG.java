@@ -69,19 +69,19 @@ public class RPG
 	{
 		Scanner n = new Scanner(System.in);
 		System.out.println("What class do you want? Type 'random' for a random class: \n");
-		System.out.println("                [Archer] [Beserker]");
+		System.out.println("                [Archer] [Berserker]");
 		System.out.println("                [Knight] [Mage]");
 		System.out.print("Choose Your Selection: ");
 
 		String playerClass = n.nextLine();
 
 		if (playerClass.equalsIgnoreCase("random") || playerClass.equalsIgnoreCase("")
-				&& !(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Beserker"))
+				&& !(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Berserker"))
 				&& !(playerClass.equalsIgnoreCase("Knight")) && !(playerClass.equalsIgnoreCase("Mage"))) {
 			String likePlayerClass = "";
 
 			while (!likePlayerClass.equals("y")) {
-				String[] randomPlayerClasses = { "Archer", "Beserker", "Knight", "Mage" };
+				String[] randomPlayerClasses = { "Archer", "Berserker", "Knight", "Mage" };
 
 				playerClass = randomPlayerClasses[(int) (Math.random() * 4)];
 
@@ -90,7 +90,7 @@ public class RPG
 
 				likePlayerClass = n.nextLine();
 			}
-		} else if (!(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Beserker"))
+		} else if (!(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Berserker"))
 				&& !(playerClass.equalsIgnoreCase("Knight")) && !(playerClass.equalsIgnoreCase("Mage")))
 
 		{
@@ -193,6 +193,7 @@ public class RPG
 				Cutscene c = new Cutscene(0);
 			}
 			Player p = new Player();
+			p.setPlayerClass(save.getPlayerClass());
 			p.setName(save.getName());
 			p.setAttack(save.getAttack());
 			p.setCurHealth(save.getCurHealth());
@@ -271,7 +272,7 @@ public class RPG
 	}
 
 	public void battleWon(int i, int mHealth, int cHealth, int mMana, int cMana, int def, int mR, int attk, int mag,
-			int dex, int lvlUpExp, int xp, String n, int lvl, int status, int money)
+			int dex, int lvlUpExp, int xp, String n, int lvl, int status, int money,String play)
 	{
 		int x = xp;
 		int l = lvl;
@@ -308,6 +309,7 @@ public class RPG
 		save.setStatus(status);
 		save.setMoney(money);
 		save.setEnemy(i);
+		save.setPlayerClass(play);
 		save.FileSave();
 		save.Load();
 

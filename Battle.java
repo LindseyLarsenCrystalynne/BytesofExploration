@@ -298,7 +298,7 @@ public class Battle
 
 				r.battleWon(enemy + 1, p.getMaxHealth(), p.getMaxHealth(), p.getMaxMana(), p.getMaxMana(),
 						p.getDefense(), p.getMagicResistence(), p.getAttack(), p.getMagic(), p.getDexterity(),
-						p.getLevelUpExp(), p.getExp(), p.getName(), p.getLvl(), p.getStatus(), p.getMoney());
+						p.getLevelUpExp(), p.getExp(), p.getName(), p.getLvl(), p.getStatus(), p.getMoney(),p.getPlayerClass());
 				r.mainMenu();
 
 			}

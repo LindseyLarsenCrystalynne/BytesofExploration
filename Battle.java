@@ -483,73 +483,61 @@ public class Battle
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 1:
 							mMana = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 2:
 							def = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 3:
 							mR = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 4:
 							attk = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 5:
 							mag = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 6:
 							dex = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 7:
 							exp = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 8:
 							n = b.substring(0, end);
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 9:
 							lvl = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 10:
 							mon = Integer.parseInt(b.substring(0, end));
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 						case 11:
 							lore = b.substring(0);
 							b = b.substring(end + 1);
 							end = ifSpace(b);
 							assign++;
-							break;
 
 						}
 					}

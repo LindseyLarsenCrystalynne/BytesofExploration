@@ -267,6 +267,28 @@ public class Battle
 
 				break;
 			}
+			case "ITEM":
+			{
+				System.out.println("This is your current inventory");
+				for (int h = 0; h < p.getInvSize(); h++)
+				{
+					System.out.println(p.getItem(h));
+				}
+				System.out.println("What item would you like to use?\n(# to use an item) Or (negative # to leave)");
+				int item;
+				System.out.print("Selection: ");
+				item = scan.nextInt();
+				if (!(item < 0) && p.getItem(item) != null)
+				{
+					p.setCurHealth(p.getItem(item).heal());
+					p.setCurMana(p.getItem(item).mana());
+					System.out.println(p.getItem(item).getName() + " was used!");
+					TimeUnit.SECONDS.sleep(1);
+					enemyTurn();
+				}
+
+				break;
+			}
 			case "RUN":
 			{
 				System.out.println("\nYou ran away!");
@@ -290,7 +312,7 @@ public class Battle
 				turn--;
 
 			RPG r = new RPG();
-			if (p.getCurHealth() == 0)
+			if (p.getCurHealth() <= 0)
 			{
 				p.setAttack(statA);
 				p.setDefense(statDef);
@@ -302,7 +324,7 @@ public class Battle
 				System.out.println("You lost half of your coins");
 				p.setMoney(p.getMoney() / 2);
 				r.mainMenu();
-			} else if (enemyList.get(enemy).getCurHealth() == 0)
+			} else if (enemyList.get(enemy).getCurHealth() <= 0)
 			{
 				p.setAttack(statA);
 				p.setDefense(statDef);
@@ -324,6 +346,7 @@ public class Battle
 
 			}
 		}
+		scan.close();
 	}
 
 	private void battleEnd() throws InterruptedException
@@ -336,7 +359,7 @@ public class Battle
 	{
 		Player p = new Player();
 		String output = "";
-		String st = "";
+		//String st = "";
 		System.out.println("Current Health" + enemyList.get(enemy).getCurHealth() + "   " + damage);
 		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
 		System.out.println("New hp: " + newHP);
@@ -344,7 +367,7 @@ public class Battle
 		System.out.println("Current Health after" + enemyList.get(enemy).getCurHealth());
 		enemyList.get(enemy).setCurHealth(newHP);
 
-		switch (status)
+		/*switch (status)
 		{
 		case 0:
 		{
@@ -371,7 +394,7 @@ public class Battle
 			st = "punched";
 		}
 		}
-
+*/
 		output += "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has "
 				+ newHP + " health.";
 		// if (status != 0) //We didn't have the time to fully implement
@@ -467,6 +490,7 @@ public class Battle
 			System.out.println("It was a critical strike!" + enemyAttack(1.5));
 		else
 			System.out.println(enemyAttack(1));
+	
 	}
 
 	public void setEList() throws ClassNotFoundException
@@ -566,11 +590,12 @@ public class Battle
 							assign++;
 
 						}
+						
 					}
 					Enemies e = new Enemies(n, mHealth, mMana, def, mR, attk, mag, dex, exp, lvl, mon, lore);
 					enemyList.add(e);
 				}
-
+				
 			}
 			bufferedReader.close();
 		} catch (IOException e)
@@ -578,6 +603,7 @@ public class Battle
 
 			System.err.println("It didn't work");
 		}
+		
 	}
 
 	public int ifSpace(String a)

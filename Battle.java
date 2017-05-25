@@ -105,7 +105,7 @@ public class Battle
 					System.out.println("[Fire Arrow] [Arrow Storm]");
 					System.out.println("      [Ice Arrow]");
 					System.out.print("What is your choice --> ");
-					switch (scan.nextLine())
+					switch (scan.nextLine().toLowerCase())
 					{
 					case "shatter arrow":
 					{
@@ -151,7 +151,7 @@ public class Battle
 					System.out.println("[Power Slam] [Charge]");
 					System.out.println("		 [Rage]");
 					System.out.print("What is your choice --> ");
-					switch (scan.nextLine())
+					switch (scan.nextLine().toLowerCase())
 					{
 					case "power slam":
 					{
@@ -219,7 +219,7 @@ public class Battle
 					System.out.println("[Fire Ball] [Hail]");
 					System.out.println("[Lightning] [Tsunami]");
 					System.out.print("What is your choice --> ");
-					switch (scan.nextLine())
+					switch (scan.nextLine().toLowerCase())
 					{
 					case "fire ball":
 					{
@@ -362,9 +362,6 @@ public class Battle
 		//String st = "";
 		System.out.println("Current Health" + enemyList.get(enemy).getCurHealth() + "   " + damage);
 		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
-		System.out.println("New hp: " + newHP);
-		enemyList.get(enemy).setCurHealth(newHP);
-		System.out.println("Current Health after" + enemyList.get(enemy).getCurHealth());
 		enemyList.get(enemy).setCurHealth(newHP);
 
 		/*switch (status)

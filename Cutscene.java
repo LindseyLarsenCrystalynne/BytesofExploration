@@ -4,16 +4,16 @@ public class Cutscene
 {
 	public Cutscene(int whichCutscene) throws InterruptedException
 	{
-		switch(whichCutscene)
+		switch (whichCutscene)
 		{
 		case 0:
 			CutsceneZero();
 			break;
 		case 1:
-			
+
 		}
 	}
-	
+
 	public void CutsceneZero() throws InterruptedException
 	{
 		String dia0 = "You \"wake up\" dazed and confused to where you currently were.\n";
@@ -28,7 +28,7 @@ public class Cutscene
 		String dia9 = "\n\"The word 'this' was disconcerting to say the least\" was the last thing you thought before..";
 		String dia10 = "\neverything...";
 		String dia11 = "\nfaded....\n";
-		
+
 		System.out.println(dia0);
 		TimeUnit.SECONDS.sleep(4);
 		System.out.println(dia1);
@@ -53,7 +53,7 @@ public class Cutscene
 		TimeUnit.SECONDS.sleep(1);
 		System.out.println(dia11);
 		TimeUnit.SECONDS.sleep(1);
-		
+
 		Player p = new Player();
 		p.setAttack(1);
 		p.setMagic(1);
@@ -67,6 +67,6 @@ public class Cutscene
 		p.setLevelUpExp(5);
 		p.setMoney(0);
 		p.setStatus(0);
-		
+
 	}
 }

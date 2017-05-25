@@ -1,15 +1,13 @@
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.*;
 
 public class Shop
 {
 	String st;
-	Items[] iList = new Items[20];
+	Consumables[] iList = new Consumables[20];
 	Scanner scan = new Scanner(System.in);
 
 	public Shop() throws InterruptedException
@@ -63,30 +61,30 @@ public class Shop
 								a = a.substring(end + 1);
 								end = ifSpace(a);
 								assign++;
-								break;
+
 							case 1:
 
 								price = Integer.parseInt(a.substring(0, end));
 								a = a.substring(end + 1);
 								end = ifSpace(a);
 								assign++;
-								break;
+
 							case 2:
 								heal = Integer.parseInt(a.substring(0, end));
 								a = a.substring(end + 1);
 								end = ifSpace(a);
 								assign++;
-								break;
+
 							case 3:
 								damage = Integer.parseInt(a.substring(0, end));
 								a = a.substring(end + 1);
 								end = ifSpace(a);
 								assign++;
-								break;
+
 							case 4:
 								mana = Integer.parseInt(a.substring(0));
 								assign++;
-								break;
+
 							}
 						}
 
@@ -123,7 +121,6 @@ public class Shop
 	public void buy() throws InterruptedException
 	{
 		Player p = new Player();
-		p.setMoney(20);
 		int item = 0;
 		try
 		{
@@ -145,35 +142,29 @@ public class Shop
 			{
 				System.out.println(p.getItem(h));
 			}
+		} else
+		{
+			System.out.println("You don't have the money for that item!");
 		}
 		scan.nextLine();
 		sh();
-	}
-
-	public void sell(String name, int amount)
-	{
-		Player p = new Player();
-
 	}
 
 	public void sh() throws InterruptedException
 	{
 		int i = 0;
 		int page = 0;
-		System.out.println("\nWelcome to the shop! Would you like to sell or buy?\n		(Sell / Buy)\n		  Or Leave\n		  (Leave)");
+		System.out.println(
+				"\nWelcome to the shop! Would you like to buy something?\n		(Buy)\n		  Or Leave\n		  (Leave)");
 		System.out.print("Selection: ");
 		switch (scan.nextLine().toUpperCase())
 		{
-		case "SELL":
-		{
-			System.out.println("\nPick an item to sell!");
-			System.out.println("Name: ");
-			String n = scan.nextLine();
-			System.out.println("Quantity: ");
-			int q = scan.nextInt();
-			sell(n, q);
-			break;
-		}
+		/*
+		 * case "SELL": { System.out.println("\nPick an item to sell!");
+		 * System.out.println("Name: "); String n = scan.nextLine();
+		 * System.out.println("Quantity: "); int q = scan.nextInt(); sell(n, q);
+		 * break; } yeah we aren't fitting any more items in the list
+		 */
 		case "BUY":
 		{
 			Player p = new Player();
@@ -191,7 +182,7 @@ public class Shop
 			buy();
 			break;
 		}
-		case "LEAVE":	
+		case "LEAVE":
 		{
 			System.out.println();
 			RPG menu = new RPG();

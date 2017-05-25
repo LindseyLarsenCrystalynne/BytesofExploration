@@ -1,5 +1,3 @@
-import java.io.File;
-import java.util.*;
 
 public class Items
 {
@@ -48,6 +46,18 @@ public class Items
 	public void setAmount(int a)
 	{
 		amount = a;
+	}
+	
+	public void use()
+	{
+		Consumables c = new Consumables();
+		
+		if(this.getClass() == c.getClass())
+		{
+			Consumables f = new Consumables();
+			f.heal();
+		}
+		
 	}
 	
 	public String toString()

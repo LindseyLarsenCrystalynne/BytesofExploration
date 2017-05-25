@@ -1,11 +1,9 @@
 import java.util.*;
-import java.io.*;
 
 public class RPG
 {
 	public class Items
 	{
-		private ArrayList list = new ArrayList();
 		private int price;
 
 		public int getPrice()
@@ -27,10 +25,12 @@ public class RPG
 
 		String username = "";
 
-		if (name.equalsIgnoreCase("random") || name.equals("")) {
+		if (name.equalsIgnoreCase("random") || name.equals(""))
+		{
 			String likeName = "";
 
-			while (!likeName.equals("y")) {
+			while (!likeName.equals("y"))
+			{
 				String[] randomNames = { "Aaron", "Abbie", "Abby", "Alex", "Amanda", "Amy", "Andy", "Anna", "Annie",
 						"Ashley", "Bill", "Bob", "Brandon", "Brittany", "Carl", "Carson", "Casey", "Charlie", "Chase",
 						"Chris", "Christa", "Cindy", "Corrine", "Courtney", "Crystal", "Dan", "Daniel", "Danny", "DJ",
@@ -49,16 +49,19 @@ public class RPG
 
 				likeName = n.nextLine();
 			}
+
 		}
 
 		else if (name.equalsIgnoreCase("Lindsey") || name.equalsIgnoreCase("Larsen")
-				|| name.equalsIgnoreCase("Crystalynne")) {
+				|| name.equalsIgnoreCase("Crystalynne"))
+		{
 			System.out.println("Hmm... I wonder if you're trying to pretend to be one of the developers...");
 			;
 			username = name;
 		}
 
-		else {
+		else
+		{
 			username = name;
 		}
 
@@ -77,10 +80,12 @@ public class RPG
 
 		if (playerClass.equalsIgnoreCase("random") || playerClass.equalsIgnoreCase("")
 				&& !(playerClass.equalsIgnoreCase("Archer")) && !(playerClass.equalsIgnoreCase("Berserker"))
-				&& !(playerClass.equalsIgnoreCase("Knight")) && !(playerClass.equalsIgnoreCase("Mage"))) {
+				&& !(playerClass.equalsIgnoreCase("Knight")) && !(playerClass.equalsIgnoreCase("Mage")))
+		{
 			String likePlayerClass = "";
 
-			while (!likePlayerClass.equals("y")) {
+			while (!likePlayerClass.equals("y"))
+			{
 				String[] randomPlayerClasses = { "Archer", "Berserker", "Knight", "Mage" };
 
 				playerClass = randomPlayerClasses[(int) (Math.random() * 4)];
@@ -95,10 +100,16 @@ public class RPG
 
 		{
 			System.out.println("Please enter something valid!\n\n");
+
 			return playerClass();
 		} else
+		{
+
 			return playerClass;
+		}
+
 		return "error";
+
 	}
 
 	public void optionsMenu() throws InterruptedException
@@ -112,12 +123,12 @@ public class RPG
 		System.out.print("Choose Your Selection: ");
 
 		Save save = new Save();
-		Player p = new Player();
 		int selection = s.nextInt();
 
 		switch (selection)
 		{
-		case 1: {
+		case 1:
+		{
 			save.Load();
 			save.setName(Name());
 			save.FileSave();
@@ -126,7 +137,8 @@ public class RPG
 			optionsMenu();
 			break;
 		}
-		case 2: {
+		case 2:
+		{
 			save.Load();
 			save.setPlayerClass(playerClass());
 			save.FileSave();
@@ -135,13 +147,16 @@ public class RPG
 			optionsMenu();
 			break;
 		}
-		case 3: {
+		case 3:
+		{
 			mainMenu();
 			break;
 		}
-		case 99: {
+		case 99:
+		{
 			int i = 1;
-			while (i < 1000) {
+			while (i < 1000)
+			{
 				System.out.println("CONGRATULATIONS! YOU HAVE ENTERED A SECRET MODE!");
 				i += 1;
 			}
@@ -149,7 +164,8 @@ public class RPG
 			mainMenu();
 			break;
 		}
-		default: {
+		default:
+		{
 			System.err.println("Invalid selection.\n");
 			mainMenu();
 			break;
@@ -167,7 +183,8 @@ public class RPG
 
 		save.Load();
 
-		if (first = save.getName().equals("")) {
+		if (first = save.getName().equals(""))
+		{
 			System.out.println("Looks like this is your first time playing this game! Welcome!");
 			save.setName(Name());
 			save.setPlayerClass(playerClass());
@@ -186,12 +203,15 @@ public class RPG
 			save.setEnemy(0);
 			save.FileSave();
 			save.Load();
-			
+
 		}
 		switch (mainMenuSelection())
 		{
-		case 1: {
-			if (first) {
+		case 1:
+		{
+			if (first)
+			{
+				@SuppressWarnings("unused")
 				Cutscene c = new Cutscene(0);
 			}
 			Player p = new Player();
@@ -214,7 +234,8 @@ public class RPG
 			b.start();
 			break;
 		}
-		case 2: {
+		case 2:
+		{
 			Scanner s2 = new Scanner(System.in);
 			System.out.println(save);
 			System.out.print("Type in anything to continue: ");
@@ -223,21 +244,26 @@ public class RPG
 			mainMenu();
 			break;
 		}
-		case 3: {
+		case 3:
+		{
 			optionsMenu();
 			break;
 		}
-		case 4: {
+		case 4:
+		{
 			break;
 		}
-		case 5: {
+		case 5:
+		{
 			Shop shop = new Shop();
 			shop.sh();
 			break;
 		}
-		case 99: {
+		case 99:
+		{
 			int i = 1;
-			while (i < 1000) {
+			while (i < 1000)
+			{
 				System.out.println("CONGRATULATIONS! YOU HAVE ENTERED A SECRET MODE!");
 				i += 1;
 			}
@@ -245,12 +271,16 @@ public class RPG
 			mainMenu();
 			break;
 		}
-		default: {
+		default:
+		{
 			System.err.println("Invalid selection.\n");
 			mainMenu();
 			break;
 		}
+		
 		}
+
+		
 	}
 
 	public int mainMenuSelection() throws InterruptedException
@@ -264,22 +294,26 @@ public class RPG
 		System.out.println("4: Exit");
 		System.out.println("5: Shop\n");
 		System.out.print("Choose Your Selection: ");
-		try {
+		try
+		{
 			selection = s.nextInt();
-		} catch (InputMismatchException e) {
+		} catch (InputMismatchException e)
+		{
 			System.out.println("\nPlease use 1, 2  3, 4 or 5 for your selection.");
 			mainMenu();
 		}
+		
 		return selection;
 	}
 
 	public void battleWon(int i, int mHealth, int cHealth, int mMana, int cMana, int def, int mR, int attk, int mag,
-			int dex, int lvlUpExp, int xp, String n, int lvl, int status, int money,String play)
+			int dex, int lvlUpExp, int xp, String n, int lvl, int status, int money, String play)
 	{
 		int x = xp;
 		int l = lvl;
 		int lUpE = lvlUpExp;
-		if (xp >= lvlUpExp) {
+		if (xp >= lvlUpExp)
+		{
 			l = lvl + 1;
 			x = (xp -= lvlUpExp);
 			lUpE = (lvlUpExp += 3);
@@ -314,6 +348,7 @@ public class RPG
 		save.setPlayerClass(play);
 		save.FileSave();
 		save.Load();
+		
 
 	}
 

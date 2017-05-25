@@ -14,7 +14,7 @@ public class Archer extends Player
 
 	public int arrowStorm()
 	{
-		int damage = (int)(getLvl() * .55 * getMagicResistence());
+		int damage = (int)(getLvl() * .55 * getDexterity());
 		return damage;
 	}
 

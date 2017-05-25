@@ -6,43 +6,70 @@ public class Consumables extends Items
 	int damage;
 	int mana;
 
-  public Consumables(String n, int p, int h, int d, int m)
-  {
-	  super(n,p);
-  }
-
-  public void heal()
-  {
-	  Player p = new Player();
-	  
-	  if((p.getCurHealth() + heal) > p.getMaxHealth())
-	  {
-		  p.setCurHealth(p.getMaxHealth());
-	  }
-  }
-  
-  public void use()
-  {
-	  
-  }
-  
-  public void damage()
-  {
-	  
+	public Consumables()
+	{
+		super(null, 0);
 	}
 
-  public void mana()
-  {
-	  Player p = new Player();
-	  
-	  if((p.getCurMana() + mana) > p.getMaxMana())
-	  {
-		  p.setCurMana(p.getMaxMana());
-	  }
-  }
-  
-  public void status()
-  {
-  
-  }
+	public Consumables(String n, int p, int h, int d, int m)
+	{
+		super(n, p);
+		heal = h;
+		damage = d;
+		mana = m;
+	}
+
+	public int heal()
+	{
+		int hp = 0;
+		Save s = new Save();
+		Player p = new Player();
+		s.Load();
+		
+
+		if ((p.getCurHealth() + heal) > p.getMaxHealth())
+		{
+			hp = p.getMaxHealth();
+		} else
+		{
+			hp = p.getCurHealth() + heal;
+		}
+		
+		return hp;
+
+	}
+
+	public void use()
+	{
+
+	}
+
+	public void damage()
+	{
+
+	}
+
+	public int mana()
+	{
+		int mana = 0;
+		Save s = new Save();
+		Player p = new Player();
+		s.Load();
+		
+
+		if ((p.getCurHealth() + heal) > p.getMaxHealth())
+		{
+			mana = p.getMaxHealth();
+		} else
+		{
+			mana = p.getCurHealth() + heal;
+		}
+		
+		return mana;
+
+	}
+	public void status()
+	{
+
+	}
 }

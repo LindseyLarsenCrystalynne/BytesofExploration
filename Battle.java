@@ -40,7 +40,8 @@ public class Battle
 		boolean fight = true;
 		System.out.println("\n\n=====Fight=====");
 		Scanner scan = new Scanner(System.in);
-		while (fight) {
+		while (fight)
+		{
 			turn++;
 			System.out.println("Enemy Name : " + enemyList.get(enemy).getName());
 			System.out.println("Description : " + enemyList.get(enemy).getLore());
@@ -55,7 +56,8 @@ public class Battle
 
 			switch (scan.nextLine().toUpperCase())
 			{
-			case "FIGHT": {
+			case "FIGHT":
+			{
 				TimeUnit.SECONDS.sleep(1);
 				System.out.println("\nWhich type of attack?\n");
 				;
@@ -65,7 +67,8 @@ public class Battle
 				switch (scan.nextLine().toUpperCase())
 				{
 				case "PHYSICAL":
-				case "1": {
+				case "1":
+				{
 					System.out.println(playerAttack(1));
 					TimeUnit.SECONDS.sleep(1);
 					enemyTurn();
@@ -73,14 +76,16 @@ public class Battle
 				}
 
 				case "MAGIC":
-				case "2": {
+				case "2":
+				{
 					System.out.println(playerMAttack(1));
 					TimeUnit.SECONDS.sleep(1);
 					enemyTurn();
 					break;
 				}
 
-				default: {
+				default:
+				{
 					System.err.println("Invalid selection.");
 					break;
 				}
@@ -88,10 +93,12 @@ public class Battle
 				break;
 			}
 
-			case "SKILL": {
+			case "SKILL":
+			{
 				switch (s.getPlayerClass().toLowerCase())
 				{
-				case "archer": {
+				case "archer":
+				{
 					Archer a = new Archer();
 					System.out.println("\nWhich type of skill?\n");
 					System.out.println(" 	[Shatter Arrow]");
@@ -100,31 +107,36 @@ public class Battle
 					System.out.print("What is your choice --> ");
 					switch (scan.nextLine())
 					{
-					case "shatter arrow": {
-						playerSkill(a.shatterArrow(), 0, "Shatter Arrow");
+					case "shatter arrow":
+					{
+						System.out.println(playerSkill(a.shatterArrow(), 0, "Shatter Arrow"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					case "fire arrow": {
-						playerSkill(a.fireArrow(), 1, "Fire Arrow");
+					case "fire arrow":
+					{
+						System.out.println(playerSkill(a.fireArrow(), 1, "Fire Arrow"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					case "arrow storm": {
-						playerSkill(a.arrowStorm(), 1, "Arrow Storm");
+					case "arrow storm":
+					{
+						System.out.println(playerSkill(a.arrowStorm(), 1, "Arrow Storm"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					case "ice arrow": {
-						playerSkill(a.shatterArrow(), 4, "Ice Arrow");
+					case "ice arrow":
+					{
+						System.out.println(playerSkill(a.shatterArrow(), 4, "Ice Arrow"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					default: {
+					default:
+					{
 						System.err.println("Invalid selection.");
 						break;
 					}
@@ -132,7 +144,8 @@ public class Battle
 					break;
 				}
 
-				case "berserker": {
+				case "berserker":
+				{
 					Berserker b = new Berserker();
 					System.out.println("\nWhich type of skill?\n");
 					System.out.println("[Power Slam] [Charge]");
@@ -140,25 +153,29 @@ public class Battle
 					System.out.print("What is your choice --> ");
 					switch (scan.nextLine())
 					{
-					case "power slam": {
-						playerSkill(b.powerSlam(), 5, "Power Slam");
+					case "power slam":
+					{
+						System.out.println(playerSkill(b.powerSlam(), 5, "Power Slam"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					case "charge": {
-						playerSkill(b.charge(), 5, "Power Slam");
+					case "charge":
+					{
+						System.out.println(playerSkill(b.charge(), 5, "Power Slam"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					case "rage": {
-						playerSkill(b.rage(), 5, "Rage");
+					case "rage":
+					{
+						System.out.println(playerSkill(b.rage(), 5, "Rage"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					default: {
+					default:
+					{
 						System.err.println("Invalid selection.\n");
 						break;
 					}
@@ -166,7 +183,8 @@ public class Battle
 					break;
 				}
 
-				case "knight": {
+				case "knight":
+				{
 					Knight k = new Knight();
 					System.out.println("\nWhich type of skill?\n");
 					System.out.println("[Heavy Slam]");
@@ -174,16 +192,18 @@ public class Battle
 					System.out.print("What is your choice --> ");
 					switch (scan.nextLine().toLowerCase())
 					{
-					case "heavy slam": {
-						playerSkill(k.heavySlam(), 5, "Heavy Slam");
+					case "heavy slam":
+					{
+						System.out.println(playerSkill(k.heavySlam(), 5, "Heavy Slam"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
 					case "shield bash":
-					default: {
+					default:
+					{
 						System.err.println("Invalid selection.\n");
-						playerSkill(k.shieldBash(), 5, "Shield Slam");
+						System.out.println(playerSkill(k.shieldBash(), 5, "Shield Slam"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
@@ -192,7 +212,8 @@ public class Battle
 					break;
 				}
 
-				case "mage": {
+				case "mage":
+				{
 					Mage m = new Mage();
 					System.out.println("\nWhich type of skill?\n");
 					System.out.println("[Fire Ball] [Hail]");
@@ -200,31 +221,36 @@ public class Battle
 					System.out.print("What is your choice --> ");
 					switch (scan.nextLine())
 					{
-					case "fire ball": {
-						playerSkill(m.fireBall(), 1, "Heavy Slam");
+					case "fire ball":
+					{
+						System.out.println(playerSkill(m.fireBall(), 1, "Heavy Slam"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					case "hail": {
-						playerSkill(m.hail(), 4, "Hail");
+					case "hail":
+					{
+						System.out.println(playerSkill(m.hail(), 4, "Hail"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					case "lightning": {
-						playerSkill(m.lightning(), 1, "Lightning");
+					case "lightning":
+					{
+						System.out.println(playerSkill(m.lightning(), 1, "Lightning"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					case "tsunami": {
-						playerSkill(m.tsunami(), 3, "Tsunami");
+					case "tsunami":
+					{
+						System.out.println(playerSkill(m.tsunami(), 3, "Tsunami"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
 					}
-					default: {
+					default:
+					{
 						System.err.println("Invalid selection.\n");
 						break;
 					}
@@ -232,7 +258,8 @@ public class Battle
 					break;
 				}
 
-				default: {
+				default:
+				{
 					System.out.println("Invalid selection.\n");
 					break;
 				}
@@ -240,17 +267,20 @@ public class Battle
 
 				break;
 			}
-			case "RUN": {
+			case "RUN":
+			{
 				System.out.println("\nYou ran away!");
 				battleEnd();
 				break;
 			}
-			default: {
+			default:
+			{
 				System.out.println("\nInvalid selection.\n");
 				break;
 			}
 			}
-			if (turn == 0) {
+			if (turn == 0)
+			{
 				p.setAttack(statA);
 				p.setDefense(statDef);
 				p.setDexterity(statDex);
@@ -260,7 +290,8 @@ public class Battle
 				turn--;
 
 			RPG r = new RPG();
-			if (p.getCurHealth() == 0) {
+			if (p.getCurHealth() == 0)
+			{
 				p.setAttack(statA);
 				p.setDefense(statDef);
 				p.setDexterity(statDex);
@@ -271,7 +302,8 @@ public class Battle
 				System.out.println("You lost half of your coins");
 				p.setMoney(p.getMoney() / 2);
 				r.mainMenu();
-			} else if (enemyList.get(enemy).getCurHealth() == 0) {
+			} else if (enemyList.get(enemy).getCurHealth() == 0)
+			{
 				p.setAttack(statA);
 				p.setDefense(statDef);
 				p.setDexterity(statDex);
@@ -286,7 +318,8 @@ public class Battle
 
 				r.battleWon(enemy + 1, p.getMaxHealth(), p.getMaxHealth(), p.getMaxMana(), p.getMaxMana(),
 						p.getDefense(), p.getMagicResistence(), p.getAttack(), p.getMagic(), p.getDexterity(),
-						p.getLevelUpExp(), p.getExp(), p.getName(), p.getLvl(), p.getStatus(), p.getMoney(),p.getPlayerClass());
+						p.getLevelUpExp(), p.getExp(), p.getName(), p.getLvl(), p.getStatus(), p.getMoney(),
+						p.getPlayerClass());
 				r.mainMenu();
 
 			}
@@ -304,7 +337,11 @@ public class Battle
 		Player p = new Player();
 		String output = "";
 		String st = "";
+		System.out.println("Current Health" + enemyList.get(enemy).getCurHealth() + "   " + damage);
 		int newHP = (int) (enemyList.get(enemy).getCurHealth() - damage);
+		System.out.println("New hp: " + newHP);
+		enemyList.get(enemy).setCurHealth(newHP);
+		System.out.println("Current Health after" + enemyList.get(enemy).getCurHealth());
 		enemyList.get(enemy).setCurHealth(newHP);
 
 		switch (status)
@@ -337,8 +374,9 @@ public class Battle
 
 		output += "\nYou attacked the enemy with " + skill + " for " + p.getAttack() + " damage! The enemy now has "
 				+ newHP + " health.";
-		//if (status != 0) //We didn't have the time to fully implement statuses
-		//	output += "You " + st + " the enemy!"; 
+		// if (status != 0) //We didn't have the time to fully implement
+		// statuses
+		// output += "You " + st + " the enemy!";
 		return output;
 	}
 
@@ -529,7 +567,7 @@ public class Battle
 
 						}
 					}
-					Enemies e = new Enemies(n, mHealth, mMana, def, mR, attk, mag, dex, exp, lvl, mon,lore);
+					Enemies e = new Enemies(n, mHealth, mMana, def, mR, attk, mag, dex, exp, lvl, mon, lore);
 					enemyList.add(e);
 				}
 

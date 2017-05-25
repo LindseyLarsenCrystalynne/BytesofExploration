@@ -41,7 +41,7 @@ public class Player
 		this.enemy = enemy;
 	}
 
-	private static ArrayList<Items> inv = new ArrayList<Items>();
+	private static ArrayList<Consumables> inv = new ArrayList<Consumables>();
 
 	public int getMaxHealth()
 	{
@@ -193,20 +193,22 @@ public class Player
 		Player.money = money;
 	}
 
-	public void addItem(Items i)
+	public void addItem(Consumables i)
 	{
 		inv.add(i);
 	}
 	
-	public Items removeItem(int i)
+	public Consumables removeItem(int i)
 	{
 		return inv.remove(i);
 	}
 	
-	public Items getItem(int i)
+	public Consumables getItem(int i)
 	{
 		return inv.get(i);
 	}
+	
+
 	
 	public int getInvSize()
 	{

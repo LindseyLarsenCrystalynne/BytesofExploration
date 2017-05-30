@@ -109,10 +109,14 @@ public class Battle
 					{
 					case "shatter arrow":
 					{
-						System.out.println(playerSkill(a.shatterArrow(), 0, "Shatter Arrow"));
-						TimeUnit.SECONDS.sleep(1);
-						enemyTurn();
-						break;
+						if(a.getCurMana() > 0)
+						{	
+							System.out.println(playerSkill(a.shatterArrow(), 0, "Shatter Arrow"));
+							a.setCurMana(a.getCurMana());
+							TimeUnit.SECONDS.sleep(1);
+							enemyTurn();
+						}
+							break;
 					}
 					case "fire arrow":
 					{
@@ -162,7 +166,7 @@ public class Battle
 					}
 					case "charge":
 					{
-						System.out.println(playerSkill(b.charge(), 5, "Power Slam"));
+						System.out.println(playerSkill(b.charge(), 5, "Charge"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
@@ -223,7 +227,7 @@ public class Battle
 					{
 					case "fire ball":
 					{
-						System.out.println(playerSkill(m.fireBall(), 1, "Heavy Slam"));
+						System.out.println(playerSkill(m.fireBall(), 1, "Fire Ball"));
 						TimeUnit.SECONDS.sleep(1);
 						enemyTurn();
 						break;
